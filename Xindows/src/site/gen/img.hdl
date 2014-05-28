@@ -1,0 +1,1046 @@
+
+#ifdef _hxx_
+
+#include "img.h"
+
+//    DISPIDs for class CImgElement
+
+EXTERN_C const GUID CLSID_HTMLImg;
+#define DISPID_CImgElement_align     STDPROPID_XOBJ_CONTROLALIGN
+#define DISPID_CImgElement_alt     DISPID_IMGBASE+2
+#define DISPID_CImgElement_src     DISPID_IMGBASE+3
+#define DISPID_CImgElement_height     STDPROPID_XOBJ_HEIGHT
+#define DISPID_CImgElement_width     STDPROPID_XOBJ_WIDTH
+#define DISPID_CImgElement_border     DISPID_IMGBASE+4
+#define DISPID_CImgElement_vspace     DISPID_IMGBASE+5
+#define DISPID_CImgElement_hspace     DISPID_IMGBASE+6
+#define DISPID_CImgElement_lowsrc     DISPID_IMGBASE+7
+#define DISPID_CImgElement_dynsrc     DISPID_IMGBASE+9
+#define DISPID_CImgElement_readyState     DISPID_A_READYSTATE
+#define DISPID_CImgElement_complete     DISPID_IMGBASE+10
+#define DISPID_CImgElement_loop     DISPID_IMGBASE+11
+#define DISPID_CImgElement_start     DISPID_IMGBASE+13
+#define DISPID_CImgElement_onload     DISPID_EVPROP_ONLOAD
+#define DISPID_CImgElement_onerror     DISPID_EVPROP_ONERROR
+#define DISPID_CImgElement_onabort     DISPID_EVPROP_ONABORT
+#define DISPID_CImgElement_name     STDPROPID_XOBJ_NAME
+#define DISPID_CImgElement_mimeType     DISPID_IMG+10
+#define DISPID_CImgElement_fileSize     DISPID_IMG+11
+#define DISPID_CImgElement_fileCreatedDate     DISPID_IMG+12
+#define DISPID_CImgElement_fileModifiedDate     DISPID_IMG+13
+#define DISPID_CImgElement_fileUpdatedDate     DISPID_IMG+14
+#define DISPID_CImgElement_protocol     DISPID_IMG+15
+#define DISPID_CImgElement_href     DISPID_IMG+16
+#define DISPID_CImgElement_nameProp     DISPID_IMG+17
+#define DISPID_CImgElement_cache     DISPID_IMG+18
+//    DISPIDs for class CImageElementFactory
+
+EXTERN_C const GUID CLSID_HTMLImageElementFactory;
+#define DISPID_CImageElementFactory_create     DISPID_VALUE
+//    DISPIDs for classIHTMLImgElement
+
+//    DISPIDs for classIHTMLImageElementFactory
+
+//    DISPIDs for classIUnknown
+
+//    DISPIDs for event set HTMLImgEvents2
+
+#define DISPID_HTMLIMGEVENTS2_ONLOAD                              DISPID_EVMETH_ONLOAD
+#define DISPID_HTMLIMGEVENTS2_ONERROR                             DISPID_EVMETH_ONERROR
+#define DISPID_HTMLIMGEVENTS2_ONABORT                             DISPID_EVMETH_ONABORT
+
+EXTERN_C const GUID DIID_HTMLImgEvents2;
+
+//    DISPIDs for event set HTMLImgEvents
+
+#define DISPID_HTMLIMGEVENTS_ONLOAD                               DISPID_EVMETH_ONLOAD
+#define DISPID_HTMLIMGEVENTS_ONERROR                              DISPID_EVMETH_ONERROR
+#define DISPID_HTMLIMGEVENTS_ONABORT                              DISPID_EVMETH_ONABORT
+
+EXTERN_C const GUID DIID_HTMLImgEvents;
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CImgElement_PROPDESCS_
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementalign =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("align"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("align"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, STDPROPID_XOBJ_CONTROLALIGN, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlControlAlign,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementalt =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("alt"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("alt"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+2, ELEMCHNG_REMEASURECONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementsrc =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUrlproperty, _T("src"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleUrlProperty, _T("src"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+3, 0, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementheight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("height"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(1),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("height"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)MAKE_PIXEL_UNITVALUE(1),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH_OR_PERCENT | PROPPARAM_INVALIDASNOASSIGN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, STDPROPID_XOBJ_HEIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(1), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementwidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("width"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(1),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("width"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)MAKE_PIXEL_UNITVALUE(1),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH_OR_PERCENT | PROPPARAM_INVALIDASNOASSIGN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, STDPROPID_XOBJ_WIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(1), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementborder =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("border"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(0),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("border"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)MAKE_PIXEL_UNITVALUE(0),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH | PROPPARAM_INVALIDASNOASSIGN | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+4, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANT, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(0), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementvspace =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("vspace"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("vspace"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+5, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementhspace =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("hspace"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("hspace"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+6, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementlowsrc =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("lowsrc"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("lowsrc"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+7, 0, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementdynsrc =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("dynsrc"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("dynsrc"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+9, ELEMCHNG_REMEASURECONTENTS, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementcomplete =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("complete"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("complete"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_IMGBASE+10, 0, IDX_G_VARIANTBOOL, 0 
+        },
+        VT_BOOL, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCImgElementloop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("loop"), NULL, (ULONG_PTR)1, (ULONG_PTR)1,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("loop"), NULL, (ULONG_PTR)1,(ULONG_PTR)1,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_IMGBASE+11, 0, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdeschtmlLoop
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementstart =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("start"), NULL, (ULONG_PTR)htmlStartfileopen, (ULONG_PTR)htmlStartfileopen,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("start"), NULL, (ULONG_PTR)htmlStartfileopen,(ULONG_PTR)htmlStartfileopen,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_ENUM, DISPID_IMGBASE+13, 0, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlStart,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementonload =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onload"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onload"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONLOAD, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementonerror =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onerror"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onerror"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONERROR, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCImgElementonabort =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onabort"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onabort"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONABORT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_CSTR_GETSET s_propdescCImgElementname =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("name"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("name"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_GETMFHandler | PROPPARAM_SETMFHandler | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, STDPROPID_XOBJ_NAME, 0, IDX_GS_BSTR, pdlNoLimit 
+    },
+    PROPERTY_METHOD(CSTR, GET, CImgElement, GetnameHelper, GETnameHelper),
+    PROPERTY_METHOD(CSTR, SET, CImgElement, SetnameHelper, SETnameHelper)
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementmimeType = 
+{
+    NULL, _T("mimeType"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+10, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementfileSize = 
+{
+    NULL, _T("fileSize"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+11, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementfileCreatedDate = 
+{
+    NULL, _T("fileCreatedDate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+12, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementfileModifiedDate = 
+{
+    NULL, _T("fileModifiedDate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+13, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementfileUpdatedDate = 
+{
+    NULL, _T("fileUpdatedDate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+14, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementprotocol = 
+{
+    NULL, _T("protocol"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+15, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementhref = 
+{
+    NULL, _T("href"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+16, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCImgElementnameProp = 
+{
+    NULL, _T("nameProp"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_IMG+17, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCImgElementcache =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("cache"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("cache"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_ATTRARRAY , DISPID_IMG+18, 0, IDX_G_VARIANTBOOL, 0 
+        },
+        VT_BOOL, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+
+
+#define _CImageElementFactory_PROPDESCS_
+const DEFAULTARGDESC s_defArgCImageElementFactorycreate =
+{
+    (DWORD_PTR)"",
+    (DWORD_PTR)"",
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCImageElementFactorycreate = 
+{
+    NULL, NULL, _T("create"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_VALUE, 0, IDX_Method_IDispatchpp_o0oVARIANT_o0oVARIANT, pdlNoLimit
+    },
+    &s_defArgCImageElementFactorycreate, 2, 0
+};
+
+
+const PROPERTYDESC * const CImgElement::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCElementaccessKey, // accessKey
+    (PROPERTYDESC *)&s_propdescCImgElementalign.a, // align
+    (PROPERTYDESC *)&s_propdescCImgElementalt.a, // alt
+    (PROPERTYDESC *)&s_propdescCImgElementborder.a, // border
+    (PROPERTYDESC *)&s_propdescCImgElementcache.a, // cache
+    (PROPERTYDESC *)&s_propdescCElementclassName, // class
+    (PROPERTYDESC *)&s_propdescCElementdir, // dir
+    (PROPERTYDESC *)&s_propdescCElementdisabled, // disabled
+    (PROPERTYDESC *)&s_propdescCImgElementdynsrc.a, // dynsrc
+    (PROPERTYDESC *)&s_propdescCImgElementheight.a, // height
+    (PROPERTYDESC *)&s_propdescCImgElementhspace.a, // hspace
+    (PROPERTYDESC *)&s_propdescCElementid, // id
+    (PROPERTYDESC *)&s_propdescCElementlang, // lang
+    (PROPERTYDESC *)&s_propdescCElementlanguage, // language
+    (PROPERTYDESC *)&s_propdescCImgElementloop.a, // loop
+    (PROPERTYDESC *)&s_propdescCImgElementlowsrc.a, // lowsrc
+    (PROPERTYDESC *)&s_propdescCImgElementname.a, // name
+    (PROPERTYDESC *)&s_propdescCImgElementonabort.a, // onabort
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy, // onbeforecopy
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut, // onbeforecut
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste, // onbeforepaste
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCElementonblur, // onblur
+    (PROPERTYDESC *)&s_propdescCElementonclick, // onclick
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCElementoncopy, // oncopy
+    (PROPERTYDESC *)&s_propdescCElementoncut, // oncut
+    (PROPERTYDESC *)&s_propdescCElementondblclick, // ondblclick
+    (PROPERTYDESC *)&s_propdescCElementondrag, // ondrag
+    (PROPERTYDESC *)&s_propdescCElementondragend, // ondragend
+    (PROPERTYDESC *)&s_propdescCElementondragenter, // ondragenter
+    (PROPERTYDESC *)&s_propdescCElementondragleave, // ondragleave
+    (PROPERTYDESC *)&s_propdescCElementondragover, // ondragover
+    (PROPERTYDESC *)&s_propdescCElementondragstart, // ondragstart
+    (PROPERTYDESC *)&s_propdescCElementondrop, // ondrop
+    (PROPERTYDESC *)&s_propdescCImgElementonerror.a, // onerror
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCElementonfocus, // onfocus
+    (PROPERTYDESC *)&s_propdescCElementonhelp, // onhelp
+    (PROPERTYDESC *)&s_propdescCElementonkeydown, // onkeydown
+    (PROPERTYDESC *)&s_propdescCElementonkeypress, // onkeypress
+    (PROPERTYDESC *)&s_propdescCElementonkeyup, // onkeyup
+    (PROPERTYDESC *)&s_propdescCImgElementonload.a, // onload
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture, // onlosecapture
+    (PROPERTYDESC *)&s_propdescCElementonmousedown, // onmousedown
+    (PROPERTYDESC *)&s_propdescCElementonmousemove, // onmousemove
+    (PROPERTYDESC *)&s_propdescCElementonmouseout, // onmouseout
+    (PROPERTYDESC *)&s_propdescCElementonmouseover, // onmouseover
+    (PROPERTYDESC *)&s_propdescCElementonmouseup, // onmouseup
+    (PROPERTYDESC *)&s_propdescCElementonpaste, // onpaste
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCElementonresize, // onresize
+    (PROPERTYDESC *)&s_propdescCElementonscroll, // onscroll
+    (PROPERTYDESC *)&s_propdescCElementonselectstart, // onselectstart
+    (PROPERTYDESC *)&s_propdescCImgElementsrc.a, // src
+    (PROPERTYDESC *)&s_propdescCImgElementstart.a, // start
+    (PROPERTYDESC *)&s_propdescCElementstyle_Str, // style
+    (PROPERTYDESC *)&s_propdescCElementtabIndex, // tabIndex
+    (PROPERTYDESC *)&s_propdescCElementtitle, // title
+    (PROPERTYDESC *)&s_propdescCImgElementvspace.a, // vspace
+    (PROPERTYDESC *)&s_propdescCImgElementwidth.a, // width
+    NULL
+};
+
+const CONNECTION_POINT_INFO CImgElement::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(DIID_HTMLImgEvents, DISPID_A_EVENTSINK)
+    CPI_ENTRY(DIID_HTMLImgEvents2, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const VTABLEDESC CImgElement::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCElementaccessKey, 0x52c},        // Property accessKey
+    {(PROPERTYDESC *)&s_propdescCImgElementalign, 0x20},        // Property align
+    {(PROPERTYDESC *)&s_propdescCElementall, 0x456},        // Property all
+    {(PROPERTYDESC *)&s_propdescCImgElementalt, 0x12},        // Property alt
+    {(PROPERTYDESC *)&s_methdescCBaseattachEvent, 0x53b},        // Method attachEvent
+    {(PROPERTYDESC *)&s_propdescCElementattributes, 0x304},        // Property attributes
+    {(PROPERTYDESC *)&s_methdescCElementblur, 0x534},        // Method blur
+    {(PROPERTYDESC *)&s_propdescCImgElementborder, 0xc},        // Property border
+    {(PROPERTYDESC *)&s_propdescCElementcanHaveChildren, 0x557},        // Property canHaveChildren
+    {(PROPERTYDESC *)&s_propdescCElementchildren, 0x455},        // Property children
+    {(PROPERTYDESC *)&s_propdescCElementclassName, 0x403},        // Property className
+    {(PROPERTYDESC *)&s_methdescCElementclearAttributes, 0x54f},        // Method clearAttributes
+    {(PROPERTYDESC *)&s_methdescCElementclick, 0x43e},        // Method click
+    {(PROPERTYDESC *)&s_propdescCElementclientHeight, 0x537},        // Property clientHeight
+    {(PROPERTYDESC *)&s_propdescCElementclientLeft, 0x53a},        // Property clientLeft
+    {(PROPERTYDESC *)&s_propdescCElementclientTop, 0x539},        // Property clientTop
+    {(PROPERTYDESC *)&s_propdescCElementclientWidth, 0x538},        // Property clientWidth
+    {(PROPERTYDESC *)&s_propdescCImgElementcomplete, 0x1d},        // Property complete
+    {(PROPERTYDESC *)&s_methdescCElementcomponentFromPoint, 0x505},        // Method componentFromPoint
+    {(PROPERTYDESC *)&s_methdescCElementcontains, 0x428},        // Method contains
+    {(PROPERTYDESC *)&s_methdescCBasedetachEvent, 0x53c},        // Method detachEvent
+    {(PROPERTYDESC *)&s_propdescCElementdir, 0x546},        // Property dir
+    {(PROPERTYDESC *)&s_propdescCElementdocument, 0x420},        // Property document
+    {(PROPERTYDESC *)&s_methdescCElementdoScroll, 0x506},        // Method doScroll
+    {(PROPERTYDESC *)&s_propdescCImgElementdynsrc, 0x1a},        // Property dynsrc
+    {(PROPERTYDESC *)&s_propdescCImgElementfileCreatedDate, 0x6},        // Property fileCreatedDate
+    {(PROPERTYDESC *)&s_propdescCImgElementfileModifiedDate, 0x7},        // Property fileModifiedDate
+    {(PROPERTYDESC *)&s_propdescCImgElementfileSize, 0x5},        // Property fileSize
+    {(PROPERTYDESC *)&s_propdescCImgElementfileUpdatedDate, 0x8},        // Property fileUpdatedDate
+    {(PROPERTYDESC *)&s_methdescCElementfocus, 0x52b},        // Method focus
+    {(PROPERTYDESC *)&s_methdescCBasegetAttribute, 0x401},        // Method getAttribute
+    {(PROPERTYDESC *)&s_methdescCElementgetElementsByTagName, 0x561},        // Method getElementsByTagName
+    {(PROPERTYDESC *)&s_propdescCImgElementheight, 0x2c},        // Property height
+    {(PROPERTYDESC *)&s_propdescCImgElementhref, 0xa},        // Property href
+    {(PROPERTYDESC *)&s_propdescCImgElementhspace, 0x10},        // Property hspace
+    {(PROPERTYDESC *)&s_propdescCElementid, 0x405},        // Property id
+    {(PROPERTYDESC *)&s_propdescCElementinnerText, 0x434},        // Property innerText
+    {(PROPERTYDESC *)&s_propdescCElementlang, 0x42b},        // Property lang
+    {(PROPERTYDESC *)&s_propdescCElementlanguage, 0x423},        // Property language
+    {(PROPERTYDESC *)&s_propdescCImgElementloop, 0x1e},        // Property loop
+    {(PROPERTYDESC *)&s_propdescCImgElementlowsrc, 0x16},        // Property lowsrc
+    {(PROPERTYDESC *)&s_propdescCImgElementmimeType, 0x4},        // Property mimeType
+    {(PROPERTYDESC *)&s_propdescCImgElementname, 0x28},        // Property name
+    {(PROPERTYDESC *)&s_propdescCImgElementnameProp, 0xb},        // Property nameProp
+    {(PROPERTYDESC *)&s_propdescCElementoffsetHeight, 0x430},        // Property offsetHeight
+    {(PROPERTYDESC *)&s_propdescCElementoffsetLeft, 0x42d},        // Property offsetLeft
+    {(PROPERTYDESC *)&s_propdescCElementoffsetParent, 0x431},        // Property offsetParent
+    {(PROPERTYDESC *)&s_propdescCElementoffsetTop, 0x42e},        // Property offsetTop
+    {(PROPERTYDESC *)&s_propdescCElementoffsetWidth, 0x42f},        // Property offsetWidth
+    {(PROPERTYDESC *)&s_propdescCImgElementonabort, 0x26},        // Property onabort
+    {(PROPERTYDESC *)&s_propdescCElementonafterupdate, 0x445},        // Property onafterupdate
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecopy, 0x519},        // Property onbeforecopy
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecut, 0x515},        // Property onbeforecut
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, 0x55e},        // Property onbeforeeditfocus
+    {(PROPERTYDESC *)&s_propdescCElementonbeforepaste, 0x51d},        // Property onbeforepaste
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeupdate, 0x443},        // Property onbeforeupdate
+    {(PROPERTYDESC *)&s_propdescCElementonblur, 0x52e},        // Property onblur
+    {(PROPERTYDESC *)&s_propdescCElementonclick, 0x40c},        // Property onclick
+    {(PROPERTYDESC *)&s_propdescCElementoncontextmenu, 0x551},        // Property oncontextmenu
+    {(PROPERTYDESC *)&s_propdescCElementoncopy, 0x51b},        // Property oncopy
+    {(PROPERTYDESC *)&s_propdescCElementoncut, 0x517},        // Property oncut
+    {(PROPERTYDESC *)&s_propdescCElementondblclick, 0x40e},        // Property ondblclick
+    {(PROPERTYDESC *)&s_propdescCElementondrag, 0x509},        // Property ondrag
+    {(PROPERTYDESC *)&s_propdescCElementondragend, 0x50b},        // Property ondragend
+    {(PROPERTYDESC *)&s_propdescCElementondragenter, 0x50d},        // Property ondragenter
+    {(PROPERTYDESC *)&s_propdescCElementondragleave, 0x511},        // Property ondragleave
+    {(PROPERTYDESC *)&s_propdescCElementondragover, 0x50f},        // Property ondragover
+    {(PROPERTYDESC *)&s_propdescCElementondragstart, 0x440},        // Property ondragstart
+    {(PROPERTYDESC *)&s_propdescCElementondrop, 0x513},        // Property ondrop
+    {(PROPERTYDESC *)&s_propdescCImgElementonerror, 0x24},        // Property onerror
+    {(PROPERTYDESC *)&s_propdescCElementonerrorupdate, 0x447},        // Property onerrorupdate
+    {(PROPERTYDESC *)&s_propdescCElementonfocus, 0x530},        // Property onfocus
+    {(PROPERTYDESC *)&s_propdescCElementonhelp, 0x40a},        // Property onhelp
+    {(PROPERTYDESC *)&s_propdescCElementonkeydown, 0x410},        // Property onkeydown
+    {(PROPERTYDESC *)&s_propdescCElementonkeypress, 0x414},        // Property onkeypress
+    {(PROPERTYDESC *)&s_propdescCElementonkeyup, 0x412},        // Property onkeyup
+    {(PROPERTYDESC *)&s_propdescCImgElementonload, 0x22},        // Property onload
+    {(PROPERTYDESC *)&s_propdescCElementonlosecapture, 0x503},        // Property onlosecapture
+    {(PROPERTYDESC *)&s_propdescCElementonmousedown, 0x41c},        // Property onmousedown
+    {(PROPERTYDESC *)&s_propdescCElementonmousemove, 0x41a},        // Property onmousemove
+    {(PROPERTYDESC *)&s_propdescCElementonmouseout, 0x416},        // Property onmouseout
+    {(PROPERTYDESC *)&s_propdescCElementonmouseover, 0x418},        // Property onmouseover
+    {(PROPERTYDESC *)&s_propdescCElementonmouseup, 0x41e},        // Property onmouseup
+    {(PROPERTYDESC *)&s_propdescCElementonpaste, 0x51f},        // Property onpaste
+    {(PROPERTYDESC *)&s_propdescCElementonpropertychange, 0x522},        // Property onpropertychange
+    {(PROPERTYDESC *)&s_propdescCElementonreadystatechange, 0x53e},        // Property onreadystatechange
+    {(PROPERTYDESC *)&s_propdescCElementonresize, 0x532},        // Property onresize
+    {(PROPERTYDESC *)&s_propdescCElementonscroll, 0x507},        // Property onscroll
+    {(PROPERTYDESC *)&s_propdescCElementonselectstart, 0x425},        // Property onselectstart
+    {(PROPERTYDESC *)&s_propdescCElementouterText, 0x438},        // Property outerText
+    {(PROPERTYDESC *)&s_propdescCElementparentElement, 0x408},        // Property parentElement
+    {(PROPERTYDESC *)&s_propdescCImgElementprotocol, 0x9},        // Property protocol
+    {(PROPERTYDESC *)&s_propdescCElementreadyState, 0x53d},        // Property readyState
+    {(PROPERTYDESC *)&s_propdescCElementreadyStateValue, 0x560},        // Property readyStateValue
+    {(PROPERTYDESC *)&s_methdescCElementreleaseCapture, 0x502},        // Method releaseCapture
+    {(PROPERTYDESC *)&s_methdescCBaseremoveAttribute, 0x402},        // Method removeAttribute
+    {(PROPERTYDESC *)&s_propdescCElementscrollHeight, 0x549},        // Property scrollHeight
+    {(PROPERTYDESC *)&s_methdescCElementscrollIntoView, 0x427},        // Method scrollIntoView
+    {(PROPERTYDESC *)&s_propdescCElementscrollLeft, 0x54d},        // Property scrollLeft
+    {(PROPERTYDESC *)&s_propdescCElementscrollTop, 0x54b},        // Property scrollTop
+    {(PROPERTYDESC *)&s_propdescCElementscrollWidth, 0x54a},        // Property scrollWidth
+    {(PROPERTYDESC *)&s_methdescCBasesetAttribute, 0x400},        // Method setAttribute
+    {(PROPERTYDESC *)&s_methdescCElementsetCapture, 0x501},        // Method setCapture
+    {(PROPERTYDESC *)&s_propdescCElementsourceIndex, 0x429},        // Property sourceIndex
+    {(PROPERTYDESC *)&s_propdescCImgElementsrc, 0x14},        // Property src
+    {(PROPERTYDESC *)&s_propdescCImgElementstart, 0x2e},        // Property start
+    {(PROPERTYDESC *)&s_propdescCElementstyle, 0x409},        // Property style
+    {(PROPERTYDESC *)&s_propdescCElementtabIndex, 0x529},        // Property tabIndex
+    {(PROPERTYDESC *)&s_propdescCElementtagName, 0x407},        // Property tagName
+    {(PROPERTYDESC *)&s_propdescCElementtitle, 0x421},        // Property title
+    {(PROPERTYDESC *)&s_methdescCElementtoString, 0x442},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCElementuniqueID, 0x601},        // Property uniqueID
+    {(PROPERTYDESC *)&s_propdescCImgElementvspace, 0xe},        // Property vspace
+    {(PROPERTYDESC *)&s_propdescCImgElementwidth, 0x2a},        // Property width
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const CImgElement::s_ppropdescsInVtblOrderIHTMLImgElement[] = {
+    (PROPERTYDESC *)&s_propdescCImgElementmimeType,
+    (PROPERTYDESC *)&s_propdescCImgElementfileSize,
+    (PROPERTYDESC *)&s_propdescCImgElementfileCreatedDate,
+    (PROPERTYDESC *)&s_propdescCImgElementfileModifiedDate,
+    (PROPERTYDESC *)&s_propdescCImgElementfileUpdatedDate,
+    (PROPERTYDESC *)&s_propdescCImgElementprotocol,
+    (PROPERTYDESC *)&s_propdescCImgElementhref,
+    (PROPERTYDESC *)&s_propdescCImgElementnameProp,
+    (PROPERTYDESC *)&s_propdescCImgElementborder,
+    (PROPERTYDESC *)&s_propdescCImgElementborder,
+    (PROPERTYDESC *)&s_propdescCImgElementvspace,
+    (PROPERTYDESC *)&s_propdescCImgElementvspace,
+    (PROPERTYDESC *)&s_propdescCImgElementhspace,
+    (PROPERTYDESC *)&s_propdescCImgElementhspace,
+    (PROPERTYDESC *)&s_propdescCImgElementalt,
+    (PROPERTYDESC *)&s_propdescCImgElementalt,
+    (PROPERTYDESC *)&s_propdescCImgElementsrc,
+    (PROPERTYDESC *)&s_propdescCImgElementsrc,
+    (PROPERTYDESC *)&s_propdescCImgElementlowsrc,
+    (PROPERTYDESC *)&s_propdescCImgElementlowsrc,
+    (PROPERTYDESC *)&s_propdescCImgElementdynsrc,
+    (PROPERTYDESC *)&s_propdescCImgElementdynsrc,
+    (PROPERTYDESC *)&s_propdescCElementreadyState,
+    (PROPERTYDESC *)&s_propdescCImgElementcomplete,
+    (PROPERTYDESC *)&s_propdescCImgElementloop,
+    (PROPERTYDESC *)&s_propdescCImgElementloop,
+    (PROPERTYDESC *)&s_propdescCImgElementalign,
+    (PROPERTYDESC *)&s_propdescCImgElementalign,
+    (PROPERTYDESC *)&s_propdescCImgElementonload,
+    (PROPERTYDESC *)&s_propdescCImgElementonload,
+    (PROPERTYDESC *)&s_propdescCImgElementonerror,
+    (PROPERTYDESC *)&s_propdescCImgElementonerror,
+    (PROPERTYDESC *)&s_propdescCImgElementonabort,
+    (PROPERTYDESC *)&s_propdescCImgElementonabort,
+    (PROPERTYDESC *)&s_propdescCImgElementname,
+    (PROPERTYDESC *)&s_propdescCImgElementname,
+    (PROPERTYDESC *)&s_propdescCImgElementwidth,
+    (PROPERTYDESC *)&s_propdescCImgElementwidth,
+    (PROPERTYDESC *)&s_propdescCImgElementheight,
+    (PROPERTYDESC *)&s_propdescCImgElementheight,
+    (PROPERTYDESC *)&s_propdescCImgElementstart,
+    (PROPERTYDESC *)&s_propdescCImgElementstart,
+};
+
+
+const PROPERTYDESC * const CImgElement::s_ppropdescsInVtblOrderIHTMLElement2[] = {
+    (PROPERTYDESC *)&s_methdescCElementsetCapture,
+    (PROPERTYDESC *)&s_methdescCElementreleaseCapture,
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture,
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture,
+    (PROPERTYDESC *)&s_methdescCElementcomponentFromPoint,
+    (PROPERTYDESC *)&s_methdescCElementdoScroll,
+    (PROPERTYDESC *)&s_propdescCElementonscroll,
+    (PROPERTYDESC *)&s_propdescCElementonscroll,
+    (PROPERTYDESC *)&s_propdescCElementondrag,
+    (PROPERTYDESC *)&s_propdescCElementondrag,
+    (PROPERTYDESC *)&s_propdescCElementondragend,
+    (PROPERTYDESC *)&s_propdescCElementondragend,
+    (PROPERTYDESC *)&s_propdescCElementondragenter,
+    (PROPERTYDESC *)&s_propdescCElementondragenter,
+    (PROPERTYDESC *)&s_propdescCElementondragover,
+    (PROPERTYDESC *)&s_propdescCElementondragover,
+    (PROPERTYDESC *)&s_propdescCElementondragleave,
+    (PROPERTYDESC *)&s_propdescCElementondragleave,
+    (PROPERTYDESC *)&s_propdescCElementondrop,
+    (PROPERTYDESC *)&s_propdescCElementondrop,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut,
+    (PROPERTYDESC *)&s_propdescCElementoncut,
+    (PROPERTYDESC *)&s_propdescCElementoncut,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy,
+    (PROPERTYDESC *)&s_propdescCElementoncopy,
+    (PROPERTYDESC *)&s_propdescCElementoncopy,
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste,
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste,
+    (PROPERTYDESC *)&s_propdescCElementonpaste,
+    (PROPERTYDESC *)&s_propdescCElementonpaste,
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange,
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange,
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_methdescCElementfocus,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_methdescCElementblur,
+    (PROPERTYDESC *)&s_propdescCElementclientHeight,
+    (PROPERTYDESC *)&s_propdescCElementclientWidth,
+    (PROPERTYDESC *)&s_propdescCElementclientTop,
+    (PROPERTYDESC *)&s_propdescCElementclientLeft,
+    (PROPERTYDESC *)&s_methdescCBaseattachEvent,
+    (PROPERTYDESC *)&s_methdescCBasedetachEvent,
+    (PROPERTYDESC *)&s_propdescCElementreadyState,
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange,
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange,
+    (PROPERTYDESC *)&s_propdescCElementdir,
+    (PROPERTYDESC *)&s_propdescCElementdir,
+    (PROPERTYDESC *)&s_propdescCElementscrollHeight,
+    (PROPERTYDESC *)&s_propdescCElementscrollWidth,
+    (PROPERTYDESC *)&s_propdescCElementscrollTop,
+    (PROPERTYDESC *)&s_propdescCElementscrollTop,
+    (PROPERTYDESC *)&s_propdescCElementscrollLeft,
+    (PROPERTYDESC *)&s_propdescCElementscrollLeft,
+    (PROPERTYDESC *)&s_methdescCElementclearAttributes,
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu,
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu,
+    (PROPERTYDESC *)&s_propdescCElementcanHaveChildren,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus,
+    (PROPERTYDESC *)&s_propdescCElementreadyStateValue,
+    (PROPERTYDESC *)&s_methdescCElementgetElementsByTagName,
+};
+
+
+HDLDESC CImgElement::s_apHdlDescs = {  &DIID_DispHTMLImg,CImgElement::s_ppropdescs, 79, CImgElement::s_apVTableInterf, 176, CImgElement::s_ppropdescsInVtblOrderIHTMLImgElement};
+
+const PROPERTYDESC * const CImageElementFactory::s_ppropdescs[] = {
+    NULL
+};
+
+const VTABLEDESC CImageElementFactory::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_methdescCImageElementFactorycreate, 0x0},        // Method create
+    {NULL, 0}
+};
+
+HDLDESC CImageElementFactory::s_apHdlDescs = {  NULL,NULL, 0, CImageElementFactory::s_apVTableInterf, 1, NULL};
+
+//    Tear-off table for class CImgElement
+BEGIN_TEAROFF_TABLE_PROPDESC(CImgElement, IHTMLImgElement)
+    //  IHTMLImgElement methods
+    TEAROFF_METHOD(CImgElement, &get_mimeType, GET_mimeType, (BSTR *))    // property get_mimeType
+    TEAROFF_METHOD(CImgElement, &get_fileSize, GET_fileSize, (BSTR *))    // property get_fileSize
+    TEAROFF_METHOD(CImgElement, &get_fileCreatedDate, GET_fileCreatedDate, (BSTR *))    // property get_fileCreatedDate
+    TEAROFF_METHOD(CImgElement, &get_fileModifiedDate, GET_fileModifiedDate, (BSTR *))    // property get_fileModifiedDate
+    TEAROFF_METHOD(CImgElement, &get_fileUpdatedDate, GET_fileUpdatedDate, (BSTR *))    // property get_fileUpdatedDate
+    TEAROFF_METHOD(CImgElement, &get_protocol, GET_protocol, (BSTR *))    // property get_protocol
+    TEAROFF_METHOD(CImgElement, &get_href, GET_href, (BSTR *))    // property get_href
+    TEAROFF_METHOD(CImgElement, &get_nameProp, GET_nameProp, (BSTR *))    // property get_nameProp
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_border
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_border
+    TEAROFF_METHOD(CBase, &put_Long, PUT_Long, (long))    // property set_vspace
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_vspace
+    TEAROFF_METHOD(CImgElement, &put_hspace, PUT_hspace, (long))    // property set_hspace
+    TEAROFF_METHOD(CImgElement, &get_hspace, GET_hspace, (long *))    // property get_hspace
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_alt
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_alt
+    TEAROFF_METHOD(CImgElement, &put_src, PUT_src, (BSTR))    // property set_src
+    TEAROFF_METHOD(CImgElement, &get_src, GET_src, (BSTR *))    // property get_src
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_lowsrc
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_lowsrc
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_dynsrc
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_dynsrc
+    TEAROFF_METHOD(CImgElement, &get_readyState, GET_readyState, (BSTR *))    // property get_readyState
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_complete
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_loop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_loop
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_align
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_align
+    TEAROFF_METHOD(CImgElement, &put_onload, PUT_onload, (VARIANT))    // property set_onload
+    TEAROFF_METHOD(CImgElement, &get_onload, GET_onload, (VARIANT *))    // property get_onload
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onerror
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onerror
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onabort
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onabort
+    TEAROFF_METHOD(CImgElement, &put_name, PUT_name, (BSTR))    // property set_name
+    TEAROFF_METHOD(CImgElement, &get_name, GET_name, (BSTR *))    // property get_name
+    TEAROFF_METHOD(CImgElement, &put_width, PUT_width, (long))    // property set_width
+    TEAROFF_METHOD(CImgElement, &get_width, GET_width, (long *))    // property get_width
+    TEAROFF_METHOD(CImgElement, &put_height, PUT_height, (long))    // property set_height
+    TEAROFF_METHOD(CImgElement, &get_height, GET_height, (long *))    // property get_height
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_start
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_start
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class CImgElement
+BEGIN_TEAROFF_TABLE_PROPDESC(CImgElement, IHTMLElement2)
+    //  IHTMLElement2 methods
+    TEAROFF_METHOD(CImgElement, &setCapture, setcapture, (VARIANT_BOOL))
+    TEAROFF_METHOD(CImgElement, &releaseCapture, releasecapture, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onlosecapture
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onlosecapture
+    TEAROFF_METHOD(CImgElement, &componentFromPoint, componentfrompoint, (long,long,BSTR*))
+    TEAROFF_METHOD(CImgElement, &doScroll, doscroll, (VARIANT))
+    TEAROFF_METHOD(CImgElement, &put_onscroll, PUT_onscroll, (VARIANT))    // property set_onscroll
+    TEAROFF_METHOD(CImgElement, &get_onscroll, GET_onscroll, (VARIANT *))    // property get_onscroll
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondrag
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondrag
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragend
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragend
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragenter
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragenter
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragover
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragover
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragleave
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragleave
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondrop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondrop
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforecut
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforecut
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncut
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncut
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforecopy
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforecopy
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncopy
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncopy
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforepaste
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforepaste
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onpaste
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onpaste
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onpropertychange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onpropertychange
+    TEAROFF_METHOD(CBase, &put_Short, PUT_Short, (short))    // property set_tabIndex
+    TEAROFF_METHOD(CImgElement, &super::get_tabIndex, super::get_tabindex, (short *))    // property get_tabIndex
+    TEAROFF_METHOD(CImgElement, &focus, fOCUS, ())
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_accessKey
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_accessKey
+    TEAROFF_METHOD(CImgElement, &put_onblur, PUT_onblur, (VARIANT))    // property set_onblur
+    TEAROFF_METHOD(CImgElement, &get_onblur, GET_onblur, (VARIANT *))    // property get_onblur
+    TEAROFF_METHOD(CImgElement, &put_onfocus, PUT_onfocus, (VARIANT))    // property set_onfocus
+    TEAROFF_METHOD(CImgElement, &get_onfocus, GET_onfocus, (VARIANT *))    // property get_onfocus
+    TEAROFF_METHOD(CImgElement, &put_onresize, PUT_onresize, (VARIANT))    // property set_onresize
+    TEAROFF_METHOD(CImgElement, &get_onresize, GET_onresize, (VARIANT *))    // property get_onresize
+    TEAROFF_METHOD(CImgElement, &blur, bLUR, ())
+    TEAROFF_METHOD(CImgElement, &get_clientHeight, GET_clientHeight, (long *))    // property get_clientHeight
+    TEAROFF_METHOD(CImgElement, &get_clientWidth, GET_clientWidth, (long *))    // property get_clientWidth
+    TEAROFF_METHOD(CImgElement, &get_clientTop, GET_clientTop, (long *))    // property get_clientTop
+    TEAROFF_METHOD(CImgElement, &get_clientLeft, GET_clientLeft, (long *))    // property get_clientLeft
+    TEAROFF_METHOD(CImgElement, &attachEvent, attachevent, (BSTR,IDispatch*,VARIANT_BOOL*))
+    TEAROFF_METHOD(CImgElement, &detachEvent, detachevent, (BSTR,IDispatch*))
+    TEAROFF_METHOD(CImgElement, &get_readyState, GET_readyState, (VARIANT *))    // property get_readyState
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onreadystatechange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onreadystatechange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onrowsinserted
+    TEAROFF_METHOD(CImgElement, &put_dir, PUT_dir, (BSTR))    // property set_dir
+    TEAROFF_METHOD(CImgElement, &get_dir, GET_dir, (BSTR *))    // property get_dir
+    TEAROFF_METHOD(CImgElement, &get_scrollHeight, GET_scrollHeight, (long *))    // property get_scrollHeight
+    TEAROFF_METHOD(CImgElement, &get_scrollWidth, GET_scrollWidth, (long *))    // property get_scrollWidth
+    TEAROFF_METHOD(CImgElement, &put_scrollTop, PUT_scrollTop, (long))    // property set_scrollTop
+    TEAROFF_METHOD(CImgElement, &get_scrollTop, GET_scrollTop, (long *))    // property get_scrollTop
+    TEAROFF_METHOD(CImgElement, &put_scrollLeft, PUT_scrollLeft, (long))    // property set_scrollLeft
+    TEAROFF_METHOD(CImgElement, &get_scrollLeft, GET_scrollLeft, (long *))    // property get_scrollLeft
+    TEAROFF_METHOD(CImgElement, &clearAttributes, clearattributes, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncontextmenu
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncontextmenu
+    TEAROFF_METHOD(CImgElement, &get_canHaveChildren, GET_canHaveChildren, (VARIANT_BOOL *))    // property get_canHaveChildren
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforeeditfocus
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforeeditfocus
+    TEAROFF_METHOD(CImgElement, &get_readyStateValue, GET_readyStateValue, (long *))    // property get_readyStateValue
+    TEAROFF_METHOD(CImgElement, &getElementsByTagName, getelementsbytagname, (BSTR,IHTMLElementCollection**))
+END_TEAROFF_TABLE()
+
+
+//    Tear-off table for class CImageElementFactory
+BEGIN_TEAROFF_TABLE(CImageElementFactory, IHTMLImageElementFactory)
+    //  IHTMLImageElementFactory methods
+    TEAROFF_METHOD(CImageElementFactory, &create, cREATE, (VARIANT,VARIANT,IHTMLImgElement**))
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+LPCTSTR CImgElement::GetAAalt() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementalt.a, &v);
+    return *(LPCTSTR*)&v;
+}
+HRESULT CImgElement::SetAAsrc(LPCTSTR pv)
+{
+    RRETURN( CAttrArray::SetString(GetAttrArray(), &s_propdescCImgElementsrc.a, pv) );
+}
+LPCTSTR CImgElement::GetAAsrc() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementsrc.a, &v);
+    return *(LPCTSTR*)&v;
+}
+CUnitValue CImgElement::GetAAborder() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementborder.a, &v);
+    return *(CUnitValue*)&v;
+}
+long CImgElement::GetAAvspace() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementvspace.a, &v);
+    return *(long*)&v;
+}
+long CImgElement::GetAAhspace() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementhspace.a, &v);
+    return *(long*)&v;
+}
+LPCTSTR CImgElement::GetAAlowsrc() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementlowsrc.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CImgElement::GetAAdynsrc() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementdynsrc.a, &v);
+    return *(LPCTSTR*)&v;
+}
+HRESULT CImgElement::SetAAcomplete(VARIANT_BOOL pv)
+{
+    DWORD  dwTemp = pv;
+    RRETURN( CAttrArray::SetSimple(GetAttrArray(), &s_propdescCImgElementcomplete.a, dwTemp) );
+}
+VARIANT_BOOL CImgElement::GetAAcomplete() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementcomplete.a, &v);
+    return *(VARIANT_BOOL*)&v;
+}
+long CImgElement::GetAAloop() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementloop.a, &v);
+    return *(long*)&v;
+}
+htmlStart CImgElement::GetAAstart() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementstart.a, &v);
+    return *(htmlStart*)&v;
+}
+LPCTSTR CImgElement::GetAAonload() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementonload.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CImgElement::GetAAonerror() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementonerror.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CImgElement::GetAAonabort() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCImgElementonabort.a, &v);
+    return *(LPCTSTR*)&v;
+}
+VARIANT_BOOL CImgElement::GetAAcache() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCImgElementcache.a, &v);
+    return *(VARIANT_BOOL*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CImgElement_
+
+
+//  Cascaded Property get method prototypes for class CImgElement
+
+public:
+    LPCTSTR GetAAalt() const;
+    HRESULT SetAAsrc(LPCTSTR);
+    LPCTSTR GetAAsrc() const;
+    CUnitValue GetAAborder() const;
+    long GetAAvspace() const;
+    long GetAAhspace() const;
+    LPCTSTR GetAAlowsrc() const;
+    LPCTSTR GetAAdynsrc() const;
+    HRESULT SetAAcomplete(VARIANT_BOOL);
+    VARIANT_BOOL GetAAcomplete() const;
+    long GetAAloop() const;
+    htmlStart GetAAstart() const;
+    LPCTSTR GetAAonload() const;
+    LPCTSTR GetAAonerror() const;
+    LPCTSTR GetAAonabort() const;
+    VARIANT_BOOL GetAAcache() const;
+
+//    Property get/set method declarations for class CImgElement
+
+public:
+    static const PROPERTYDESC * const CImgElement::s_ppropdescs [];
+    static const VTABLEDESC CImgElement::s_apVTableInterf [];
+    static HDLDESC CImgElement::s_apHdlDescs;
+    static const PROPERTYDESC * const CImgElement::s_ppropdescsInVtblOrderIHTMLImgElement [];
+    static const PROPERTYDESC * const CImgElement::s_ppropdescsInVtblOrderIHTMLElement2 [];
+    static const CONNECTION_POINT_INFO CImgElement::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD(get_mimeType, GET_mimeType, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_fileSize, GET_fileSize, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_fileCreatedDate, GET_fileCreatedDate, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_fileModifiedDate, GET_fileModifiedDate, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_fileUpdatedDate, GET_fileUpdatedDate, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_protocol, GET_protocol, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_href, GET_href, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_nameProp, GET_nameProp, (BSTR*p));
+//    Event fire method declarations for events HTMLImgEvents
+    void Fire_onload()
+    {
+        FireEvent(DISPID_EVMETH_ONLOAD, DISPID_EVPROP_ONLOAD, _T("load"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onerror()
+    {
+        FireEvent(DISPID_EVMETH_ONERROR, DISPID_EVPROP_ONERROR, _T("error"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onabort()
+    {
+        FireEvent(DISPID_EVMETH_ONABORT, DISPID_EVPROP_ONABORT, _T("abort"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLImgElement)
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLElement2)
+
+#endif // _CImgElement_
+
+#undef _CImgElement_
+
+#ifdef _CImageElementFactory_
+
+
+//  Cascaded Property get method prototypes for class CImageElementFactory
+
+public:
+
+//    Property get/set method declarations for class CImageElementFactory
+
+public:
+    static const PROPERTYDESC * const CImageElementFactory::s_ppropdescs [];
+    static const VTABLEDESC CImageElementFactory::s_apVTableInterf [];
+    static HDLDESC CImageElementFactory::s_apHdlDescs;
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, create, cREATE, (VARIANT width,VARIANT height,IHTMLImgElement** ));
+    DECLARE_TEAROFF_TABLE(IHTMLImageElementFactory)
+
+#endif // _CImageElementFactory_
+
+#undef _CImageElementFactory_
+

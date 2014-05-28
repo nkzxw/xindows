@@ -1,0 +1,155 @@
+
+#ifdef _hxx_
+
+#include "txtedit.h"
+
+//    DISPIDs for class CTxtSite
+
+#define DISPID_CTxtSite_scrollHeight     DISPID_TEXTSITE+2
+#define DISPID_CTxtSite_scrollWidth     DISPID_TEXTSITE+3
+#define DISPID_CTxtSite_scrollTop     DISPID_TEXTSITE+4
+#define DISPID_CTxtSite_scrollLeft     DISPID_TEXTSITE+5
+#define DISPID_CTxtSite_onscroll     DISPID_EVPROP_ONSCROLL
+//    DISPIDs for classIHTMLTextContainer
+
+//    DISPIDs for classIUnknown
+
+//    DISPIDs for event set HTMLTextContainerEvents2
+
+#define DISPID_HTMLTEXTCONTAINEREVENTS2_ONCHANGE                  DISPID_EVMETH_ONCHANGE
+#define DISPID_HTMLTEXTCONTAINEREVENTS2_ONSELECT                  DISPID_EVMETH_ONSELECT
+
+EXTERN_C const GUID DIID_HTMLTextContainerEvents2;
+
+//    DISPIDs for event set HTMLTextContainerEvents
+
+#define DISPID_HTMLTEXTCONTAINEREVENTS_ONCHANGE                   DISPID_EVMETH_ONCHANGE
+#define DISPID_HTMLTEXTCONTAINEREVENTS_ONSELECT                   DISPID_EVMETH_ONSELECT
+
+EXTERN_C const GUID DIID_HTMLTextContainerEvents;
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CTxtSite_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCTxtSitescrollHeight = 
+{
+    NULL, _T("scrollHeight"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet, DISPID_TEXTSITE+2, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCTxtSitescrollWidth = 
+{
+    NULL, _T("scrollWidth"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet, DISPID_TEXTSITE+3, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCTxtSitescrollTop = 
+{
+    NULL, _T("scrollTop"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_TEXTSITE+4, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCTxtSitescrollLeft = 
+{
+    NULL, _T("scrollLeft"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_TEXTSITE+5, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCTxtSiteonscroll =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onscroll"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onscroll"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSCROLL, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+
+const CONNECTION_POINT_INFO CTxtSite::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    /*CPI_ENTRY(DIID_HTMLTextContainerEvents, DISPID_A_EVENTSINK) wlw note*/
+    /*CPI_ENTRY(DIID_HTMLTextContainerEvents2, DISPID_A_EVENTSINK) wlw note*/
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+//    Tear-off table for class CTxtSite
+BEGIN_TEAROFF_TABLE(CTxtSite, IHTMLTextContainer)
+    //  IHTMLTextContainer methods
+    TEAROFF_METHOD(CTxtSite, &get_scrollHeight, GET_scrollHeight, (long *))    // property get_scrollHeight
+    TEAROFF_METHOD(CTxtSite, &get_scrollWidth, GET_scrollWidth, (long *))    // property get_scrollWidth
+    TEAROFF_METHOD(CTxtSite, &put_scrollTop, PUT_scrollTop, (long))    // property set_scrollTop
+    TEAROFF_METHOD(CTxtSite, &get_scrollTop, GET_scrollTop, (long *))    // property get_scrollTop
+    TEAROFF_METHOD(CTxtSite, &put_scrollLeft, PUT_scrollLeft, (long))    // property set_scrollLeft
+    TEAROFF_METHOD(CTxtSite, &get_scrollLeft, GET_scrollLeft, (long *))    // property get_scrollLeft
+    TEAROFF_METHOD(CTxtSite, &put_onscroll, PUT_onscroll, (VARIANT))    // property set_onscroll
+    TEAROFF_METHOD(CTxtSite, &get_onscroll, GET_onscroll, (VARIANT *))    // property get_onscroll
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+LPCTSTR CTxtSite::GetAAonscroll() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCTxtSiteonscroll.a, &v);
+    return *(LPCTSTR*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CTxtSite_
+
+
+//  Cascaded Property get method prototypes for class CTxtSite
+
+public:
+    LPCTSTR GetAAonscroll() const;
+
+//    Property get/set method declarations for class CTxtSite
+    static const CONNECTION_POINT_INFO CTxtSite::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD(get_scrollHeight, GET_scrollHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollWidth, GET_scrollWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_scrollTop, PUT_scrollTop, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollTop, GET_scrollTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_scrollLeft, PUT_scrollLeft, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollLeft, GET_scrollLeft, (long*p));
+//    Event fire method declarations for events HTMLTextContainerEvents
+    void Fire_onchange()
+    {
+        FireEvent(DISPID_EVMETH_ONCHANGE, DISPID_EVPROP_ONCHANGE, _T("change"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onselect()
+    {
+        FireEvent(DISPID_EVMETH_ONSELECT, DISPID_EVPROP_ONSELECT, _T("select"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE(IHTMLTextContainer)
+
+#endif // _CTxtSite_
+
+#undef _CTxtSite_
+

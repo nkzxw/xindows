@@ -1,0 +1,10 @@
+
+#ifndef __TESTXINDOWS_SITE_DOCTEST_H__
+#define __TESTXINDOWS_SITE_DOCTEST_H__
+
+XINDOWS_PUBLIC void TestDoc(HWND hWndParent);
+XINDOWS_PUBLIC void TestMoveDoc(RECT& rc);
+XINDOWS_PUBLIC void TestDelDoc();
+XINDOWS_PUBLIC HRESULT TestTranslateAccelerator(LPMSG lpMsg);
+
+#endif //__TESTXINDOWS_SITE_DOCTEST_H__

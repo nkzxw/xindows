@@ -1,0 +1,188 @@
+
+#ifdef _hxx_
+
+#include "types.h"
+
+//    DISPIDs for class CBase
+
+#define DISPID_CBase_setAttribute     DISPID_HTMLOBJECT+1
+#define DISPID_CBase_getAttribute     DISPID_HTMLOBJECT+2
+#define DISPID_CBase_removeAttribute     DISPID_HTMLOBJECT+3
+#define DISPID_CBase_attachEvent     DISPID_HTMLOBJECT+7
+#define DISPID_CBase_detachEvent     DISPID_HTMLOBJECT+8
+//    DISPIDs for class CFunctionPointer
+
+//    DISPIDs for classIPicture
+
+//    DISPIDs for classIObjectIdentity
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdeschtmlZOrder = 
+{ 2, 3, {
+    { _T("Front"),0},
+    { _T("Back"),1},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlClear = 
+{ 6, 63, {
+    { _T(""),0},
+    { _T("all"),1},
+    { _T("left"),2},
+    { _T("right"),3},
+    { _T("both"),4},
+    { _T("none"),5},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlControlAlign = 
+{ 11, 2047, {
+    { _T(""),0},
+    { _T("left"),1},
+    { _T("center"),2},
+    { _T("right"),3},
+    { _T("textTop"),4},
+    { _T("absMiddle"),5},
+    { _T("baseline"),6},
+    { _T("absBottom"),7},
+    { _T("bottom"),8},
+    { _T("middle"),9},
+    { _T("top"),10},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlBlockAlign = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("left"),1},
+    { _T("center"),2},
+    { _T("right"),3},
+    { _T("justify"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlReadyState = 
+{ 5, 31, {
+    { _T("uninitialized"),0},
+    { _T("loading"),1},
+    { _T("loaded"),2},
+    { _T("interactive"),3},
+    { _T("complete"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlLoop = 
+{ 1, 0, {
+    { _T("infinite"),-1},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CBase_PROPDESCS_
+const DEFAULTARGDESC s_defArgCBasesetAttribute =
+{
+    (DWORD_PTR)1,
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCBasesetAttribute = 
+{
+    NULL, NULL, _T("setAttribute"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_HTMLOBJECT+1, 0, IDX_Method_void_BSTR_VARIANT_oDoLONG, pdlNoLimit
+    },
+    &s_defArgCBasesetAttribute, 3, 2
+};
+
+const DEFAULTARGDESC s_defArgCBasegetAttribute =
+{
+    (DWORD_PTR)0,
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCBasegetAttribute = 
+{
+    NULL, NULL, _T("getAttribute"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_HTMLOBJECT+2, 0, IDX_Method_VARIANTp_BSTR_oDoLONG, pdlNoLimit
+    },
+    &s_defArgCBasegetAttribute, 2, 1
+};
+
+const DEFAULTARGDESC s_defArgCBaseremoveAttribute =
+{
+    (DWORD_PTR)1,
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCBaseremoveAttribute = 
+{
+    NULL, NULL, _T("removeAttribute"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_HTMLOBJECT+3, 0, IDX_Method_VARIANTBOOLp_BSTR_oDoLONG, pdlNoLimit
+    },
+    &s_defArgCBaseremoveAttribute, 2, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCBaseattachEvent = 
+{
+    NULL, NULL, _T("attachEvent"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_HTMLOBJECT+7, 0, IDX_Method_VARIANTBOOLp_BSTR_IDispatchp, pdlToken
+    },
+    NULL, 2, 2
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCBasedetachEvent = 
+{
+    NULL, NULL, _T("detachEvent"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_HTMLOBJECT+8, 0, IDX_Method_void_BSTR_IDispatchp, pdlToken
+    },
+    NULL, 2, 2
+};
+
+
+
+#define _CFunctionPointer_PROPDESCS_
+
+const PROPERTYDESC * const CBase::s_ppropdescs[] = {
+    NULL
+};
+
+const VTABLEDESC CBase::s_apVTableInterf[] = {
+    {NULL, 0}
+};
+
+HDLDESC CBase::s_apHdlDescs = {  NULL,NULL, 0, NULL, 0, NULL};
+
+
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CBase_
+
+
+//  Cascaded Property get method prototypes for class CBase
+
+public:
+
+//    Property get/set method declarations for class CBase
+
+public:
+    static const PROPERTYDESC * const CBase::s_ppropdescs [];
+    static const VTABLEDESC CBase::s_apVTableInterf [];
+    static HDLDESC CBase::s_apHdlDescs;
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, setAttribute, setattribute, (BSTR strAttributeName,VARIANT AttributeValue,LONG lFlags));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, getAttribute, getattribute, (BSTR strAttributeName,LONG lFlags,VARIANT* AttributeValue));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, removeAttribute, removeattribute, (BSTR strAttributeName,LONG lFlags,VARIANT_BOOL* pfSuccess));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, attachEvent, attachevent, (BSTR event,IDispatch* pDisp,VARIANT_BOOL* pfResult));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, detachEvent, detachevent, (BSTR event,IDispatch* pDisp));
+
+#endif // _CBase_
+
+#undef _CBase_
+

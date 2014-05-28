@@ -1,0 +1,29 @@
+// Xindows.idl : Xindows 的 IDL 源
+//
+// 此文件将由 MIDL 工具处理以
+// 产生类型库(Xindows.tlb)和封送处理代码。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+
+[
+    object,
+    uuid(B4605D5B-4990-460f-A45B-146445967DF2),
+    pointer_default(unique)
+]
+interface IXindowsDocument : IUnknown
+{
+}
+
+
+[
+	uuid(7847ED8E-86C9-4028-817A-8E0A59697950),
+	version(1.0),
+	helpstring("Xindows 1.0 类型库")
+]
+library XindowsLib
+{
+	importlib("stdole2.tlb");
+    interface IXindowsDocument;
+};

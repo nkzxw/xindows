@@ -1,0 +1,811 @@
+
+#ifdef _hxx_
+
+#include "textarea.h"
+
+//    DISPIDs for class CTextArea
+
+EXTERN_C const GUID CLSID_HTMLTextAreaElement;
+//    DISPIDs for class CRichtext
+
+EXTERN_C const GUID CLSID_HTMLRichtextElement;
+#define DISPID_CRichtext_value     DISPID_A_VALUE
+#define DISPID_CRichtext_type     DISPID_INPUT
+#define DISPID_CRichtext_name     STDPROPID_XOBJ_NAME
+#define DISPID_CRichtext_status     DISPID_INPUT+1
+#define DISPID_CRichtext_defaultValue     DISPID_DEFAULTVALUE
+#define DISPID_CRichtext_onchange     DISPID_EVPROP_ONCHANGE
+#define DISPID_CRichtext_onselect     DISPID_EVPROP_ONSELECT
+#define DISPID_CRichtext_rows     DISPID_RICHTEXT+1
+#define DISPID_CRichtext_cols     DISPID_RICHTEXT+2
+#define DISPID_CRichtext_wrap     DISPID_RICHTEXT+3
+#define DISPID_CRichtext_readOnly     DISPID_RICHTEXT+4
+#define DISPID_CRichtext_select     DISPID_RICHTEXT+5
+//    DISPIDs for classIHTMLTextAreaElement
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CTextArea_PROPDESCS_
+
+
+#define _CRichtext_PROPDESCS_
+EXTERN_C const PROPERTYDESC_CSTR_GETSET s_propdescCRichtextvalue =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("value"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("value"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_GETMFHandler | PROPPARAM_SETMFHandler | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST, DISPID_A_VALUE, ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlNoLimit 
+    },
+    PROPERTY_METHOD(CSTR, GET, CRichtext, GetValueHelper, GETValueHelper),
+    PROPERTY_METHOD(CSTR, SET, CRichtext, SetValueHelper, SETValueHelper)
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCRichtexttype =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("type"), NULL, (ULONG_PTR)htmlInputText, (ULONG_PTR)htmlInputText,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("type"), NULL, (ULONG_PTR)htmlInputText,(ULONG_PTR)htmlInputText,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY  | PROPPARAM_ENUM, DISPID_INPUT, 0, IDX_G_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlInput,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_CSTR_GETSET s_propdescCRichtextname =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("name"), NULL, (ULONG_PTR)0, (ULONG_PTR)_T(""),
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("name"), NULL, (ULONG_PTR)0,(ULONG_PTR)_T(""),
+#endif
+    {
+        PROPPARAM_GETMFHandler | PROPPARAM_SETMFHandler | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, STDPROPID_XOBJ_NAME, 0, IDX_GS_BSTR, pdlNoLimit 
+    },
+    PROPERTY_METHOD(CSTR, GET, CRichtext, GetnameHelper, GETnameHelper),
+    PROPERTY_METHOD(CSTR, SET, CRichtext, SetnameHelper, SETnameHelper)
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCRichtextstatus = 
+{
+    NULL, _T("status"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_INPUT+1, 0, IDX_GS_VARIANT, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCRichtextdefaultValue =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("defaultValue"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("defaultValue"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_MEMBER | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_HIDDEN, DISPID_DEFAULTVALUE, 0, IDX_GS_BSTR, pdlNoLimit 
+    },
+    offsetof(CRichtext, _cstrDefaultValue)
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCRichtextonchange =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onchange"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onchange"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCHANGE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCRichtextonselect =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onselect"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onselect"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSELECT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCRichtextrows =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("rows"), NULL, (ULONG_PTR)2, (ULONG_PTR)2,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("rows"), NULL, (ULONG_PTR)2,(ULONG_PTR)2,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_RICHTEXT+1, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), 1, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCRichtextcols =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("cols"), NULL, (ULONG_PTR)20, (ULONG_PTR)20,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("cols"), NULL, (ULONG_PTR)20,(ULONG_PTR)20,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_RICHTEXT+2, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_long, 0 
+        },
+        VT_I4, sizeof(DWORD), 1, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCRichtextwrap =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("wrap"), NULL, (ULONG_PTR)htmlWrapSoft, (ULONG_PTR)htmlWrapSoft,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("wrap"), NULL, (ULONG_PTR)htmlWrapSoft,(ULONG_PTR)htmlWrapSoft,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_ENUM, DISPID_RICHTEXT+3, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlWrap,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCRichtextreadOnly =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("readOnly"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("readOnly"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_RICHTEXT+4, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANTBOOL, 0 
+        },
+        VT_BOOL, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCRichtextselect = 
+{
+    NULL, NULL, _T("select"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_RICHTEXT+5, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+
+const PROPERTYDESC * const CTextArea::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCElementaccessKey, // accessKey
+    (PROPERTYDESC *)&s_propdescCElementclassName, // class
+    (PROPERTYDESC *)&s_propdescCRichtextcols, // cols
+    (PROPERTYDESC *)&s_propdescCElementdir, // dir
+    (PROPERTYDESC *)&s_propdescCElementdisabled, // disabled
+    (PROPERTYDESC *)&s_propdescCElementid, // id
+    (PROPERTYDESC *)&s_propdescCElementlang, // lang
+    (PROPERTYDESC *)&s_propdescCElementlanguage, // language
+    (PROPERTYDESC *)&s_propdescCRichtextname, // name
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy, // onbeforecopy
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut, // onbeforecut
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste, // onbeforepaste
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCElementonblur, // onblur
+    (PROPERTYDESC *)&s_propdescCRichtextonchange, // onchange
+    (PROPERTYDESC *)&s_propdescCElementonclick, // onclick
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCElementoncopy, // oncopy
+    (PROPERTYDESC *)&s_propdescCElementoncut, // oncut
+    (PROPERTYDESC *)&s_propdescCElementondblclick, // ondblclick
+    (PROPERTYDESC *)&s_propdescCElementondrag, // ondrag
+    (PROPERTYDESC *)&s_propdescCElementondragend, // ondragend
+    (PROPERTYDESC *)&s_propdescCElementondragenter, // ondragenter
+    (PROPERTYDESC *)&s_propdescCElementondragleave, // ondragleave
+    (PROPERTYDESC *)&s_propdescCElementondragover, // ondragover
+    (PROPERTYDESC *)&s_propdescCElementondragstart, // ondragstart
+    (PROPERTYDESC *)&s_propdescCElementondrop, // ondrop
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCElementonfocus, // onfocus
+    (PROPERTYDESC *)&s_propdescCElementonhelp, // onhelp
+    (PROPERTYDESC *)&s_propdescCElementonkeydown, // onkeydown
+    (PROPERTYDESC *)&s_propdescCElementonkeypress, // onkeypress
+    (PROPERTYDESC *)&s_propdescCElementonkeyup, // onkeyup
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture, // onlosecapture
+    (PROPERTYDESC *)&s_propdescCElementonmousedown, // onmousedown
+    (PROPERTYDESC *)&s_propdescCElementonmousemove, // onmousemove
+    (PROPERTYDESC *)&s_propdescCElementonmouseout, // onmouseout
+    (PROPERTYDESC *)&s_propdescCElementonmouseover, // onmouseover
+    (PROPERTYDESC *)&s_propdescCElementonmouseup, // onmouseup
+    (PROPERTYDESC *)&s_propdescCElementonpaste, // onpaste
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCElementonresize, // onresize
+    (PROPERTYDESC *)&s_propdescCElementonscroll, // onscroll
+    (PROPERTYDESC *)&s_propdescCRichtextonselect, // onselect
+    (PROPERTYDESC *)&s_propdescCElementonselectstart, // onselectstart
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly, // readOnly
+    (PROPERTYDESC *)&s_propdescCRichtextrows, // rows
+    (PROPERTYDESC *)&s_propdescCElementstyle_Str, // style
+    (PROPERTYDESC *)&s_propdescCElementtabIndex, // tabIndex
+    (PROPERTYDESC *)&s_propdescCElementtitle, // title
+    (PROPERTYDESC *)&s_propdescCRichtextwrap, // wrap
+    NULL
+};
+
+const CONNECTION_POINT_INFO CTextArea::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const VTABLEDESC CTextArea::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCElementaccessKey, 0x52c},        // Property accessKey
+    {(PROPERTYDESC *)&s_propdescCElementall, 0x456},        // Property all
+    {(PROPERTYDESC *)&s_methdescCBaseattachEvent, 0x53b},        // Method attachEvent
+    {(PROPERTYDESC *)&s_propdescCElementattributes, 0x304},        // Property attributes
+    {(PROPERTYDESC *)&s_methdescCElementblur, 0x534},        // Method blur
+    {(PROPERTYDESC *)&s_propdescCElementcanHaveChildren, 0x557},        // Property canHaveChildren
+    {(PROPERTYDESC *)&s_propdescCElementchildren, 0x455},        // Property children
+    {(PROPERTYDESC *)&s_propdescCElementclassName, 0x403},        // Property className
+    {(PROPERTYDESC *)&s_methdescCElementclearAttributes, 0x54f},        // Method clearAttributes
+    {(PROPERTYDESC *)&s_methdescCElementclick, 0x43e},        // Method click
+    {(PROPERTYDESC *)&s_propdescCElementclientHeight, 0x537},        // Property clientHeight
+    {(PROPERTYDESC *)&s_propdescCElementclientLeft, 0x53a},        // Property clientLeft
+    {(PROPERTYDESC *)&s_propdescCElementclientTop, 0x539},        // Property clientTop
+    {(PROPERTYDESC *)&s_propdescCElementclientWidth, 0x538},        // Property clientWidth
+    {(PROPERTYDESC *)&s_propdescCRichtextcols, 0x15},        // Property cols
+    {(PROPERTYDESC *)&s_methdescCElementcomponentFromPoint, 0x505},        // Method componentFromPoint
+    {(PROPERTYDESC *)&s_methdescCElementcontains, 0x428},        // Method contains
+    {(PROPERTYDESC *)&s_propdescCRichtextdefaultValue, 0xa},        // Property defaultValue
+    {(PROPERTYDESC *)&s_methdescCBasedetachEvent, 0x53c},        // Method detachEvent
+    {(PROPERTYDESC *)&s_propdescCElementdir, 0x546},        // Property dir
+    {(PROPERTYDESC *)&s_propdescCElementdisabled, 0x7},        // Property disabled
+    {(PROPERTYDESC *)&s_propdescCElementdocument, 0x420},        // Property document
+    {(PROPERTYDESC *)&s_methdescCElementdoScroll, 0x506},        // Method doScroll
+    {(PROPERTYDESC *)&s_methdescCElementfocus, 0x52b},        // Method focus
+    {(PROPERTYDESC *)&s_methdescCBasegetAttribute, 0x401},        // Method getAttribute
+    {(PROPERTYDESC *)&s_methdescCElementgetElementsByTagName, 0x561},        // Method getElementsByTagName
+    {(PROPERTYDESC *)&s_propdescCElementid, 0x405},        // Property id
+    {(PROPERTYDESC *)&s_propdescCElementinnerText, 0x434},        // Property innerText
+    {(PROPERTYDESC *)&s_propdescCElementlang, 0x42b},        // Property lang
+    {(PROPERTYDESC *)&s_propdescCElementlanguage, 0x423},        // Property language
+    {(PROPERTYDESC *)&s_propdescCRichtextname, 0x3},        // Property name
+    {(PROPERTYDESC *)&s_propdescCElementoffsetHeight, 0x430},        // Property offsetHeight
+    {(PROPERTYDESC *)&s_propdescCElementoffsetLeft, 0x42d},        // Property offsetLeft
+    {(PROPERTYDESC *)&s_propdescCElementoffsetParent, 0x431},        // Property offsetParent
+    {(PROPERTYDESC *)&s_propdescCElementoffsetTop, 0x42e},        // Property offsetTop
+    {(PROPERTYDESC *)&s_propdescCElementoffsetWidth, 0x42f},        // Property offsetWidth
+    {(PROPERTYDESC *)&s_propdescCElementonafterupdate, 0x445},        // Property onafterupdate
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecopy, 0x519},        // Property onbeforecopy
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecut, 0x515},        // Property onbeforecut
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, 0x55e},        // Property onbeforeeditfocus
+    {(PROPERTYDESC *)&s_propdescCElementonbeforepaste, 0x51d},        // Property onbeforepaste
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeupdate, 0x443},        // Property onbeforeupdate
+    {(PROPERTYDESC *)&s_propdescCElementonblur, 0x52e},        // Property onblur
+    {(PROPERTYDESC *)&s_propdescCRichtextonchange, 0xd},        // Property onchange
+    {(PROPERTYDESC *)&s_propdescCElementonclick, 0x40c},        // Property onclick
+    {(PROPERTYDESC *)&s_propdescCElementoncontextmenu, 0x551},        // Property oncontextmenu
+    {(PROPERTYDESC *)&s_propdescCElementoncopy, 0x51b},        // Property oncopy
+    {(PROPERTYDESC *)&s_propdescCElementoncut, 0x517},        // Property oncut
+    {(PROPERTYDESC *)&s_propdescCElementondblclick, 0x40e},        // Property ondblclick
+    {(PROPERTYDESC *)&s_propdescCElementondrag, 0x509},        // Property ondrag
+    {(PROPERTYDESC *)&s_propdescCElementondragend, 0x50b},        // Property ondragend
+    {(PROPERTYDESC *)&s_propdescCElementondragenter, 0x50d},        // Property ondragenter
+    {(PROPERTYDESC *)&s_propdescCElementondragleave, 0x511},        // Property ondragleave
+    {(PROPERTYDESC *)&s_propdescCElementondragover, 0x50f},        // Property ondragover
+    {(PROPERTYDESC *)&s_propdescCElementondragstart, 0x440},        // Property ondragstart
+    {(PROPERTYDESC *)&s_propdescCElementondrop, 0x513},        // Property ondrop
+    {(PROPERTYDESC *)&s_propdescCElementonerrorupdate, 0x447},        // Property onerrorupdate
+    {(PROPERTYDESC *)&s_propdescCElementonfocus, 0x530},        // Property onfocus
+    {(PROPERTYDESC *)&s_propdescCElementonhelp, 0x40a},        // Property onhelp
+    {(PROPERTYDESC *)&s_propdescCElementonkeydown, 0x410},        // Property onkeydown
+    {(PROPERTYDESC *)&s_propdescCElementonkeypress, 0x414},        // Property onkeypress
+    {(PROPERTYDESC *)&s_propdescCElementonkeyup, 0x412},        // Property onkeyup
+    {(PROPERTYDESC *)&s_propdescCElementonlosecapture, 0x503},        // Property onlosecapture
+    {(PROPERTYDESC *)&s_propdescCElementonmousedown, 0x41c},        // Property onmousedown
+    {(PROPERTYDESC *)&s_propdescCElementonmousemove, 0x41a},        // Property onmousemove
+    {(PROPERTYDESC *)&s_propdescCElementonmouseout, 0x416},        // Property onmouseout
+    {(PROPERTYDESC *)&s_propdescCElementonmouseover, 0x418},        // Property onmouseover
+    {(PROPERTYDESC *)&s_propdescCElementonmouseup, 0x41e},        // Property onmouseup
+    {(PROPERTYDESC *)&s_propdescCElementonpaste, 0x51f},        // Property onpaste
+    {(PROPERTYDESC *)&s_propdescCElementonpropertychange, 0x522},        // Property onpropertychange
+    {(PROPERTYDESC *)&s_propdescCElementonreadystatechange, 0x53e},        // Property onreadystatechange
+    {(PROPERTYDESC *)&s_propdescCElementonresize, 0x532},        // Property onresize
+    {(PROPERTYDESC *)&s_propdescCElementonscroll, 0x507},        // Property onscroll
+    {(PROPERTYDESC *)&s_propdescCRichtextonselect, 0xf},        // Property onselect
+    {(PROPERTYDESC *)&s_propdescCElementonselectstart, 0x425},        // Property onselectstart
+    {(PROPERTYDESC *)&s_propdescCElementouterText, 0x438},        // Property outerText
+    {(PROPERTYDESC *)&s_propdescCElementparentElement, 0x408},        // Property parentElement
+    {(PROPERTYDESC *)&s_propdescCRichtextreadOnly, 0x11},        // Property readOnly
+    {(PROPERTYDESC *)&s_propdescCElementreadyState, 0x53d},        // Property readyState
+    {(PROPERTYDESC *)&s_propdescCElementreadyStateValue, 0x560},        // Property readyStateValue
+    {(PROPERTYDESC *)&s_methdescCElementreleaseCapture, 0x502},        // Method releaseCapture
+    {(PROPERTYDESC *)&s_methdescCBaseremoveAttribute, 0x402},        // Method removeAttribute
+    {(PROPERTYDESC *)&s_propdescCRichtextrows, 0x13},        // Property rows
+    {(PROPERTYDESC *)&s_propdescCElementscrollHeight, 0x549},        // Property scrollHeight
+    {(PROPERTYDESC *)&s_methdescCElementscrollIntoView, 0x427},        // Method scrollIntoView
+    {(PROPERTYDESC *)&s_propdescCElementscrollLeft, 0x54d},        // Property scrollLeft
+    {(PROPERTYDESC *)&s_propdescCElementscrollTop, 0x54b},        // Property scrollTop
+    {(PROPERTYDESC *)&s_propdescCElementscrollWidth, 0x54a},        // Property scrollWidth
+    {(PROPERTYDESC *)&s_methdescCRichtextselect, 0xc},        // Method select
+    {(PROPERTYDESC *)&s_methdescCBasesetAttribute, 0x400},        // Method setAttribute
+    {(PROPERTYDESC *)&s_methdescCElementsetCapture, 0x501},        // Method setCapture
+    {(PROPERTYDESC *)&s_propdescCElementsourceIndex, 0x429},        // Property sourceIndex
+    {(PROPERTYDESC *)&s_propdescCRichtextstatus, 0x5},        // Property status
+    {(PROPERTYDESC *)&s_propdescCElementstyle, 0x409},        // Property style
+    {(PROPERTYDESC *)&s_propdescCElementtabIndex, 0x529},        // Property tabIndex
+    {(PROPERTYDESC *)&s_propdescCElementtagName, 0x407},        // Property tagName
+    {(PROPERTYDESC *)&s_propdescCElementtitle, 0x421},        // Property title
+    {(PROPERTYDESC *)&s_methdescCElementtoString, 0x442},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCRichtexttype, 0x0},        // Property type
+    {(PROPERTYDESC *)&s_propdescCElementuniqueID, 0x601},        // Property uniqueID
+    {(PROPERTYDESC *)&s_propdescCRichtextvalue, 0x1},        // Property value
+    {(PROPERTYDESC *)&s_propdescCRichtextwrap, 0x17},        // Property wrap
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const CTextArea::s_ppropdescsInVtblOrderIHTMLTextAreaElement[] = {
+    (PROPERTYDESC *)&s_propdescCRichtexttype,
+    (PROPERTYDESC *)&s_propdescCRichtextvalue,
+    (PROPERTYDESC *)&s_propdescCRichtextvalue,
+    (PROPERTYDESC *)&s_propdescCRichtextname,
+    (PROPERTYDESC *)&s_propdescCRichtextname,
+    (PROPERTYDESC *)&s_propdescCRichtextstatus,
+    (PROPERTYDESC *)&s_propdescCRichtextstatus,
+    (PROPERTYDESC *)&s_propdescCElementdisabled,
+    (PROPERTYDESC *)&s_propdescCElementdisabled,
+    (PROPERTYDESC *)&s_propdescCRichtextdefaultValue,
+    (PROPERTYDESC *)&s_propdescCRichtextdefaultValue,
+    (PROPERTYDESC *)&s_methdescCRichtextselect,
+    (PROPERTYDESC *)&s_propdescCRichtextonchange,
+    (PROPERTYDESC *)&s_propdescCRichtextonchange,
+    (PROPERTYDESC *)&s_propdescCRichtextonselect,
+    (PROPERTYDESC *)&s_propdescCRichtextonselect,
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly,
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly,
+    (PROPERTYDESC *)&s_propdescCRichtextrows,
+    (PROPERTYDESC *)&s_propdescCRichtextrows,
+    (PROPERTYDESC *)&s_propdescCRichtextcols,
+    (PROPERTYDESC *)&s_propdescCRichtextcols,
+    (PROPERTYDESC *)&s_propdescCRichtextwrap,
+    (PROPERTYDESC *)&s_propdescCRichtextwrap,
+};
+
+
+HDLDESC CTextArea::s_apHdlDescs = {  &DIID_DispHTMLTextAreaElement,CTextArea::s_ppropdescs, 66, CTextArea::s_apVTableInterf, 163, CTextArea::s_ppropdescsInVtblOrderIHTMLTextAreaElement};
+
+const PROPERTYDESC * const CRichtext::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCElementaccessKey, // accessKey
+    (PROPERTYDESC *)&s_propdescCElementclassName, // class
+    (PROPERTYDESC *)&s_propdescCRichtextcols.a, // cols
+    (PROPERTYDESC *)&s_propdescCElementdir, // dir
+    (PROPERTYDESC *)&s_propdescCElementdisabled, // disabled
+    (PROPERTYDESC *)&s_propdescCElementid, // id
+    (PROPERTYDESC *)&s_propdescCElementlang, // lang
+    (PROPERTYDESC *)&s_propdescCElementlanguage, // language
+    (PROPERTYDESC *)&s_propdescCRichtextname.a, // name
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy, // onbeforecopy
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut, // onbeforecut
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste, // onbeforepaste
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCElementonblur, // onblur
+    (PROPERTYDESC *)&s_propdescCRichtextonchange.a, // onchange
+    (PROPERTYDESC *)&s_propdescCElementonclick, // onclick
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCElementoncopy, // oncopy
+    (PROPERTYDESC *)&s_propdescCElementoncut, // oncut
+    (PROPERTYDESC *)&s_propdescCElementondblclick, // ondblclick
+    (PROPERTYDESC *)&s_propdescCElementondrag, // ondrag
+    (PROPERTYDESC *)&s_propdescCElementondragend, // ondragend
+    (PROPERTYDESC *)&s_propdescCElementondragenter, // ondragenter
+    (PROPERTYDESC *)&s_propdescCElementondragleave, // ondragleave
+    (PROPERTYDESC *)&s_propdescCElementondragover, // ondragover
+    (PROPERTYDESC *)&s_propdescCElementondragstart, // ondragstart
+    (PROPERTYDESC *)&s_propdescCElementondrop, // ondrop
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCElementonfocus, // onfocus
+    (PROPERTYDESC *)&s_propdescCElementonhelp, // onhelp
+    (PROPERTYDESC *)&s_propdescCElementonkeydown, // onkeydown
+    (PROPERTYDESC *)&s_propdescCElementonkeypress, // onkeypress
+    (PROPERTYDESC *)&s_propdescCElementonkeyup, // onkeyup
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture, // onlosecapture
+    (PROPERTYDESC *)&s_propdescCElementonmousedown, // onmousedown
+    (PROPERTYDESC *)&s_propdescCElementonmousemove, // onmousemove
+    (PROPERTYDESC *)&s_propdescCElementonmouseout, // onmouseout
+    (PROPERTYDESC *)&s_propdescCElementonmouseover, // onmouseover
+    (PROPERTYDESC *)&s_propdescCElementonmouseup, // onmouseup
+    (PROPERTYDESC *)&s_propdescCElementonpaste, // onpaste
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCElementonresize, // onresize
+    (PROPERTYDESC *)&s_propdescCElementonscroll, // onscroll
+    (PROPERTYDESC *)&s_propdescCRichtextonselect.a, // onselect
+    (PROPERTYDESC *)&s_propdescCElementonselectstart, // onselectstart
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly.a, // readOnly
+    (PROPERTYDESC *)&s_propdescCRichtextrows.a, // rows
+    (PROPERTYDESC *)&s_propdescCElementstyle_Str, // style
+    (PROPERTYDESC *)&s_propdescCElementtabIndex, // tabIndex
+    (PROPERTYDESC *)&s_propdescCElementtitle, // title
+    (PROPERTYDESC *)&s_propdescCRichtextwrap.a, // wrap
+    NULL
+};
+
+const CONNECTION_POINT_INFO CRichtext::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const VTABLEDESC CRichtext::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCElementaccessKey, 0x52c},        // Property accessKey
+    {(PROPERTYDESC *)&s_propdescCElementall, 0x456},        // Property all
+    {(PROPERTYDESC *)&s_methdescCBaseattachEvent, 0x53b},        // Method attachEvent
+    {(PROPERTYDESC *)&s_propdescCElementattributes, 0x304},        // Property attributes
+    {(PROPERTYDESC *)&s_methdescCElementblur, 0x534},        // Method blur
+    {(PROPERTYDESC *)&s_propdescCElementcanHaveChildren, 0x557},        // Property canHaveChildren
+    {(PROPERTYDESC *)&s_propdescCElementchildren, 0x455},        // Property children
+    {(PROPERTYDESC *)&s_propdescCElementclassName, 0x403},        // Property className
+    {(PROPERTYDESC *)&s_methdescCElementclearAttributes, 0x54f},        // Method clearAttributes
+    {(PROPERTYDESC *)&s_methdescCElementclick, 0x43e},        // Method click
+    {(PROPERTYDESC *)&s_propdescCElementclientHeight, 0x537},        // Property clientHeight
+    {(PROPERTYDESC *)&s_propdescCElementclientLeft, 0x53a},        // Property clientLeft
+    {(PROPERTYDESC *)&s_propdescCElementclientTop, 0x539},        // Property clientTop
+    {(PROPERTYDESC *)&s_propdescCElementclientWidth, 0x538},        // Property clientWidth
+    {(PROPERTYDESC *)&s_propdescCRichtextcols, 0x15},        // Property cols
+    {(PROPERTYDESC *)&s_methdescCElementcomponentFromPoint, 0x505},        // Method componentFromPoint
+    {(PROPERTYDESC *)&s_methdescCElementcontains, 0x428},        // Method contains
+    {(PROPERTYDESC *)&s_propdescCRichtextdefaultValue, 0xa},        // Property defaultValue
+    {(PROPERTYDESC *)&s_methdescCBasedetachEvent, 0x53c},        // Method detachEvent
+    {(PROPERTYDESC *)&s_propdescCElementdir, 0x546},        // Property dir
+    {(PROPERTYDESC *)&s_propdescCElementdisabled, 0x7},        // Property disabled
+    {(PROPERTYDESC *)&s_propdescCElementdocument, 0x420},        // Property document
+    {(PROPERTYDESC *)&s_methdescCElementdoScroll, 0x506},        // Method doScroll
+    {(PROPERTYDESC *)&s_methdescCElementfocus, 0x52b},        // Method focus
+    {(PROPERTYDESC *)&s_methdescCBasegetAttribute, 0x401},        // Method getAttribute
+    {(PROPERTYDESC *)&s_methdescCElementgetElementsByTagName, 0x561},        // Method getElementsByTagName
+    {(PROPERTYDESC *)&s_propdescCElementid, 0x405},        // Property id
+    {(PROPERTYDESC *)&s_propdescCElementinnerText, 0x434},        // Property innerText
+    {(PROPERTYDESC *)&s_propdescCElementlang, 0x42b},        // Property lang
+    {(PROPERTYDESC *)&s_propdescCElementlanguage, 0x423},        // Property language
+    {(PROPERTYDESC *)&s_propdescCRichtextname, 0x3},        // Property name
+    {(PROPERTYDESC *)&s_propdescCElementoffsetHeight, 0x430},        // Property offsetHeight
+    {(PROPERTYDESC *)&s_propdescCElementoffsetLeft, 0x42d},        // Property offsetLeft
+    {(PROPERTYDESC *)&s_propdescCElementoffsetParent, 0x431},        // Property offsetParent
+    {(PROPERTYDESC *)&s_propdescCElementoffsetTop, 0x42e},        // Property offsetTop
+    {(PROPERTYDESC *)&s_propdescCElementoffsetWidth, 0x42f},        // Property offsetWidth
+    {(PROPERTYDESC *)&s_propdescCElementonafterupdate, 0x445},        // Property onafterupdate
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecopy, 0x519},        // Property onbeforecopy
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecut, 0x515},        // Property onbeforecut
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, 0x55e},        // Property onbeforeeditfocus
+    {(PROPERTYDESC *)&s_propdescCElementonbeforepaste, 0x51d},        // Property onbeforepaste
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeupdate, 0x443},        // Property onbeforeupdate
+    {(PROPERTYDESC *)&s_propdescCElementonblur, 0x52e},        // Property onblur
+    {(PROPERTYDESC *)&s_propdescCRichtextonchange, 0xd},        // Property onchange
+    {(PROPERTYDESC *)&s_propdescCElementonclick, 0x40c},        // Property onclick
+    {(PROPERTYDESC *)&s_propdescCElementoncontextmenu, 0x551},        // Property oncontextmenu
+    {(PROPERTYDESC *)&s_propdescCElementoncopy, 0x51b},        // Property oncopy
+    {(PROPERTYDESC *)&s_propdescCElementoncut, 0x517},        // Property oncut
+    {(PROPERTYDESC *)&s_propdescCElementondblclick, 0x40e},        // Property ondblclick
+    {(PROPERTYDESC *)&s_propdescCElementondrag, 0x509},        // Property ondrag
+    {(PROPERTYDESC *)&s_propdescCElementondragend, 0x50b},        // Property ondragend
+    {(PROPERTYDESC *)&s_propdescCElementondragenter, 0x50d},        // Property ondragenter
+    {(PROPERTYDESC *)&s_propdescCElementondragleave, 0x511},        // Property ondragleave
+    {(PROPERTYDESC *)&s_propdescCElementondragover, 0x50f},        // Property ondragover
+    {(PROPERTYDESC *)&s_propdescCElementondragstart, 0x440},        // Property ondragstart
+    {(PROPERTYDESC *)&s_propdescCElementondrop, 0x513},        // Property ondrop
+    {(PROPERTYDESC *)&s_propdescCElementonerrorupdate, 0x447},        // Property onerrorupdate
+    {(PROPERTYDESC *)&s_propdescCElementonfocus, 0x530},        // Property onfocus
+    {(PROPERTYDESC *)&s_propdescCElementonhelp, 0x40a},        // Property onhelp
+    {(PROPERTYDESC *)&s_propdescCElementonkeydown, 0x410},        // Property onkeydown
+    {(PROPERTYDESC *)&s_propdescCElementonkeypress, 0x414},        // Property onkeypress
+    {(PROPERTYDESC *)&s_propdescCElementonkeyup, 0x412},        // Property onkeyup
+    {(PROPERTYDESC *)&s_propdescCElementonlosecapture, 0x503},        // Property onlosecapture
+    {(PROPERTYDESC *)&s_propdescCElementonmousedown, 0x41c},        // Property onmousedown
+    {(PROPERTYDESC *)&s_propdescCElementonmousemove, 0x41a},        // Property onmousemove
+    {(PROPERTYDESC *)&s_propdescCElementonmouseout, 0x416},        // Property onmouseout
+    {(PROPERTYDESC *)&s_propdescCElementonmouseover, 0x418},        // Property onmouseover
+    {(PROPERTYDESC *)&s_propdescCElementonmouseup, 0x41e},        // Property onmouseup
+    {(PROPERTYDESC *)&s_propdescCElementonpaste, 0x51f},        // Property onpaste
+    {(PROPERTYDESC *)&s_propdescCElementonpropertychange, 0x522},        // Property onpropertychange
+    {(PROPERTYDESC *)&s_propdescCElementonreadystatechange, 0x53e},        // Property onreadystatechange
+    {(PROPERTYDESC *)&s_propdescCElementonresize, 0x532},        // Property onresize
+    {(PROPERTYDESC *)&s_propdescCElementonscroll, 0x507},        // Property onscroll
+    {(PROPERTYDESC *)&s_propdescCRichtextonselect, 0xf},        // Property onselect
+    {(PROPERTYDESC *)&s_propdescCElementonselectstart, 0x425},        // Property onselectstart
+    {(PROPERTYDESC *)&s_propdescCElementouterText, 0x438},        // Property outerText
+    {(PROPERTYDESC *)&s_propdescCElementparentElement, 0x408},        // Property parentElement
+    {(PROPERTYDESC *)&s_propdescCRichtextreadOnly, 0x11},        // Property readOnly
+    {(PROPERTYDESC *)&s_propdescCElementreadyState, 0x53d},        // Property readyState
+    {(PROPERTYDESC *)&s_propdescCElementreadyStateValue, 0x560},        // Property readyStateValue
+    {(PROPERTYDESC *)&s_methdescCElementreleaseCapture, 0x502},        // Method releaseCapture
+    {(PROPERTYDESC *)&s_methdescCBaseremoveAttribute, 0x402},        // Method removeAttribute
+    {(PROPERTYDESC *)&s_propdescCRichtextrows, 0x13},        // Property rows
+    {(PROPERTYDESC *)&s_propdescCElementscrollHeight, 0x549},        // Property scrollHeight
+    {(PROPERTYDESC *)&s_methdescCElementscrollIntoView, 0x427},        // Method scrollIntoView
+    {(PROPERTYDESC *)&s_propdescCElementscrollLeft, 0x54d},        // Property scrollLeft
+    {(PROPERTYDESC *)&s_propdescCElementscrollTop, 0x54b},        // Property scrollTop
+    {(PROPERTYDESC *)&s_propdescCElementscrollWidth, 0x54a},        // Property scrollWidth
+    {(PROPERTYDESC *)&s_methdescCRichtextselect, 0xc},        // Method select
+    {(PROPERTYDESC *)&s_methdescCBasesetAttribute, 0x400},        // Method setAttribute
+    {(PROPERTYDESC *)&s_methdescCElementsetCapture, 0x501},        // Method setCapture
+    {(PROPERTYDESC *)&s_propdescCElementsourceIndex, 0x429},        // Property sourceIndex
+    {(PROPERTYDESC *)&s_propdescCRichtextstatus, 0x5},        // Property status
+    {(PROPERTYDESC *)&s_propdescCElementstyle, 0x409},        // Property style
+    {(PROPERTYDESC *)&s_propdescCElementtabIndex, 0x529},        // Property tabIndex
+    {(PROPERTYDESC *)&s_propdescCElementtagName, 0x407},        // Property tagName
+    {(PROPERTYDESC *)&s_propdescCElementtitle, 0x421},        // Property title
+    {(PROPERTYDESC *)&s_methdescCElementtoString, 0x442},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCRichtexttype, 0x0},        // Property type
+    {(PROPERTYDESC *)&s_propdescCElementuniqueID, 0x601},        // Property uniqueID
+    {(PROPERTYDESC *)&s_propdescCRichtextvalue, 0x1},        // Property value
+    {(PROPERTYDESC *)&s_propdescCRichtextwrap, 0x17},        // Property wrap
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const CRichtext::s_ppropdescsInVtblOrderIHTMLTextAreaElement[] = {
+    (PROPERTYDESC *)&s_propdescCRichtexttype,
+    (PROPERTYDESC *)&s_propdescCRichtextvalue,
+    (PROPERTYDESC *)&s_propdescCRichtextvalue,
+    (PROPERTYDESC *)&s_propdescCRichtextname,
+    (PROPERTYDESC *)&s_propdescCRichtextname,
+    (PROPERTYDESC *)&s_propdescCRichtextstatus,
+    (PROPERTYDESC *)&s_propdescCRichtextstatus,
+    (PROPERTYDESC *)&s_propdescCElementdisabled,
+    (PROPERTYDESC *)&s_propdescCElementdisabled,
+    (PROPERTYDESC *)&s_propdescCRichtextdefaultValue,
+    (PROPERTYDESC *)&s_propdescCRichtextdefaultValue,
+    (PROPERTYDESC *)&s_methdescCRichtextselect,
+    (PROPERTYDESC *)&s_propdescCRichtextonchange,
+    (PROPERTYDESC *)&s_propdescCRichtextonchange,
+    (PROPERTYDESC *)&s_propdescCRichtextonselect,
+    (PROPERTYDESC *)&s_propdescCRichtextonselect,
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly,
+    (PROPERTYDESC *)&s_propdescCRichtextreadOnly,
+    (PROPERTYDESC *)&s_propdescCRichtextrows,
+    (PROPERTYDESC *)&s_propdescCRichtextrows,
+    (PROPERTYDESC *)&s_propdescCRichtextcols,
+    (PROPERTYDESC *)&s_propdescCRichtextcols,
+    (PROPERTYDESC *)&s_propdescCRichtextwrap,
+    (PROPERTYDESC *)&s_propdescCRichtextwrap,
+};
+
+
+HDLDESC CRichtext::s_apHdlDescs = {  &DIID_DispHTMLRichtextElement,CRichtext::s_ppropdescs, 66, CRichtext::s_apVTableInterf, 163, CRichtext::s_ppropdescsInVtblOrderIHTMLTextAreaElement};
+
+//    Tear-off table for class CTextArea
+BEGIN_TEAROFF_TABLE_PROPDESC(CTextArea, IHTMLTextAreaElement)
+    //  IHTMLTextAreaElement methods
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_type
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_value
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_value
+    TEAROFF_METHOD(CTextArea, &put_name, PUT_name, (BSTR))    // property set_name
+    TEAROFF_METHOD(CTextArea, &get_name, GET_name, (BSTR *))    // property get_name
+    TEAROFF_METHOD(CTextArea, &put_status, PUT_status, (VARIANT))    // property set_status
+    TEAROFF_METHOD(CTextArea, &get_status, GET_status, (VARIANT *))    // property get_status
+    TEAROFF_METHOD(CBase, &put_Bool, PUT_Bool, (VARIANT_BOOL))    // property set_disabled
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_disabled
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_defaultValue
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_defaultValue
+    TEAROFF_METHOD(CTextArea, &select, sELECT, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onchange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onchange
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onselect
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onselect
+    TEAROFF_METHOD(CBase, &put_Bool, PUT_Bool, (VARIANT_BOOL))    // property set_readOnly
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_readOnly
+    TEAROFF_METHOD(CBase, &put_Long, PUT_Long, (long))    // property set_rows
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rows
+    TEAROFF_METHOD(CBase, &put_Long, PUT_Long, (long))    // property set_cols
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_cols
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_wrap
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_wrap
+END_TEAROFF_TABLE()
+
+
+//    Tear-off table for class CRichtext
+BEGIN_TEAROFF_TABLE_PROPDESC(CRichtext, IHTMLTextAreaElement)
+    //  IHTMLTextAreaElement methods
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_type
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_value
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_value
+    TEAROFF_METHOD(CRichtext, &put_name, PUT_name, (BSTR))    // property set_name
+    TEAROFF_METHOD(CRichtext, &get_name, GET_name, (BSTR *))    // property get_name
+    TEAROFF_METHOD(CRichtext, &put_status, PUT_status, (VARIANT))    // property set_status
+    TEAROFF_METHOD(CRichtext, &get_status, GET_status, (VARIANT *))    // property get_status
+    TEAROFF_METHOD(CBase, &put_Bool, PUT_Bool, (VARIANT_BOOL))    // property set_disabled
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_disabled
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_defaultValue
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_defaultValue
+    TEAROFF_METHOD(CRichtext, &select, sELECT, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onchange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onchange
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onselect
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onselect
+    TEAROFF_METHOD(CBase, &put_Bool, PUT_Bool, (VARIANT_BOOL))    // property set_readOnly
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_readOnly
+    TEAROFF_METHOD(CBase, &put_Long, PUT_Long, (long))    // property set_rows
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rows
+    TEAROFF_METHOD(CBase, &put_Long, PUT_Long, (long))    // property set_cols
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_cols
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_wrap
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_wrap
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+HRESULT CRichtext::SetAAtype(htmlInput pv)
+{
+    RRETURN( CAttrArray::SetSimple(GetAttrArray(), &s_propdescCRichtexttype.a, *(DWORD*) &pv) );
+}
+htmlInput CRichtext::GetAAtype() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCRichtexttype.a, &v);
+    return *(htmlInput*)&v;
+}
+LPCTSTR CRichtext::GetAAonchange() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCRichtextonchange.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CRichtext::GetAAonselect() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCRichtextonselect.a, &v);
+    return *(LPCTSTR*)&v;
+}
+long CRichtext::GetAArows() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCRichtextrows.a, &v);
+    return *(long*)&v;
+}
+long CRichtext::GetAAcols() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCRichtextcols.a, &v);
+    return *(long*)&v;
+}
+htmlWrap CRichtext::GetAAwrap() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCRichtextwrap.a, &v);
+    return *(htmlWrap*)&v;
+}
+VARIANT_BOOL CRichtext::GetAAreadOnly() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCRichtextreadOnly.a, &v);
+    return *(VARIANT_BOOL*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CTextArea_
+
+
+//  Cascaded Property get method prototypes for class CTextArea
+
+public:
+
+//    Property get/set method declarations for class CTextArea
+
+public:
+    static const PROPERTYDESC * const CTextArea::s_ppropdescs [];
+    static const VTABLEDESC CTextArea::s_apVTableInterf [];
+    static HDLDESC CTextArea::s_apHdlDescs;
+    static const PROPERTYDESC * const CTextArea::s_ppropdescsInVtblOrderIHTMLTextAreaElement [];
+    static const CONNECTION_POINT_INFO CTextArea::s_acpi[];
+//    Event fire method declarations for events HTMLInputTextElementEvents
+    BOOL Fire_onchange()
+    {
+        return FireCancelableEvent(DISPID_EVMETH_ONCHANGE, DISPID_EVPROP_ONCHANGE, _T("change"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onselect()
+    {
+        FireEvent(DISPID_EVMETH_ONSELECT, DISPID_EVPROP_ONSELECT, _T("select"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onload()
+    {
+        FireEvent(DISPID_EVMETH_ONLOAD, DISPID_EVPROP_ONLOAD, _T("load"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onerror()
+    {
+        FireEvent(DISPID_EVMETH_ONERROR, DISPID_EVPROP_ONERROR, _T("error"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onabort()
+    {
+        FireEvent(DISPID_EVMETH_ONABORT, DISPID_EVPROP_ONABORT, _T("abort"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLTextAreaElement)
+
+#endif // _CTextArea_
+
+#undef _CTextArea_
+
+#ifdef _CRichtext_
+
+
+//  Cascaded Property get method prototypes for class CRichtext
+
+public:
+    HRESULT SetAAtype(htmlInput);
+    htmlInput GetAAtype() const;
+    LPCTSTR GetAAonchange() const;
+    LPCTSTR GetAAonselect() const;
+    long GetAArows() const;
+    long GetAAcols() const;
+    htmlWrap GetAAwrap() const;
+    VARIANT_BOOL GetAAreadOnly() const;
+
+//    Property get/set method declarations for class CRichtext
+
+public:
+    static const PROPERTYDESC * const CRichtext::s_ppropdescs [];
+    static const VTABLEDESC CRichtext::s_apVTableInterf [];
+    static HDLDESC CRichtext::s_apHdlDescs;
+    static const PROPERTYDESC * const CRichtext::s_ppropdescsInVtblOrderIHTMLTextAreaElement [];
+    static const CONNECTION_POINT_INFO CRichtext::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD(put_status, PUT_status, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_status, GET_status, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, select, sELECT, ());
+//    Event fire method declarations for events HTMLInputTextElementEvents
+    BOOL Fire_onchange()
+    {
+        return FireCancelableEvent(DISPID_EVMETH_ONCHANGE, DISPID_EVPROP_ONCHANGE, _T("change"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onselect()
+    {
+        FireEvent(DISPID_EVMETH_ONSELECT, DISPID_EVPROP_ONSELECT, _T("select"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onload()
+    {
+        FireEvent(DISPID_EVMETH_ONLOAD, DISPID_EVPROP_ONLOAD, _T("load"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onerror()
+    {
+        FireEvent(DISPID_EVMETH_ONERROR, DISPID_EVPROP_ONERROR, _T("error"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onabort()
+    {
+        FireEvent(DISPID_EVMETH_ONABORT, DISPID_EVPROP_ONABORT, _T("abort"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLTextAreaElement)
+
+#endif // _CRichtext_
+
+#undef _CRichtext_
+

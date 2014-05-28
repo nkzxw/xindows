@@ -1,0 +1,146 @@
+
+#ifdef _hxx_
+
+#include "collect.h"
+
+//    DISPIDs for class CElementCollection
+
+EXTERN_C const GUID CLSID_HTMLElementCollection;
+#define DISPID_CElementCollection_toString     DISPID_COLLECTION+1
+#define DISPID_CElementCollection_length     DISPID_COLLECTION
+#define DISPID_CElementCollection__newEnum     DISPID_NEWENUM
+#define DISPID_CElementCollection_tags     DISPID_COLLECTION+2
+#define DISPID_CElementCollection_item     DISPID_VALUE
+#define DISPID_CElementCollection_urns     DISPID_COLLECTION+5
+//    DISPIDs for classIHTMLElementCollection
+
+//    DISPIDs for classIHTMLElementCollection2
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CElementCollection_PROPDESCS_
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementCollectiontoString = 
+{
+    NULL, NULL, _T("toString"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_COLLECTION+1, 0, IDX_Method_BSTRp_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementCollectionlength = 
+{
+    NULL, _T("length"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_COLLECTION, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementCollection_newEnum = 
+{
+    NULL, _T("_newEnum"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN | PROPPARAM_RESTRICTED, DISPID_NEWENUM, 0, IDX_G_IUnknownp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementCollectiontags = 
+{
+    NULL, NULL, _T("tags"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_COLLECTION+2, 0, IDX_Method_IDispatchpp_VARIANT, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+const DEFAULTARGDESC s_defArgCElementCollectionitem =
+{
+    (DWORD_PTR)"",
+    (DWORD_PTR)"",
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementCollectionitem = 
+{
+    NULL, NULL, _T("item"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_VALUE, 0, IDX_Method_IDispatchpp_o0oVARIANT_o0oVARIANT, pdlNoLimit
+    },
+    &s_defArgCElementCollectionitem, 2, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementCollectionurns = 
+{
+    NULL, NULL, _T("urns"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_COLLECTION+5, 0, IDX_Method_IDispatchpp_VARIANT, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+
+const PROPERTYDESC * const CElementCollection::s_ppropdescs[] = {
+    NULL
+};
+
+const VTABLEDESC CElementCollection::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_methdescCElementCollectiontoString, 0x0},        // Method toString
+    {(PROPERTYDESC *)&s_methdescCElementCollectionurns, 0x800},        // Method urns
+    {NULL, 0}
+};
+
+HDLDESC CElementCollection::s_apHdlDescs = {  &DIID_DispHTMLElementCollection,NULL, 0, CElementCollection::s_apVTableInterf, 2, NULL};
+
+//    Property get/set method implementation for class CElementCollection
+
+
+//    Tear-off table for class CElementCollection
+BEGIN_TEAROFF_TABLE(CElementCollection, IHTMLElementCollection2)
+    //  IHTMLElementCollection2 methods
+    TEAROFF_METHOD(CElementCollection, &urns, uRNS, (VARIANT,IDispatch**))
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CElementCollection_
+
+
+//  Cascaded Property get method prototypes for class CElementCollection
+
+public:
+
+//    Property get/set method declarations for class CElementCollection
+
+public:
+    static const PROPERTYDESC * const CElementCollection::s_ppropdescs [];
+    static const VTABLEDESC CElementCollection::s_apVTableInterf [];
+    static HDLDESC CElementCollection::s_apHdlDescs;
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, toString, tostring, (BSTR* String));
+    DECLARE_TEAROFF_METHOD(put_length, PUT_length, (long v));
+    DECLARE_TEAROFF_METHOD(get_length, GET_length, (long*p));
+    DECLARE_TEAROFF_METHOD(get__newEnum, GET__newEnum, (IUnknown**p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, tags, tAGS, (VARIANT tagName,IDispatch** pdisp));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, item, iTEM, (VARIANT name,VARIANT index,IDispatch** pdisp));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, urns, uRNS, (VARIANT urn,IDispatch** pdisp));
+    DECLARE_TEAROFF_TABLE(IHTMLElementCollection2)
+
+#endif // _CElementCollection_
+
+#undef _CElementCollection_
+

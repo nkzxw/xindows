@@ -1,0 +1,32 @@
+
+import "oaidl.idl";
+
+//+------------------------------------------------------------------------
+//
+//  IDispObserver interface
+//
+//-------------------------------------------------------------------------
+[
+	object,
+	uuid(3050f43d-98b5-11cf-bb82-00aa00bdce0b),
+	pointer_default(unique),
+	local
+]
+interface IDispObserver : IUnknown
+{
+	void Invalidate(
+		[in] const RECT* prcInvalid,
+		[in] HRGN rgnInvalid,
+		[in] DWORD flags);
+
+	HDC GetClientDC(
+		[in] const RECT* prc);
+
+	void ReleaseClientDC(
+		[in] HDC hdc);
+
+	void DrawSynchronous(
+		[in] HRGN hrgn,
+		[in] HDC hdc,
+		[in] const RECT* prcClip);
+}

@@ -1,0 +1,1398 @@
+
+#ifdef _hxx_
+
+#include "document.h"
+
+//    DISPIDs for class CDoc
+
+EXTERN_C const GUID CLSID_HTMLDocument;
+#define DISPID_CDoc_Script     DISPID_OMDOCUMENT+1
+#define DISPID_CDoc_all     DISPID_OMDOCUMENT+3
+#define DISPID_CDoc_body     DISPID_OMDOCUMENT+4
+#define DISPID_CDoc_activeElement     DISPID_OMDOCUMENT+5
+#define DISPID_CDoc_anchors     DISPID_OMDOCUMENT+7
+#define DISPID_CDoc_applets     DISPID_OMDOCUMENT+8
+#define DISPID_CDoc_links     DISPID_OMDOCUMENT+9
+#define DISPID_CDoc_forms     DISPID_OMDOCUMENT+10
+#define DISPID_CDoc_images     DISPID_OMDOCUMENT+11
+#define DISPID_CDoc_title     DISPID_OMDOCUMENT+12
+#define DISPID_CDoc_scripts     DISPID_OMDOCUMENT+13
+#define DISPID_CDoc_embeds     DISPID_OMDOCUMENT+15
+#define DISPID_CDoc_readyState     DISPID_OMDOCUMENT+18
+#define DISPID_CDoc_plugins     DISPID_OMDOCUMENT+21
+#define DISPID_CDoc_bgColor     DISPID_BACKCOLOR
+#define DISPID_CDoc_fgColor     DISPID_A_COLOR
+#define DISPID_CDoc_alinkColor     DISPID_OMDOCUMENT+22
+#define DISPID_CDoc_vlinkColor     DISPID_OMDOCUMENT+23
+#define DISPID_CDoc_linkColor     DISPID_OMDOCUMENT+24
+#define DISPID_CDoc_expando     DISPID_OMDOCUMENT+31
+#define DISPID_CDoc_charset     DISPID_OMDOCUMENT+32
+#define DISPID_CDoc_defaultCharset     DISPID_OMDOCUMENT+33
+#define DISPID_CDoc_parentWindow     DISPID_OMDOCUMENT+34
+#define DISPID_CDoc_dir     DISPID_A_DIR
+#define DISPID_CDoc_onhelp     DISPID_EVPROP_ONHELP
+#define DISPID_CDoc_onclick     DISPID_EVPROP_ONCLICK
+#define DISPID_CDoc_ondblclick     DISPID_EVPROP_ONDBLCLICK
+#define DISPID_CDoc_onkeyup     DISPID_EVPROP_ONKEYUP
+#define DISPID_CDoc_onkeydown     DISPID_EVPROP_ONKEYDOWN
+#define DISPID_CDoc_onkeypress     DISPID_EVPROP_ONKEYPRESS
+#define DISPID_CDoc_onmouseup     DISPID_EVPROP_ONMOUSEUP
+#define DISPID_CDoc_onmousedown     DISPID_EVPROP_ONMOUSEDOWN
+#define DISPID_CDoc_onmousemove     DISPID_EVPROP_ONMOUSEMOVE
+#define DISPID_CDoc_onmouseout     DISPID_EVPROP_ONMOUSEOUT
+#define DISPID_CDoc_onmouseover     DISPID_EVPROP_ONMOUSEOVER
+#define DISPID_CDoc_onreadystatechange     DISPID_EVPROP_ONREADYSTATECHANGE
+#define DISPID_CDoc_onafterupdate     DISPID_EVPROP_ONAFTERUPDATE
+#define DISPID_CDoc_onbeforeupdate     DISPID_EVPROP_ONBEFOREUPDATE
+#define DISPID_CDoc_ondragstart     DISPID_EVPROP_ONDRAGSTART
+#define DISPID_CDoc_onselectstart     DISPID_EVPROP_ONSELECTSTART
+#define DISPID_CDoc_onerrorupdate     DISPID_EVPROP_ONERRORUPDATE
+#define DISPID_CDoc_onpropertychange     DISPID_EVPROP_ONPROPERTYCHANGE
+#define DISPID_CDoc_oncontextmenu     DISPID_EVPROP_ONCONTEXTMENU
+#define DISPID_CDoc_onstop     DISPID_EVPROP_ONSTOP
+#define DISPID_CDoc_onbeforeeditfocus     DISPID_EVPROP_ONBEFOREEDITFOCUS
+#define DISPID_CDoc_nameProp     DISPID_OMDOCUMENT+48
+#define DISPID_CDoc_queryCommandSupported     DISPID_OMDOCUMENT+59
+#define DISPID_CDoc_queryCommandEnabled     DISPID_OMDOCUMENT+60
+#define DISPID_CDoc_queryCommandState     DISPID_OMDOCUMENT+61
+#define DISPID_CDoc_queryCommandIndeterm     DISPID_OMDOCUMENT+62
+#define DISPID_CDoc_queryCommandText     DISPID_OMDOCUMENT+63
+#define DISPID_CDoc_queryCommandValue     DISPID_OMDOCUMENT+64
+#define DISPID_CDoc_execCommand     DISPID_OMDOCUMENT+65
+#define DISPID_CDoc_execCommandShowHelp     DISPID_OMDOCUMENT+66
+#define DISPID_CDoc_createElement     DISPID_OMDOCUMENT+67
+#define DISPID_CDoc_elementFromPoint     DISPID_OMDOCUMENT+68
+#define DISPID_CDoc_toString     DISPID_OMDOCUMENT+70
+#define DISPID_CDoc_releaseCapture     DISPID_OMDOCUMENT+72
+#define DISPID_CDoc_createTextNode     DISPID_OMDOCUMENT+74
+#define DISPID_CDoc_documentElement     DISPID_OMDOCUMENT+75
+#define DISPID_CDoc_uniqueID     DISPID_OMDOCUMENT+77
+#define DISPID_CDoc_attachEvent     DISPID_HTMLOBJECT+7
+#define DISPID_CDoc_detachEvent     DISPID_HTMLOBJECT+8
+#define DISPID_CDoc_parentDocument     DISPID_OMDOCUMENT+78
+#define DISPID_CDoc_enableDownload     DISPID_OMDOCUMENT+79
+#define DISPID_CDoc_baseUrl     DISPID_OMDOCUMENT+80
+#define DISPID_CDoc_getElementsByName     DISPID_OMDOCUMENT+86
+#define DISPID_CDoc_getElementsByTagName     DISPID_OMDOCUMENT+87
+#define DISPID_CDoc_getElementById     DISPID_OMDOCUMENT+88
+//    DISPIDs for classIHTMLDocument
+
+//    DISPIDs for classIHTMLDocument2
+
+//    DISPIDs for classIHTMLDocument3
+
+//    DISPIDs for event set HTMLDocumentEvents2
+
+#define DISPID_HTMLDOCUMENTEVENTS2_ONHELP                         DISPID_EVMETH_ONHELP
+#define DISPID_HTMLDOCUMENTEVENTS2_ONCLICK                        DISPID_EVMETH_ONCLICK
+#define DISPID_HTMLDOCUMENTEVENTS2_ONDBLCLICK                     DISPID_EVMETH_ONDBLCLICK
+#define DISPID_HTMLDOCUMENTEVENTS2_ONKEYDOWN                      DISPID_EVMETH_ONKEYDOWN
+#define DISPID_HTMLDOCUMENTEVENTS2_ONKEYUP                        DISPID_EVMETH_ONKEYUP
+#define DISPID_HTMLDOCUMENTEVENTS2_ONKEYPRESS                     DISPID_EVMETH_ONKEYPRESS
+#define DISPID_HTMLDOCUMENTEVENTS2_ONMOUSEDOWN                    DISPID_EVMETH_ONMOUSEDOWN
+#define DISPID_HTMLDOCUMENTEVENTS2_ONMOUSEMOVE                    DISPID_EVMETH_ONMOUSEMOVE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONMOUSEUP                      DISPID_EVMETH_ONMOUSEUP
+#define DISPID_HTMLDOCUMENTEVENTS2_ONMOUSEOUT                     DISPID_EVMETH_ONMOUSEOUT
+#define DISPID_HTMLDOCUMENTEVENTS2_ONMOUSEOVER                    DISPID_EVMETH_ONMOUSEOVER
+#define DISPID_HTMLDOCUMENTEVENTS2_ONREADYSTATECHANGE             DISPID_EVMETH_ONREADYSTATECHANGE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONBEFOREUPDATE                 DISPID_EVMETH_ONBEFOREUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONAFTERUPDATE                  DISPID_EVMETH_ONAFTERUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONDRAGSTART                    DISPID_EVMETH_ONDRAGSTART
+#define DISPID_HTMLDOCUMENTEVENTS2_ONSELECTSTART                  DISPID_EVMETH_ONSELECTSTART
+#define DISPID_HTMLDOCUMENTEVENTS2_ONERRORUPDATE                  DISPID_EVMETH_ONERRORUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONCONTEXTMENU                  DISPID_EVMETH_ONCONTEXTMENU
+#define DISPID_HTMLDOCUMENTEVENTS2_ONSTOP                         DISPID_EVMETH_ONSTOP
+#define DISPID_HTMLDOCUMENTEVENTS2_ONPROPERTYCHANGE               DISPID_EVMETH_ONPROPERTYCHANGE
+#define DISPID_HTMLDOCUMENTEVENTS2_ONBEFOREEDITFOCUS              DISPID_EVMETH_ONBEFOREEDITFOCUS
+
+EXTERN_C const GUID DIID_HTMLDocumentEvents2;
+
+//    DISPIDs for event set HTMLDocumentEvents
+
+#define DISPID_HTMLDOCUMENTEVENTS_ONHELP                          DISPID_EVMETH_ONHELP
+#define DISPID_HTMLDOCUMENTEVENTS_ONCLICK                         DISPID_EVMETH_ONCLICK
+#define DISPID_HTMLDOCUMENTEVENTS_ONDBLCLICK                      DISPID_EVMETH_ONDBLCLICK
+#define DISPID_HTMLDOCUMENTEVENTS_ONKEYDOWN                       DISPID_EVMETH_ONKEYDOWN
+#define DISPID_HTMLDOCUMENTEVENTS_ONKEYUP                         DISPID_EVMETH_ONKEYUP
+#define DISPID_HTMLDOCUMENTEVENTS_ONKEYPRESS                      DISPID_EVMETH_ONKEYPRESS
+#define DISPID_HTMLDOCUMENTEVENTS_ONMOUSEDOWN                     DISPID_EVMETH_ONMOUSEDOWN
+#define DISPID_HTMLDOCUMENTEVENTS_ONMOUSEMOVE                     DISPID_EVMETH_ONMOUSEMOVE
+#define DISPID_HTMLDOCUMENTEVENTS_ONMOUSEUP                       DISPID_EVMETH_ONMOUSEUP
+#define DISPID_HTMLDOCUMENTEVENTS_ONMOUSEOUT                      DISPID_EVMETH_ONMOUSEOUT
+#define DISPID_HTMLDOCUMENTEVENTS_ONMOUSEOVER                     DISPID_EVMETH_ONMOUSEOVER
+#define DISPID_HTMLDOCUMENTEVENTS_ONREADYSTATECHANGE              DISPID_EVMETH_ONREADYSTATECHANGE
+#define DISPID_HTMLDOCUMENTEVENTS_ONBEFOREUPDATE                  DISPID_EVMETH_ONBEFOREUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS_ONAFTERUPDATE                   DISPID_EVMETH_ONAFTERUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS_ONDRAGSTART                     DISPID_EVMETH_ONDRAGSTART
+#define DISPID_HTMLDOCUMENTEVENTS_ONSELECTSTART                   DISPID_EVMETH_ONSELECTSTART
+#define DISPID_HTMLDOCUMENTEVENTS_ONERRORUPDATE                   DISPID_EVMETH_ONERRORUPDATE
+#define DISPID_HTMLDOCUMENTEVENTS_ONCONTEXTMENU                   DISPID_EVMETH_ONCONTEXTMENU
+#define DISPID_HTMLDOCUMENTEVENTS_ONSTOP                          DISPID_EVMETH_ONSTOP
+#define DISPID_HTMLDOCUMENTEVENTS_ONPROPERTYCHANGE                DISPID_EVMETH_ONPROPERTYCHANGE
+#define DISPID_HTMLDOCUMENTEVENTS_ONBEFOREEDITFOCUS               DISPID_EVMETH_ONBEFOREEDITFOCUS
+
+EXTERN_C const GUID DIID_HTMLDocumentEvents;
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CDoc_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocScript = 
+{
+    NULL, _T("Script"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN, DISPID_OMDOCUMENT+1, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocall = 
+{
+    NULL, _T("all"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+3, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocbody = 
+{
+    NULL, _T("body"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+4, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocactiveElement = 
+{
+    NULL, _T("activeElement"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+5, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocanchors = 
+{
+    NULL, _T("anchors"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+7, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocapplets = 
+{
+    NULL, _T("applets"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+8, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDoclinks = 
+{
+    NULL, _T("links"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+9, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocforms = 
+{
+    NULL, _T("forms"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+10, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocimages = 
+{
+    NULL, _T("images"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+11, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDoctitle = 
+{
+    NULL, _T("title"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_OMDOCUMENT+12, 0, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocscripts = 
+{
+    NULL, _T("scripts"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+13, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocembeds = 
+{
+    NULL, _T("embeds"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+15, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocreadyState = 
+{
+    NULL, _T("readyState"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+18, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocplugins = 
+{
+    NULL, _T("plugins"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+21, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocbgColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("bgColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("bgColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_BACKCOLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocfgColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("fgColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("fgColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_COLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocalinkColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("alinkColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("alinkColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_OMDOCUMENT+22, 0, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocvlinkColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("vlinkColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("vlinkColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_OMDOCUMENT+23, 0, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoclinkColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("linkColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("linkColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_OMDOCUMENT+24, 0, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocexpando = 
+{
+    NULL, _T("expando"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_OMDOCUMENT+31, 0, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDoccharset = 
+{
+    NULL, _T("charset"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_OMDOCUMENT+32, 0, IDX_GS_BSTR, pdlLength 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocdefaultCharset = 
+{
+    NULL, _T("defaultCharset"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_OMDOCUMENT+33, 0, IDX_GS_BSTR, pdlLength 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocparentWindow = 
+{
+    NULL, _T("parentWindow"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+34, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCDocdir =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("dir"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("dir"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_DIR, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlDir,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconhelp =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onhelp"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onhelp"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONHELP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconclick =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onclick"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onclick"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCLICK, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocondblclick =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondblclick"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondblclick"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDBLCLICK, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconkeyup =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeyup"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeyup"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYUP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconkeydown =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeydown"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeydown"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYDOWN, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconkeypress =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeypress"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeypress"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYPRESS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconmouseup =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseup"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseup"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEUP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconmousedown =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmousedown"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmousedown"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEDOWN, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconmousemove =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmousemove"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmousemove"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEMOVE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconmouseout =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseout"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseout"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEOUT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconmouseover =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseover"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseover"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEOVER, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconreadystatechange =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onreadystatechange"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onreadystatechange"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONREADYSTATECHANGE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconafterupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onafterupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onafterupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONAFTERUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconbeforeupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforeupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforeupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDocondragstart =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragstart"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragstart"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGSTART, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconselectstart =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onselectstart"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onselectstart"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSELECTSTART, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconerrorupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onerrorupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onerrorupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONERRORUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconpropertychange =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onpropertychange"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onpropertychange"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONPROPERTYCHANGE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconcontextmenu =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("oncontextmenu"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("oncontextmenu"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCONTEXTMENU, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconstop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onstop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onstop"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSTOP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCDoconbeforeeditfocus =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforeeditfocus"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforeeditfocus"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREEDITFOCUS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocnameProp = 
+{
+    NULL, _T("nameProp"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+48, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandSupported = 
+{
+    NULL, NULL, _T("queryCommandSupported"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+59, 0, IDX_Method_VARIANTBOOLp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandEnabled = 
+{
+    NULL, NULL, _T("queryCommandEnabled"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+60, 0, IDX_Method_VARIANTBOOLp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandState = 
+{
+    NULL, NULL, _T("queryCommandState"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+61, 0, IDX_Method_VARIANTBOOLp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandIndeterm = 
+{
+    NULL, NULL, _T("queryCommandIndeterm"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+62, 0, IDX_Method_VARIANTBOOLp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandText = 
+{
+    NULL, NULL, _T("queryCommandText"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+63, 0, IDX_Method_BSTRp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocqueryCommandValue = 
+{
+    NULL, NULL, _T("queryCommandValue"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+64, 0, IDX_Method_VARIANTp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+const DEFAULTARGDESC s_defArgCDocexecCommand =
+{
+    (DWORD_PTR)0,
+    (DWORD_PTR)"",
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocexecCommand = 
+{
+    NULL, NULL, _T("execCommand"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+65, 0, IDX_Method_VARIANTBOOLp_BSTR_oDoVARIANTBOOL_o0oVARIANT, pdlNoLimit
+    },
+    &s_defArgCDocexecCommand, 3, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocexecCommandShowHelp = 
+{
+    NULL, NULL, _T("execCommandShowHelp"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+66, 0, IDX_Method_VARIANTBOOLp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDoccreateElement = 
+{
+    NULL, NULL, _T("createElement"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+67, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocelementFromPoint = 
+{
+    NULL, NULL, _T("elementFromPoint"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+68, 0, IDX_Method_IDispatchpp_long_long, 0
+    },
+    NULL, 2, 2
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDoctoString = 
+{
+    NULL, NULL, _T("toString"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+70, 0, IDX_Method_BSTRp_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocreleaseCapture = 
+{
+    NULL, NULL, _T("releaseCapture"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+72, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDoccreateTextNode = 
+{
+    NULL, NULL, _T("createTextNode"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+74, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocdocumentElement = 
+{
+    NULL, _T("documentElement"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_OMDOCUMENT+75, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocuniqueID = 
+{
+    NULL, _T("uniqueID"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN, DISPID_OMDOCUMENT+77, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocparentDocument = 
+{
+    NULL, _T("parentDocument"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN | PROPPARAM_RESTRICTED, DISPID_OMDOCUMENT+78, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocenableDownload = 
+{
+    NULL, _T("enableDownload"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN | PROPPARAM_RESTRICTED, DISPID_OMDOCUMENT+79, 0, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCDocbaseUrl = 
+{
+    NULL, _T("baseUrl"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN | PROPPARAM_RESTRICTED, DISPID_OMDOCUMENT+80, 0, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocgetElementsByName = 
+{
+    NULL, NULL, _T("getElementsByName"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+86, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocgetElementsByTagName = 
+{
+    NULL, NULL, _T("getElementsByTagName"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+87, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCDocgetElementById = 
+{
+    NULL, NULL, _T("getElementById"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_OMDOCUMENT+88, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+
+const PROPERTYDESC * const CDocument::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCDocalinkColor.a, // alinkColor
+    (PROPERTYDESC *)&s_propdescCDocbgColor.a, // bgColor
+    (PROPERTYDESC *)&s_propdescCDocdir.a, // dir
+    (PROPERTYDESC *)&s_propdescCDocfgColor.a, // fgColor
+    (PROPERTYDESC *)&s_propdescCDoclinkColor.a, // linkColor
+    (PROPERTYDESC *)&s_propdescCDoconafterupdate.a, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCDoconbeforeeditfocus.a, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCDoconbeforeupdate.a, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCDoconclick.a, // onclick
+    (PROPERTYDESC *)&s_propdescCDoconcontextmenu.a, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCDocondblclick.a, // ondblclick
+    (PROPERTYDESC *)&s_propdescCDocondragstart.a, // ondragstart
+    (PROPERTYDESC *)&s_propdescCDoconerrorupdate.a, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCDoconhelp.a, // onhelp
+    (PROPERTYDESC *)&s_propdescCDoconkeydown.a, // onkeydown
+    (PROPERTYDESC *)&s_propdescCDoconkeypress.a, // onkeypress
+    (PROPERTYDESC *)&s_propdescCDoconkeyup.a, // onkeyup
+    (PROPERTYDESC *)&s_propdescCDoconmousedown.a, // onmousedown
+    (PROPERTYDESC *)&s_propdescCDoconmousemove.a, // onmousemove
+    (PROPERTYDESC *)&s_propdescCDoconmouseout.a, // onmouseout
+    (PROPERTYDESC *)&s_propdescCDoconmouseover.a, // onmouseover
+    (PROPERTYDESC *)&s_propdescCDoconmouseup.a, // onmouseup
+    (PROPERTYDESC *)&s_propdescCDoconpropertychange.a, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCDoconreadystatechange.a, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCDoconselectstart.a, // onselectstart
+    (PROPERTYDESC *)&s_propdescCDoconstop.a, // onstop
+    (PROPERTYDESC *)&s_propdescCDocvlinkColor.a, // vlinkColor
+    NULL
+};
+
+const CONNECTION_POINT_INFO CDocument::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(DIID_HTMLDocumentEvents, DISPID_A_EVENTSINK)
+    CPI_ENTRY(DIID_HTMLDocumentEvents2, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const VTABLEDESC CDocument::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCDocactiveElement, 0x3},        // Property activeElement
+    {(PROPERTYDESC *)&s_propdescCDocalinkColor, 0x13},        // Property alinkColor
+    {(PROPERTYDESC *)&s_propdescCDocall, 0x1},        // Property all
+    {(PROPERTYDESC *)&s_methdescCBaseattachEvent, 0x1805},        // Method attachEvent
+    {(PROPERTYDESC *)&s_propdescCDocbaseUrl, 0x181f},        // Property baseUrl
+    {(PROPERTYDESC *)&s_propdescCDocbgColor, 0x15},        // Property bgColor
+    {(PROPERTYDESC *)&s_propdescCDocbody, 0x2},        // Property body
+    {(PROPERTYDESC *)&s_propdescCDoccharset, 0x28},        // Property charset
+    {(PROPERTYDESC *)&s_methdescCDoccreateElement, 0x41},        // Method createElement
+    {(PROPERTYDESC *)&s_methdescCDoccreateTextNode, 0x1802},        // Method createTextNode
+    {(PROPERTYDESC *)&s_propdescCDocdefaultCharset, 0x2a},        // Property defaultCharset
+    {(PROPERTYDESC *)&s_methdescCBasedetachEvent, 0x1806},        // Method detachEvent
+    {(PROPERTYDESC *)&s_propdescCDocdir, 0x1815},        // Property dir
+    {(PROPERTYDESC *)&s_propdescCDocdocumentElement, 0x1803},        // Property documentElement
+    {(PROPERTYDESC *)&s_methdescCDocelementFromPoint, 0x64},        // Method elementFromPoint
+    {(PROPERTYDESC *)&s_propdescCDocenableDownload, 0x181d},        // Property enableDownload
+    {(PROPERTYDESC *)&s_methdescCDocexecCommand, 0x3f},        // Method execCommand
+    {(PROPERTYDESC *)&s_methdescCDocexecCommandShowHelp, 0x40},        // Method execCommandShowHelp
+    {(PROPERTYDESC *)&s_propdescCDocexpando, 0x26},        // Property expando
+    {(PROPERTYDESC *)&s_propdescCDocfgColor, 0x17},        // Property fgColor
+    {(PROPERTYDESC *)&s_propdescCDocforms, 0x7},        // Property forms
+    {(PROPERTYDESC *)&s_methdescCDocgetElementById, 0x182a},        // Method getElementById
+    {(PROPERTYDESC *)&s_methdescCDocgetElementsByName, 0x1829},        // Method getElementsByName
+    {(PROPERTYDESC *)&s_methdescCDocgetElementsByTagName, 0x182b},        // Method getElementsByTagName
+    {(PROPERTYDESC *)&s_propdescCDoclinkColor, 0x19},        // Property linkColor
+    {(PROPERTYDESC *)&s_propdescCDoclinks, 0x6},        // Property links
+    {(PROPERTYDESC *)&s_propdescCDocnameProp, 0x33},        // Property nameProp
+    {(PROPERTYDESC *)&s_propdescCDoconafterupdate, 0x5a},        // Property onafterupdate
+    {(PROPERTYDESC *)&s_propdescCDoconbeforeeditfocus, 0x1827},        // Property onbeforeeditfocus
+    {(PROPERTYDESC *)&s_propdescCDoconbeforeupdate, 0x67},        // Property onbeforeupdate
+    {(PROPERTYDESC *)&s_propdescCDoconclick, 0x44},        // Property onclick
+    {(PROPERTYDESC *)&s_propdescCDoconcontextmenu, 0x1817},        // Property oncontextmenu
+    {(PROPERTYDESC *)&s_propdescCDocondblclick, 0x46},        // Property ondblclick
+    {(PROPERTYDESC *)&s_propdescCDocondragstart, 0x60},        // Property ondragstart
+    {(PROPERTYDESC *)&s_propdescCDoconerrorupdate, 0x69},        // Property onerrorupdate
+    {(PROPERTYDESC *)&s_propdescCDoconhelp, 0x42},        // Property onhelp
+    {(PROPERTYDESC *)&s_propdescCDoconkeydown, 0x4a},        // Property onkeydown
+    {(PROPERTYDESC *)&s_propdescCDoconkeypress, 0x4c},        // Property onkeypress
+    {(PROPERTYDESC *)&s_propdescCDoconkeyup, 0x48},        // Property onkeyup
+    {(PROPERTYDESC *)&s_propdescCDoconmousedown, 0x50},        // Property onmousedown
+    {(PROPERTYDESC *)&s_propdescCDoconmousemove, 0x52},        // Property onmousemove
+    {(PROPERTYDESC *)&s_propdescCDoconmouseout, 0x54},        // Property onmouseout
+    {(PROPERTYDESC *)&s_propdescCDoconmouseover, 0x56},        // Property onmouseover
+    {(PROPERTYDESC *)&s_propdescCDoconmouseup, 0x4e},        // Property onmouseup
+    {(PROPERTYDESC *)&s_propdescCDoconpropertychange, 0x1813},        // Property onpropertychange
+    {(PROPERTYDESC *)&s_propdescCDoconreadystatechange, 0x58},        // Property onreadystatechange
+    {(PROPERTYDESC *)&s_propdescCDoconselectstart, 0x62},        // Property onselectstart
+    {(PROPERTYDESC *)&s_propdescCDoconstop, 0x1819},        // Property onstop
+    {(PROPERTYDESC *)&s_propdescCDocparentDocument, 0x181c},        // Property parentDocument
+    {(PROPERTYDESC *)&s_propdescCDocparentWindow, 0x65},        // Property parentWindow
+    {(PROPERTYDESC *)&s_propdescCDocplugins, 0x12},        // Property plugins
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandEnabled, 0x3a},        // Method queryCommandEnabled
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandIndeterm, 0x3c},        // Method queryCommandIndeterm
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandState, 0x3b},        // Method queryCommandState
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandSupported, 0x39},        // Method queryCommandSupported
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandText, 0x3d},        // Method queryCommandText
+    {(PROPERTYDESC *)&s_methdescCDocqueryCommandValue, 0x3e},        // Method queryCommandValue
+    {(PROPERTYDESC *)&s_propdescCDocreadyState, 0xf},        // Property readyState
+    {(PROPERTYDESC *)&s_methdescCDocreleaseCapture, 0x1800},        // Method releaseCapture
+    {(PROPERTYDESC *)&s_propdescCDocScript, 0x0},        // Property Script
+    {(PROPERTYDESC *)&s_propdescCDocscripts, 0xb},        // Property scripts
+    {(PROPERTYDESC *)&s_propdescCDoctitle, 0x9},        // Property title
+    {(PROPERTYDESC *)&s_methdescCDoctoString, 0x6b},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCDocuniqueID, 0x1804},        // Property uniqueID
+    {(PROPERTYDESC *)&s_propdescCDocvlinkColor, 0x1b},        // Property vlinkColor
+    {NULL, 0}
+};
+
+HDLDESC CDocument::s_apHdlDescs = {  &DIID_DispHTMLDocument,CDocument::s_ppropdescs, 35, CDocument::s_apVTableInterf, 107, NULL};
+
+//    Property get/set method implementation for class CDoc
+
+STDMETHODIMP CDocument::put_onhelp(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconhelp.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onhelp(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconhelp.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onclick(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconclick.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onclick(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconclick.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_ondblclick(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDocondblclick.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_ondblclick(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDocondblclick.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onkeyup(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconkeyup.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onkeyup(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconkeyup.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onkeydown(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconkeydown.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onkeydown(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconkeydown.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onkeypress(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconkeypress.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onkeypress(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconkeypress.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onmouseup(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconmouseup.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onmouseup(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconmouseup.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onmousedown(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconmousedown.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onmousedown(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconmousedown.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onmousemove(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconmousemove.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onmousemove(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconmousemove.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onmouseout(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconmouseout.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onmouseout(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconmouseout.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onmouseover(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconmouseover.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onmouseover(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconmouseover.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onreadystatechange(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconreadystatechange.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onreadystatechange(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconreadystatechange.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onafterupdate(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconafterupdate.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onafterupdate(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconafterupdate.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onbeforeupdate(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconbeforeupdate.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onbeforeupdate(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconbeforeupdate.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_ondragstart(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDocondragstart.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_ondragstart(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDocondragstart.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onselectstart(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconselectstart.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onselectstart(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconselectstart.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onerrorupdate(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconerrorupdate.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onerrorupdate(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconerrorupdate.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onpropertychange(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconpropertychange.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onpropertychange(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconpropertychange.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_oncontextmenu(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconcontextmenu.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_oncontextmenu(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconcontextmenu.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onstop(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconstop.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onstop(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconstop.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::put_onbeforeeditfocus(VARIANT v)
+{
+    return SetErrorInfo(s_propdescCDoconbeforeeditfocus.a.HandleCodeProperty(HANDLEPROP_SET | HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), &v, this, CVOID_CAST(GetAttrArray())));
+}
+STDMETHODIMP CDocument::get_onbeforeeditfocus(VARIANT * p)
+{
+    return SetErrorInfo(s_propdescCDoconbeforeeditfocus.a.HandleCodeProperty(HANDLEPROP_AUTOMATION | (PROPTYPE_VARIANT << 16), p, this, CVOID_CAST(GetAttrArray())));
+}
+
+//    Cascaded Property get method implementations
+
+CColorValue CDocument::GetAAbgColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCDocbgColor.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CDocument::GetAAfgColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCDocfgColor.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CDocument::GetAAalinkColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCDocalinkColor.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CDocument::GetAAvlinkColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCDocvlinkColor.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CDocument::GetAAlinkColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCDoclinkColor.a, &v);
+    return *(CColorValue*)&v;
+}
+LPCTSTR CDocument::GetAAonhelp() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconhelp.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonclick() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconclick.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAondblclick() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDocondblclick.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonkeyup() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconkeyup.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonkeydown() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconkeydown.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonkeypress() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconkeypress.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonmouseup() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconmouseup.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonmousedown() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconmousedown.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonmousemove() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconmousemove.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonmouseout() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconmouseout.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonmouseover() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconmouseover.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonreadystatechange() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconreadystatechange.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonafterupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconafterupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonbeforeupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconbeforeupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAondragstart() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDocondragstart.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonselectstart() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconselectstart.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonerrorupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconerrorupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonpropertychange() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconpropertychange.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAoncontextmenu() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconcontextmenu.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonstop() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconstop.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CDocument::GetAAonbeforeeditfocus() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCDoconbeforeeditfocus.a, &v);
+    return *(LPCTSTR*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CDoc_
+
+
+//  Cascaded Property get method prototypes for class CDoc
+
+public:
+    CColorValue GetAAbgColor() const;
+    CColorValue GetAAfgColor() const;
+    CColorValue GetAAalinkColor() const;
+    CColorValue GetAAvlinkColor() const;
+    CColorValue GetAAlinkColor() const;
+    LPCTSTR GetAAonhelp() const;
+    LPCTSTR GetAAonclick() const;
+    LPCTSTR GetAAondblclick() const;
+    LPCTSTR GetAAonkeyup() const;
+    LPCTSTR GetAAonkeydown() const;
+    LPCTSTR GetAAonkeypress() const;
+    LPCTSTR GetAAonmouseup() const;
+    LPCTSTR GetAAonmousedown() const;
+    LPCTSTR GetAAonmousemove() const;
+    LPCTSTR GetAAonmouseout() const;
+    LPCTSTR GetAAonmouseover() const;
+    LPCTSTR GetAAonreadystatechange() const;
+    LPCTSTR GetAAonafterupdate() const;
+    LPCTSTR GetAAonbeforeupdate() const;
+    LPCTSTR GetAAondragstart() const;
+    LPCTSTR GetAAonselectstart() const;
+    LPCTSTR GetAAonerrorupdate() const;
+    LPCTSTR GetAAonpropertychange() const;
+    LPCTSTR GetAAoncontextmenu() const;
+    LPCTSTR GetAAonstop() const;
+    LPCTSTR GetAAonbeforeeditfocus() const;
+
+//    Property get/set method declarations for class CDoc
+
+public:
+    static const PROPERTYDESC * const CDocument::s_ppropdescs [];
+    static const VTABLEDESC CDocument::s_apVTableInterf [];
+    static HDLDESC CDocument::s_apHdlDescs;
+    static const CONNECTION_POINT_INFO CDocument::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD(get_Script, GET_Script, (IDispatch**p));
+    NV_DECLARE_TEAROFF_METHOD(get_all, GET_all, (IHTMLElementCollection**p));
+    NV_DECLARE_TEAROFF_METHOD(get_body, GET_body, (IHTMLElement**p));
+    NV_DECLARE_TEAROFF_METHOD(get_activeElement, GET_activeElement, (IHTMLElement**p));
+    NV_DECLARE_TEAROFF_METHOD(put_title, PUT_title, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_title, GET_title, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_readyState, GET_readyState, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(put_expando, PUT_expando, (VARIANT_BOOL v));
+    NV_DECLARE_TEAROFF_METHOD(get_expando, GET_expando, (VARIANT_BOOL*p));
+    NV_DECLARE_TEAROFF_METHOD(put_charset, PUT_charset, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_charset, GET_charset, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(put_defaultCharset, PUT_defaultCharset, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_defaultCharset, GET_defaultCharset, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_parentWindow, GET_parentWindow, (IHTMLWindow2**p));
+    NV_DECLARE_TEAROFF_METHOD(put_onhelp, PUT_onhelp, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onhelp, GET_onhelp, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onclick, PUT_onclick, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onclick, GET_onclick, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_ondblclick, PUT_ondblclick, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_ondblclick, GET_ondblclick, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onkeyup, PUT_onkeyup, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onkeyup, GET_onkeyup, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onkeydown, PUT_onkeydown, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onkeydown, GET_onkeydown, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onkeypress, PUT_onkeypress, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onkeypress, GET_onkeypress, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onmouseup, PUT_onmouseup, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onmouseup, GET_onmouseup, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onmousedown, PUT_onmousedown, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onmousedown, GET_onmousedown, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onmousemove, PUT_onmousemove, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onmousemove, GET_onmousemove, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onmouseout, PUT_onmouseout, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onmouseout, GET_onmouseout, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onmouseover, PUT_onmouseover, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onmouseover, GET_onmouseover, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onreadystatechange, PUT_onreadystatechange, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onreadystatechange, GET_onreadystatechange, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onafterupdate, PUT_onafterupdate, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onafterupdate, GET_onafterupdate, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onbeforeupdate, PUT_onbeforeupdate, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onbeforeupdate, GET_onbeforeupdate, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_ondragstart, PUT_ondragstart, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_ondragstart, GET_ondragstart, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onselectstart, PUT_onselectstart, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onselectstart, GET_onselectstart, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onerrorupdate, PUT_onerrorupdate, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onerrorupdate, GET_onerrorupdate, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onpropertychange, PUT_onpropertychange, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onpropertychange, GET_onpropertychange, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_oncontextmenu, PUT_oncontextmenu, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_oncontextmenu, GET_oncontextmenu, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onstop, PUT_onstop, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onstop, GET_onstop, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(put_onbeforeeditfocus, PUT_onbeforeeditfocus, (VARIANT v));
+    NV_DECLARE_TEAROFF_METHOD(get_onbeforeeditfocus, GET_onbeforeeditfocus, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(get_nameProp, GET_nameProp, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandSupported, querycommandsupported, (BSTR cmdID,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandEnabled, querycommandenabled, (BSTR cmdID,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandState, querycommandstate, (BSTR cmdID,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandIndeterm, querycommandindeterm, (BSTR cmdID,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandText, querycommandtext, (BSTR cmdID,BSTR* pcmdText));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, queryCommandValue, querycommandvalue, (BSTR cmdID,VARIANT* pcmdValue));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, execCommand, execcommand, (BSTR cmdID,VARIANT_BOOL showUI,VARIANT value,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, execCommandShowHelp, execcommandshowhelp, (BSTR cmdID,VARIANT_BOOL* pfRet));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, createElement, createelement, (BSTR eTag,IHTMLElement** newElem));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, elementFromPoint, elementfrompoint, (long x,long y,IHTMLElement** elementHit));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, toString, tostring, (BSTR* String));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, releaseCapture, releasecapture, ());
+    NV_DECLARE_TEAROFF_METHOD(get_documentElement, GET_documentElement, (IHTMLElement**p));
+    NV_DECLARE_TEAROFF_METHOD(get_uniqueID, GET_uniqueID, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, attachEvent, attachevent, (BSTR event,IDispatch* pDisp,VARIANT_BOOL* pfResult));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, detachEvent, detachevent, (BSTR event,IDispatch* pDisp));
+    NV_DECLARE_TEAROFF_METHOD(get_parentDocument, GET_parentDocument, (IHTMLDocument2**p));
+    NV_DECLARE_TEAROFF_METHOD(put_enableDownload, PUT_enableDownload, (VARIANT_BOOL v));
+    NV_DECLARE_TEAROFF_METHOD(get_enableDownload, GET_enableDownload, (VARIANT_BOOL*p));
+    NV_DECLARE_TEAROFF_METHOD(put_baseUrl, PUT_baseUrl, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_baseUrl, GET_baseUrl, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, getElementsByName, getelementsbyname, (BSTR v,IHTMLElementCollection** pelColl));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, getElementsByTagName, getelementsbytagname, (BSTR v,IHTMLElementCollection** pelColl));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, getElementById, getelementbyid, (BSTR v,IHTMLElement** pel));
+//    Event fire method declarations for events HTMLDocumentEvents
+    void Fire_onreadystatechange()
+    {
+        FireEvent(DISPID_EVMETH_ONREADYSTATECHANGE, DISPID_EVPROP_ONREADYSTATECHANGE, _T("readystatechange"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onstop()
+    {
+        FireEvent(DISPID_EVMETH_ONSTOP, DISPID_EVPROP_ONSTOP, _T("stop"), (BYTE *) VTS_NONE);
+    }
+
+#endif // _CDoc_
+
+#undef _CDoc_
+

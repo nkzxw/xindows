@@ -1,0 +1,186 @@
+
+#ifdef _hxx_
+
+#include "internal.h"
+
+//    DISPIDs for classIElementBehavior
+
+//    DISPIDs for classIElementBehaviorFactory
+
+//    DISPIDs for classIIdentityBehavior
+
+//    DISPIDs for classIIdentityBehaviorFactory
+
+//    DISPIDs for classISubDivisionProvider
+
+//    DISPIDs for classIElementBehaviorUI
+
+//    DISPIDs for classIMarkupPointer
+
+//    DISPIDs for classIHTMLElement
+
+//    DISPIDs for classISegmentList
+
+//    DISPIDs for classIHTMLCaret
+
+//    DISPIDs for classISelectionRenderingServices
+
+//    DISPIDs for classIHTMLViewServices
+
+//    DISPIDs for classIHTMLCaret
+
+//    DISPIDs for classISegmentList
+
+//    DISPIDs for classISelectionRenderingServices
+
+//    DISPIDs for classIHTMLEditor
+
+//    DISPIDs for classIHTMLEditingServices
+
+//    DISPIDs for classIEditDebugServices
+
+//    DISPIDs for classIHTMLOMWindowServices
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdescCHAR_FORMAT_FAMILY = 
+{ 6, 65815, {
+    { _T("None"),0},
+    { _T("FontStyle"),1},
+    { _T("FontInfo"),2},
+    { _T("FontName"),4},
+    { _T("ColorInfo"),8},
+    { _T("ParaFormat"),16},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescLAYOUT_MOVE_UNIT = 
+{ 10, 2046, {
+    { _T("PreviousLine"),1},
+    { _T("NextLine"),2},
+    { _T("CurrentLineStart"),3},
+    { _T("CurrentLineEnd"),4},
+    { _T("NextLineStart"),5},
+    { _T("PreviousLineEnd"),6},
+    { _T("TopOfWindow"),7},
+    { _T("BottomOfWindow"),8},
+    { _T("OuterLineStart"),9},
+    { _T("OuterLineEnd"),10},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescHIGHLIGHT_TYPE = 
+{ 9, 1, {
+    { _T("None"),0x00000000},
+    { _T("Selected"),0x00000001},
+    { _T("Squiggle"),0x00000002},
+    { _T("ImeInput"),0x00000010},
+    { _T("ImeTargetConverted"),0x00000020},
+    { _T("ImeConverted"),0x00000030},
+    { _T("ImeTargetNotConverted"),0x00000040},
+    { _T("ImeInputError"),0x00000050},
+    { _T("ImeHangul"),0x00000060},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescCARET_GRAVITY = 
+{ 3, 7, {
+    { _T("NoChange"),0},
+    { _T("BeginningOfLine"),1},
+    { _T("EndOfLine"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescCARET_VISIBILITY = 
+{ 2, 3, {
+    { _T("Hide"),0},
+    { _T("Show"),1},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescFOLLOW_UP_ACTION_FLAGS = 
+{ 4, 1, {
+    { _T("None"),0x00000000},
+    { _T("ReBubbleEvent"),0x00000001},
+    { _T("OnClick"),0x00000020},
+    { _T("DragElement"),0x00000100},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescSELECTION_NOTIFICATION = 
+{ 11, 2047, {
+    { _T("TIMER_TICK"),0},
+    { _T("EMPTY_SELECTION"),1},
+    { _T("DOC_ENDED"),2},
+    { _T("DOC_CHANGED"),3},
+    { _T("DESTROY_SELECTION"),4},
+    { _T("CARET_IN_CONTEXT"),5},
+    { _T("EXIT_TREE"),6},
+    { _T("LOSE_FOCUS_FRAME"),7},
+    { _T("LOSE_FOCUS"),8},
+    { _T("DESTROY_ALL_SELECTION"),9},
+    { _T("DISABLE_IME"),10},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescSELECTION_TYPE = 
+{ 6, 63, {
+    { _T("None"),0},
+    { _T("Caret"),1},
+    { _T("Selection"),2},
+    { _T("Control"),3},
+    { _T("Auto"),4},
+    { _T("IME"),5},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescPOINTER_SCROLLPIN = 
+{ 3, 7, {
+    { _T("TopLeft"),0},
+    { _T("BottomRight"),1},
+    { _T("Minimal"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescCOORD_SYSTEM = 
+{ 4, 15, {
+    { _T("GLOBAL"),0},
+    { _T("PARENT"),1},
+    { _T("CONTAINER"),2},
+    { _T("CONTENT"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescADORNER_HTI = 
+{ 13, 8191, {
+    { _T("NONE"),0},
+    { _T("TOPBORDER"),1},
+    { _T("LEFTBORDER"),2},
+    { _T("BOTTOMBORDER"),3},
+    { _T("RIGHTBORDER"),4},
+    { _T("TOPLEFTHANDLE"),5},
+    { _T("LEFTHANDLE"),6},
+    { _T("TOPHANDLE"),7},
+    { _T("BOTTOMLEFTHANDLE"),8},
+    { _T("TOPRIGHTHANDLE"),9},
+    { _T("BOTTOMHANDLE"),10},
+    { _T("RIGHTHANDLE"),11},
+    { _T("BOTTOMRIGHTHANDLE"),12},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescCARET_DIRECTION = 
+{ 4, 15, {
+    { _T("INDETERMINATE"),0},
+    { _T("SAME"),1},
+    { _T("BACKWARD"),2},
+    { _T("FORWARD"),3},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+

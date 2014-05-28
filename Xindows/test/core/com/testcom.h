@@ -1,0 +1,7 @@
+
+#ifndef __TESTXINDOWS_CORE_COMTEST_H__
+#define __TESTXINDOWS_CORE_COMTEST_H__
+
+XINDOWS_PUBLIC void TestTearoff();
+
+#endif //__TESTXINDOWS_CORE_COMTEST_H__

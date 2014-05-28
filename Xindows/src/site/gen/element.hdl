@@ -1,0 +1,2113 @@
+
+#ifdef _hxx_
+
+#include "element.h"
+
+//    DISPIDs for class CElement
+
+#define DISPID_CElement_className     DISPID_ELEMENT+1
+#define DISPID_CElement_id     DISPID_ELEMENT+2
+#define DISPID_CElement_style_Str     DISPID_ELEMENT+3
+#define DISPID_CElement_tagName     DISPID_ELEMENT+4
+#define DISPID_CElement_parentElement     STDPROPID_XOBJ_PARENT
+#define DISPID_CElement_style     STDPROPID_XOBJ_STYLE
+#define DISPID_CElement_uniqueName     DISPID_ELEMENT+5
+#define DISPID_CElement_submitName     DISPID_ELEMENT+6
+#define DISPID_CElement_propdescname     STDPROPID_XOBJ_NAME
+#define DISPID_CElement_onhelp     DISPID_EVPROP_ONHELP
+#define DISPID_CElement_onclick     DISPID_EVPROP_ONCLICK
+#define DISPID_CElement_ondblclick     DISPID_EVPROP_ONDBLCLICK
+#define DISPID_CElement_onmouseout     DISPID_EVPROP_ONMOUSEOUT
+#define DISPID_CElement_onmouseover     DISPID_EVPROP_ONMOUSEOVER
+#define DISPID_CElement_onmouseup     DISPID_EVPROP_ONMOUSEUP
+#define DISPID_CElement_onmousedown     DISPID_EVPROP_ONMOUSEDOWN
+#define DISPID_CElement_onmousemove     DISPID_EVPROP_ONMOUSEMOVE
+#define DISPID_CElement_onkeyup     DISPID_EVPROP_ONKEYUP
+#define DISPID_CElement_onkeydown     DISPID_EVPROP_ONKEYDOWN
+#define DISPID_CElement_onkeypress     DISPID_EVPROP_ONKEYPRESS
+#define DISPID_CElement_onselectstart     DISPID_EVPROP_ONSELECTSTART
+#define DISPID_CElement_ondragstart     DISPID_EVPROP_ONDRAGSTART
+#define DISPID_CElement_onlosecapture     DISPID_EVPROP_ONLOSECAPTURE
+#define DISPID_CElement_onscroll     DISPID_EVPROP_ONSCROLL
+#define DISPID_CElement_ondrag     DISPID_EVPROP_ONDRAG
+#define DISPID_CElement_ondragend     DISPID_EVPROP_ONDRAGEND
+#define DISPID_CElement_ondragenter     DISPID_EVPROP_ONDRAGENTER
+#define DISPID_CElement_ondragover     DISPID_EVPROP_ONDRAGOVER
+#define DISPID_CElement_ondragleave     DISPID_EVPROP_ONDRAGLEAVE
+#define DISPID_CElement_ondrop     DISPID_EVPROP_ONDROP
+#define DISPID_CElement_onbeforecut     DISPID_EVPROP_ONBEFORECUT
+#define DISPID_CElement_oncut     DISPID_EVPROP_ONCUT
+#define DISPID_CElement_onbeforecopy     DISPID_EVPROP_ONBEFORECOPY
+#define DISPID_CElement_oncopy     DISPID_EVPROP_ONCOPY
+#define DISPID_CElement_onbeforepaste     DISPID_EVPROP_ONBEFOREPASTE
+#define DISPID_CElement_onpaste     DISPID_EVPROP_ONPASTE
+#define DISPID_CElement_document     DISPID_ELEMENT+18
+#define DISPID_CElement_language     DISPID_A_LANGUAGE
+#define DISPID_CElement_offsetLeft     DISPID_ELEMENT+8
+#define DISPID_CElement_offsetTop     DISPID_ELEMENT+9
+#define DISPID_CElement_offsetWidth     DISPID_ELEMENT+10
+#define DISPID_CElement_offsetHeight     DISPID_ELEMENT+11
+#define DISPID_CElement_offsetParent     DISPID_ELEMENT+12
+#define DISPID_CElement_scrollIntoView     DISPID_ELEMENT+19
+#define DISPID_CElement_contains     DISPID_ELEMENT+20
+#define DISPID_CElement_dir     DISPID_A_DIR
+#define DISPID_CElement_title     STDPROPID_XOBJ_CONTROLTIPTEXT
+#define DISPID_CElement_sourceIndex     DISPID_ELEMENT+24
+#define DISPID_CElement_lang     DISPID_A_LANG
+#define DISPID_CElement_innerText     DISPID_ELEMENT+27
+#define DISPID_CElement_outerText     DISPID_ELEMENT+29
+#define DISPID_CElement_click     DISPID_ELEMENT+33
+#define DISPID_CElement_toString     DISPID_ELEMENT+36
+#define DISPID_CElement_onpropertychange     DISPID_EVPROP_ONPROPERTYCHANGE
+#define DISPID_CElement_onbeforeupdate     DISPID_EVPROP_ONBEFOREUPDATE
+#define DISPID_CElement_onafterupdate     DISPID_EVPROP_ONAFTERUPDATE
+#define DISPID_CElement_onerrorupdate     DISPID_EVPROP_ONERRORUPDATE
+#define DISPID_CElement_oncontextmenu     DISPID_EVPROP_ONCONTEXTMENU
+#define DISPID_CElement_onbeforeeditfocus     DISPID_EVPROP_ONBEFOREEDITFOCUS
+#define DISPID_CElement_children     DISPID_ELEMENT+37
+#define DISPID_CElement_all     DISPID_ELEMENT+38
+#define DISPID_CElement_setCapture     DISPID_ELEMENT+40
+#define DISPID_CElement_releaseCapture     DISPID_ELEMENT+41
+#define DISPID_CElement_componentFromPoint     DISPID_ELEMENT+42
+#define DISPID_CElement_doScroll     DISPID_ELEMENT+43
+#define DISPID_CElement_getClientRects     DISPID_ELEMENT+44
+#define DISPID_CElement_tabIndex     STDPROPID_XOBJ_TABINDEX
+#define DISPID_CElement_disabled     STDPROPID_XOBJ_DISABLED
+#define DISPID_CElement_focus     DISPID_SITE+0
+#define DISPID_CElement_blur     DISPID_SITE+2
+#define DISPID_CElement_onblur     DISPID_EVPROP_ONBLUR
+#define DISPID_CElement_onfocus     DISPID_EVPROP_ONFOCUS
+#define DISPID_CElement_accessKey     DISPID_SITE+5
+#define DISPID_CElement_onresize     DISPID_EVPROP_ONRESIZE
+#define DISPID_CElement_clientHeight     DISPID_SITE+19
+#define DISPID_CElement_clientWidth     DISPID_SITE+20
+#define DISPID_CElement_clientTop     DISPID_SITE+21
+#define DISPID_CElement_clientLeft     DISPID_SITE+22
+#define DISPID_CElement_attributes     DISPID_ELEMENT+50
+#define DISPID_CElement_uniqueID     DISPID_ELEMENT+55
+#define DISPID_CElement_readyState     DISPID_A_READYSTATE
+#define DISPID_CElement_onreadystatechange     DISPID_EVPROP_ONREADYSTATECHANGE
+#define DISPID_CElement_scrollHeight     DISPID_ELEMENT+57
+#define DISPID_CElement_scrollWidth     DISPID_ELEMENT+58
+#define DISPID_CElement_scrollTop     DISPID_ELEMENT+59
+#define DISPID_CElement_scrollLeft     DISPID_ELEMENT+60
+#define DISPID_CElement_clearAttributes     DISPID_ELEMENT+62
+#define DISPID_CElement_canHaveChildren     DISPID_ELEMENT+72
+#define DISPID_CElement_runtimeStyle     DISPID_ELEMENT+64
+#define DISPID_CElement_readyStateValue     DISPID_ELEMENT+84
+#define DISPID_CElement_getElementsByTagName     DISPID_ELEMENT+85
+#define DISPID_CElement_onmousehover     DISPID_EVPROP_ONMOUSEHOVER
+//    DISPIDs for classIHTMLEventObj
+
+//    DISPIDs for classIHTMLElementCollection
+
+//    DISPIDs for classIHTMLElement
+
+//    DISPIDs for classIHTMLElement2
+
+//    DISPIDs for event set HTMLElementEvents2
+
+#define DISPID_HTMLELEMENTEVENTS2_ONHELP                          DISPID_EVMETH_ONHELP
+#define DISPID_HTMLELEMENTEVENTS2_ONCLICK                         DISPID_EVMETH_ONCLICK
+#define DISPID_HTMLELEMENTEVENTS2_ONDBLCLICK                      DISPID_EVMETH_ONDBLCLICK
+#define DISPID_HTMLELEMENTEVENTS2_ONKEYPRESS                      DISPID_EVMETH_ONKEYPRESS
+#define DISPID_HTMLELEMENTEVENTS2_ONKEYDOWN                       DISPID_EVMETH_ONKEYDOWN
+#define DISPID_HTMLELEMENTEVENTS2_ONKEYUP                         DISPID_EVMETH_ONKEYUP
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEOUT                      DISPID_EVMETH_ONMOUSEOUT
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEOVER                     DISPID_EVMETH_ONMOUSEOVER
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEMOVE                     DISPID_EVMETH_ONMOUSEMOVE
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEDOWN                     DISPID_EVMETH_ONMOUSEDOWN
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEUP                       DISPID_EVMETH_ONMOUSEUP
+#define DISPID_HTMLELEMENTEVENTS2_ONSELECTSTART                   DISPID_EVMETH_ONSELECTSTART
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAGSTART                     DISPID_EVMETH_ONDRAGSTART
+#define DISPID_HTMLELEMENTEVENTS2_ONBEFOREUPDATE                  DISPID_EVMETH_ONBEFOREUPDATE
+#define DISPID_HTMLELEMENTEVENTS2_ONAFTERUPDATE                   DISPID_EVMETH_ONAFTERUPDATE
+#define DISPID_HTMLELEMENTEVENTS2_ONERRORUPDATE                   DISPID_EVMETH_ONERRORUPDATE
+#define DISPID_HTMLELEMENTEVENTS2_ONLOSECAPTURE                   DISPID_EVMETH_ONLOSECAPTURE
+#define DISPID_HTMLELEMENTEVENTS2_ONPROPERTYCHANGE                DISPID_EVMETH_ONPROPERTYCHANGE
+#define DISPID_HTMLELEMENTEVENTS2_ONSCROLL                        DISPID_EVMETH_ONSCROLL
+#define DISPID_HTMLELEMENTEVENTS2_ONFOCUS                         DISPID_EVMETH_ONFOCUS
+#define DISPID_HTMLELEMENTEVENTS2_ONBLUR                          DISPID_EVMETH_ONBLUR
+#define DISPID_HTMLELEMENTEVENTS2_ONRESIZE                        DISPID_EVMETH_ONRESIZE
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAG                          DISPID_EVMETH_ONDRAG
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAGEND                       DISPID_EVMETH_ONDRAGEND
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAGENTER                     DISPID_EVMETH_ONDRAGENTER
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAGOVER                      DISPID_EVMETH_ONDRAGOVER
+#define DISPID_HTMLELEMENTEVENTS2_ONDRAGLEAVE                     DISPID_EVMETH_ONDRAGLEAVE
+#define DISPID_HTMLELEMENTEVENTS2_ONDROP                          DISPID_EVMETH_ONDROP
+#define DISPID_HTMLELEMENTEVENTS2_ONBEFORECUT                     DISPID_EVMETH_ONBEFORECUT
+#define DISPID_HTMLELEMENTEVENTS2_ONCUT                           DISPID_EVMETH_ONCUT
+#define DISPID_HTMLELEMENTEVENTS2_ONBEFORECOPY                    DISPID_EVMETH_ONBEFORECOPY
+#define DISPID_HTMLELEMENTEVENTS2_ONCOPY                          DISPID_EVMETH_ONCOPY
+#define DISPID_HTMLELEMENTEVENTS2_ONBEFOREPASTE                   DISPID_EVMETH_ONBEFOREPASTE
+#define DISPID_HTMLELEMENTEVENTS2_ONPASTE                         DISPID_EVMETH_ONPASTE
+#define DISPID_HTMLELEMENTEVENTS2_ONCONTEXTMENU                   DISPID_EVMETH_ONCONTEXTMENU
+#define DISPID_HTMLELEMENTEVENTS2_ONREADYSTATECHANGE              DISPID_EVMETH_ONREADYSTATECHANGE
+#define DISPID_HTMLELEMENTEVENTS2_ONMOUSEHOVER                    DISPID_EVMETH_ONMOUSEHOVER
+
+EXTERN_C const GUID DIID_HTMLElementEvents2;
+
+//    DISPIDs for event set HTMLElementEvents
+
+#define DISPID_HTMLELEMENTEVENTS_ONHELP                           DISPID_EVMETH_ONHELP
+#define DISPID_HTMLELEMENTEVENTS_ONCLICK                          DISPID_EVMETH_ONCLICK
+#define DISPID_HTMLELEMENTEVENTS_ONDBLCLICK                       DISPID_EVMETH_ONDBLCLICK
+#define DISPID_HTMLELEMENTEVENTS_ONKEYPRESS                       DISPID_EVMETH_ONKEYPRESS
+#define DISPID_HTMLELEMENTEVENTS_ONKEYDOWN                        DISPID_EVMETH_ONKEYDOWN
+#define DISPID_HTMLELEMENTEVENTS_ONKEYUP                          DISPID_EVMETH_ONKEYUP
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEOUT                       DISPID_EVMETH_ONMOUSEOUT
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEOVER                      DISPID_EVMETH_ONMOUSEOVER
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEMOVE                      DISPID_EVMETH_ONMOUSEMOVE
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEDOWN                      DISPID_EVMETH_ONMOUSEDOWN
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEUP                        DISPID_EVMETH_ONMOUSEUP
+#define DISPID_HTMLELEMENTEVENTS_ONSELECTSTART                    DISPID_EVMETH_ONSELECTSTART
+#define DISPID_HTMLELEMENTEVENTS_ONDRAGSTART                      DISPID_EVMETH_ONDRAGSTART
+#define DISPID_HTMLELEMENTEVENTS_ONBEFOREUPDATE                   DISPID_EVMETH_ONBEFOREUPDATE
+#define DISPID_HTMLELEMENTEVENTS_ONAFTERUPDATE                    DISPID_EVMETH_ONAFTERUPDATE
+#define DISPID_HTMLELEMENTEVENTS_ONERRORUPDATE                    DISPID_EVMETH_ONERRORUPDATE
+#define DISPID_HTMLELEMENTEVENTS_ONLOSECAPTURE                    DISPID_EVMETH_ONLOSECAPTURE
+#define DISPID_HTMLELEMENTEVENTS_ONPROPERTYCHANGE                 DISPID_EVMETH_ONPROPERTYCHANGE
+#define DISPID_HTMLELEMENTEVENTS_ONSCROLL                         DISPID_EVMETH_ONSCROLL
+#define DISPID_HTMLELEMENTEVENTS_ONFOCUS                          DISPID_EVMETH_ONFOCUS
+#define DISPID_HTMLELEMENTEVENTS_ONBLUR                           DISPID_EVMETH_ONBLUR
+#define DISPID_HTMLELEMENTEVENTS_ONRESIZE                         DISPID_EVMETH_ONRESIZE
+#define DISPID_HTMLELEMENTEVENTS_ONDRAG                           DISPID_EVMETH_ONDRAG
+#define DISPID_HTMLELEMENTEVENTS_ONDRAGEND                        DISPID_EVMETH_ONDRAGEND
+#define DISPID_HTMLELEMENTEVENTS_ONDRAGENTER                      DISPID_EVMETH_ONDRAGENTER
+#define DISPID_HTMLELEMENTEVENTS_ONDRAGOVER                       DISPID_EVMETH_ONDRAGOVER
+#define DISPID_HTMLELEMENTEVENTS_ONDRAGLEAVE                      DISPID_EVMETH_ONDRAGLEAVE
+#define DISPID_HTMLELEMENTEVENTS_ONDROP                           DISPID_EVMETH_ONDROP
+#define DISPID_HTMLELEMENTEVENTS_ONBEFORECUT                      DISPID_EVMETH_ONBEFORECUT
+#define DISPID_HTMLELEMENTEVENTS_ONCUT                            DISPID_EVMETH_ONCUT
+#define DISPID_HTMLELEMENTEVENTS_ONBEFORECOPY                     DISPID_EVMETH_ONBEFORECOPY
+#define DISPID_HTMLELEMENTEVENTS_ONCOPY                           DISPID_EVMETH_ONCOPY
+#define DISPID_HTMLELEMENTEVENTS_ONBEFOREPASTE                    DISPID_EVMETH_ONBEFOREPASTE
+#define DISPID_HTMLELEMENTEVENTS_ONPASTE                          DISPID_EVMETH_ONPASTE
+#define DISPID_HTMLELEMENTEVENTS_ONCONTEXTMENU                    DISPID_EVMETH_ONCONTEXTMENU
+#define DISPID_HTMLELEMENTEVENTS_ONREADYSTATECHANGE               DISPID_EVMETH_ONREADYSTATECHANGE
+#define DISPID_HTMLELEMENTEVENTS_ONBEFOREEDITFOCUS                DISPID_EVMETH_ONBEFOREEDITFOCUS
+#define DISPID_HTMLELEMENTEVENTS_ONMOUSEHOVER                     DISPID_EVMETH_ONMOUSEHOVER
+
+EXTERN_C const GUID DIID_HTMLElementEvents;
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdeschtmlListType = 
+{ 9, 511, {
+    { _T(""),0},
+    { _T("A"),1},
+    { _T("a"),2},
+    { _T("I"),3},
+    { _T("i"),4},
+    { _T("1"),5},
+    { _T("disc"),6},
+    { _T("circle"),7},
+    { _T("square"),8},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlMethod = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("get"),1},
+    { _T("post"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlWrap = 
+{ 3, 14, {
+    { _T("off"),1},
+    { _T("soft"),2},
+    { _T("hard"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlDir = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("ltr"),1},
+    { _T("rtl"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlInput = 
+{ 15, 32767, {
+    { _T(""),0},
+    { _T("button"),1},
+    { _T("checkbox"),2},
+    { _T("file"),3},
+    { _T("hidden"),4},
+    { _T("image"),5},
+    { _T("password"),6},
+    { _T("radio"),7},
+    { _T("reset"),8},
+    { _T("select-one"),9},
+    { _T("select-multiple"),10},
+    { _T("submit"),11},
+    { _T("text"),12},
+    { _T("textarea"),13},
+    { _T("htmlarea"),14},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlEncoding = 
+{ 3, 7, {
+    { _T("application/x-www-form-urlencoded"),0},
+    { _T("multipart/form-data"),1},
+    { _T("text/plain"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlAdjacency = 
+{ 4, 30, {
+    { _T("BeforeBegin"),1},
+    { _T("AfterBegin"),2},
+    { _T("BeforeEnd"),3},
+    { _T("AfterEnd"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlTabIndex = 
+{ 1, 0, {
+    { _T("NotSet"),-32768},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlComponent = 
+{ 30, 1073741823, {
+    { _T(""),0},
+    { _T("scrollbarLeft"),1},
+    { _T("scrollbarPageLeft"),2},
+    { _T("scrollbarHThumb"),3},
+    { _T("scrollbarPageRight"),4},
+    { _T("scrollbarRight"),5},
+    { _T("scrollbarUp"),6},
+    { _T("scrollbarPageUp"),7},
+    { _T("scrollbarVThumb"),8},
+    { _T("scrollbarPageDown"),9},
+    { _T("scrollbarDown"),10},
+    { _T("left"),11},
+    { _T("pageLeft"),12},
+    { _T("right"),13},
+    { _T("pageRight"),14},
+    { _T("up"),15},
+    { _T("pageUp"),16},
+    { _T("down"),17},
+    { _T("pageDown"),18},
+    { _T("top"),19},
+    { _T("bottom"),20},
+    { _T("outside"),21},
+    { _T("handleTopLeft"),22},
+    { _T("handleLeft"),23},
+    { _T("handleTop"),24},
+    { _T("handleBottomLeft"),25},
+    { _T("handleTopRight"),26},
+    { _T("handleBottom"),27},
+    { _T("handleRight"),28},
+    { _T("handleBottomRight"),29},
+} };
+
+EXTERN_C const ENUMDESC s_enumdeschtmlApplyLocation = 
+{ 2, 3, {
+    { _T("inside"),0},
+    { _T("outside"),1},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CElement_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementclassName =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("class"), _T("className"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("class"), _T("className"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_ELEMENT+1, ELEMCHNG_REMEASUREINPARENT|ELEMCHNG_UPDATECOLLECTION|ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_CSTR_GETSET s_propdescCElementid =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("id"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("id"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_GETMFHandler | PROPPARAM_SETMFHandler | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+2, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+    PROPERTY_METHOD(CSTR, GET, CElement, GetIDHelper, GETIDHelper),
+    PROPERTY_METHOD(CSTR, SET, CElement, SetIDHelper, SETIDHelper)
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementstyle_Str =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleproperty, _T("style"), _T("style_Str"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleProperty, _T("style"), _T("style_Str"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_MEMBER | PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+3, ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlNoLimit 
+    },
+    offsetof(CElement, __pNodeFirstBranch)
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementtagName = 
+{
+    NULL, _T("tagName"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+4, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementparentElement = 
+{
+    NULL, _T("parentElement"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, STDPROPID_XOBJ_PARENT, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementstyle = 
+{
+    NULL, _T("styleobj"), _T("style"), (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, STDPROPID_XOBJ_STYLE, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementuniqueName =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("uniqueName"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("uniqueName"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_ELEMENT+5, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementsubmitName =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("submitName"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("submitName"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_ELEMENT+6, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementpropdescname =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("propdescname"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("propdescname"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , STDPROPID_XOBJ_NAME, 0, IDX_GS_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonhelp =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onhelp"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onhelp"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONHELP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonclick =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onclick"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onclick"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCLICK, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondblclick =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondblclick"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondblclick"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDBLCLICK, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmouseout =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseout"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseout"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEOUT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmouseover =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseover"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseover"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEOVER, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmouseup =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmouseup"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmouseup"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEUP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmousedown =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmousedown"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmousedown"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEDOWN, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmousemove =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmousemove"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmousemove"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEMOVE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonkeyup =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeyup"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeyup"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYUP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonkeydown =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeydown"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeydown"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYDOWN, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonkeypress =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onkeypress"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onkeypress"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONKEYPRESS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonselectstart =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onselectstart"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onselectstart"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSELECTSTART, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondragstart =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragstart"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragstart"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGSTART, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonlosecapture =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onlosecapture"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onlosecapture"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONLOSECAPTURE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonscroll =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onscroll"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onscroll"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSCROLL, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondrag =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondrag"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondrag"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAG, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondragend =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragend"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragend"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGEND, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondragenter =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragenter"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragenter"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGENTER, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondragover =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragover"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragover"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGOVER, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondragleave =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondragleave"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondragleave"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDRAGLEAVE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementondrop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("ondrop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("ondrop"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONDROP, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonbeforecut =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforecut"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforecut"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFORECUT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementoncut =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("oncut"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("oncut"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCUT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonbeforecopy =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforecopy"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforecopy"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFORECOPY, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementoncopy =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("oncopy"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("oncopy"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCOPY, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonbeforepaste =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforepaste"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforepaste"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREPASTE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonpaste =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onpaste"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onpaste"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONPASTE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementdocument = 
+{
+    NULL, _T("document"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+18, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementlanguage =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("language"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("language"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_LANGUAGE, 0, IDX_GS_BSTR, pdlToken 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementoffsetLeft = 
+{
+    NULL, _T("offsetLeft"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+8, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementoffsetTop = 
+{
+    NULL, _T("offsetTop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+9, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementoffsetWidth = 
+{
+    NULL, _T("offsetWidth"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+10, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementoffsetHeight = 
+{
+    NULL, _T("offsetHeight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+11, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementoffsetParent = 
+{
+    NULL, _T("offsetParent"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+12, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+const DEFAULTARGDESC s_defArgCElementscrollIntoView =
+{
+    (DWORD_PTR)"",
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementscrollIntoView = 
+{
+    NULL, NULL, _T("scrollIntoView"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+19, 0, IDX_Method_void_o0oVARIANT, pdlToken
+    },
+    &s_defArgCElementscrollIntoView, 1, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementcontains = 
+{
+    NULL, NULL, _T("contains"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+20, 0, IDX_Method_VARIANTBOOLp_IDispatchp, 0
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCElementdir =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("dir"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("dir"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_DIR, 0|ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlDir,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementtitle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("title"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("title"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , STDPROPID_XOBJ_CONTROLTIPTEXT, 0, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementsourceIndex = 
+{
+    NULL, _T("sourceIndex"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+24, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementlang =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("lang"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("lang"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_LANG, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_BSTR, pdlLength 
+    },
+};
+
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementinnerText = 
+{
+    NULL, _T("innerText"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+27, ELEMCHNG_REMEASUREINPARENT|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementouterText = 
+{
+    NULL, _T("outerText"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+29, ELEMCHNG_REMEASUREINPARENT|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementclick = 
+{
+    NULL, NULL, _T("click"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+33, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementtoString = 
+{
+    NULL, NULL, _T("toString"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+36, 0, IDX_Method_BSTRp_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonpropertychange =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onpropertychange"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onpropertychange"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONPROPERTYCHANGE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonbeforeupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforeupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforeupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonafterupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onafterupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onafterupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONAFTERUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonerrorupdate =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onerrorupdate"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onerrorupdate"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONERRORUPDATE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementoncontextmenu =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("oncontextmenu"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("oncontextmenu"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONCONTEXTMENU, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonbeforeeditfocus =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforeeditfocus"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforeeditfocus"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREEDITFOCUS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementchildren = 
+{
+    NULL, _T("children"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+37, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementall = 
+{
+    NULL, _T("all"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+38, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+const DEFAULTARGDESC s_defArgCElementsetCapture =
+{
+    (DWORD_PTR)-1,
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementsetCapture = 
+{
+    NULL, NULL, _T("setCapture"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+40, 0, IDX_Method_void_oDoVARIANTBOOL, 0
+    },
+    &s_defArgCElementsetCapture, 1, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementreleaseCapture = 
+{
+    NULL, NULL, _T("releaseCapture"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+41, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementcomponentFromPoint = 
+{
+    NULL, NULL, _T("componentFromPoint"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+42, 0, IDX_Method_BSTRp_long_long, 0
+    },
+    NULL, 2, 2
+};
+
+const DEFAULTARGDESC s_defArgCElementdoScroll =
+{
+    (DWORD_PTR)"",
+};
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementdoScroll = 
+{
+    NULL, NULL, _T("doScroll"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+43, 0, IDX_Method_void_o0oVARIANT, pdlToken
+    },
+    &s_defArgCElementdoScroll, 1, 0
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCElementtabIndex =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("tabIndex"), NULL, (ULONG_PTR)htmlTabIndexNotSet, (ULONG_PTR)htmlTabIndexNotSet,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("tabIndex"), NULL, (ULONG_PTR)htmlTabIndexNotSet,(ULONG_PTR)htmlTabIndexNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , STDPROPID_XOBJ_TABINDEX, 0, IDX_GS_short, 0 
+        },
+        VT_I2, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCElementdisabled =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("disabled"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("disabled"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, STDPROPID_XOBJ_DISABLED, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_ACCESSIBILITY|ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANTBOOL, 0 
+        },
+        VT_BOOL, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementfocus = 
+{
+    NULL, NULL, _T("focus"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_SITE+0, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementblur = 
+{
+    NULL, NULL, _T("blur"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_SITE+2, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonblur =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onblur"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onblur"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBLUR, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonfocus =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onfocus"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onfocus"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONFOCUS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementaccessKey =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("accessKey"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("accessKey"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_SITE+5, ELEMCHNG_UPDATECOLLECTION|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlToken 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonresize =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onresize"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onresize"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONRESIZE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementclientHeight = 
+{
+    NULL, _T("clientHeight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+19, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementclientWidth = 
+{
+    NULL, _T("clientWidth"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+20, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementclientTop = 
+{
+    NULL, _T("clientTop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+21, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementclientLeft = 
+{
+    NULL, _T("clientLeft"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+22, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementattributes = 
+{
+    NULL, _T("attributes"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+50, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementuniqueID = 
+{
+    NULL, _T("uniqueID"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN, DISPID_ELEMENT+55, 0, IDX_G_BSTR, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementreadyState = 
+{
+    NULL, _T("readyState"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_A_READYSTATE, 0, IDX_G_VARIANT, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonreadystatechange =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onreadystatechange"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onreadystatechange"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONREADYSTATECHANGE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementscrollHeight = 
+{
+    NULL, _T("scrollHeight"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+57, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementscrollWidth = 
+{
+    NULL, _T("scrollWidth"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+58, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementscrollTop = 
+{
+    NULL, _T("scrollTop"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+59, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementscrollLeft = 
+{
+    NULL, _T("scrollLeft"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_ELEMENT+60, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementclearAttributes = 
+{
+    NULL, NULL, _T("clearAttributes"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+62, 0, IDX_Method_void_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementcanHaveChildren = 
+{
+    NULL, _T("canHaveChildren"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+72, 0, IDX_G_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementruntimeStyle = 
+{
+    NULL, _T("runtimeStyle"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_ELEMENT+64, 0, IDX_G_IDispatchp, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCElementreadyStateValue = 
+{
+    NULL, _T("readyStateValue"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_HIDDEN | PROPPARAM_RESTRICTED, DISPID_ELEMENT+84, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCElementgetElementsByTagName = 
+{
+    NULL, NULL, _T("getElementsByTagName"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_ELEMENT+85, 0, IDX_Method_IDispatchpp_BSTR, pdlNoLimit
+    },
+    NULL, 1, 1
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCElementonmousehover =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onmousehover"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onmousehover"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONMOUSEHOVER, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+
+const CONNECTION_POINT_INFO CElement::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(DIID_HTMLElementEvents, DISPID_A_EVENTSINK)
+    CPI_ENTRY(DIID_HTMLElementEvents2, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const PROPERTYDESC * const CElement::s_ppropdescsInVtblOrderIHTMLElement[] = {
+    (PROPERTYDESC *)&s_methdescCBasesetAttribute,
+    (PROPERTYDESC *)&s_methdescCBasegetAttribute,
+    (PROPERTYDESC *)&s_methdescCBaseremoveAttribute,
+    (PROPERTYDESC *)&s_propdescCElementclassName,
+    (PROPERTYDESC *)&s_propdescCElementclassName,
+    (PROPERTYDESC *)&s_propdescCElementid,
+    (PROPERTYDESC *)&s_propdescCElementid,
+    (PROPERTYDESC *)&s_propdescCElementtagName,
+    (PROPERTYDESC *)&s_propdescCElementparentElement,
+    (PROPERTYDESC *)&s_propdescCElementstyle,
+    (PROPERTYDESC *)&s_propdescCElementonhelp,
+    (PROPERTYDESC *)&s_propdescCElementonhelp,
+    (PROPERTYDESC *)&s_propdescCElementonclick,
+    (PROPERTYDESC *)&s_propdescCElementonclick,
+    (PROPERTYDESC *)&s_propdescCElementondblclick,
+    (PROPERTYDESC *)&s_propdescCElementondblclick,
+    (PROPERTYDESC *)&s_propdescCElementonkeydown,
+    (PROPERTYDESC *)&s_propdescCElementonkeydown,
+    (PROPERTYDESC *)&s_propdescCElementonkeyup,
+    (PROPERTYDESC *)&s_propdescCElementonkeyup,
+    (PROPERTYDESC *)&s_propdescCElementonkeypress,
+    (PROPERTYDESC *)&s_propdescCElementonkeypress,
+    (PROPERTYDESC *)&s_propdescCElementonmouseout,
+    (PROPERTYDESC *)&s_propdescCElementonmouseout,
+    (PROPERTYDESC *)&s_propdescCElementonmouseover,
+    (PROPERTYDESC *)&s_propdescCElementonmouseover,
+    (PROPERTYDESC *)&s_propdescCElementonmousemove,
+    (PROPERTYDESC *)&s_propdescCElementonmousemove,
+    (PROPERTYDESC *)&s_propdescCElementonmousedown,
+    (PROPERTYDESC *)&s_propdescCElementonmousedown,
+    (PROPERTYDESC *)&s_propdescCElementonmouseup,
+    (PROPERTYDESC *)&s_propdescCElementonmouseup,
+    (PROPERTYDESC *)&s_propdescCElementdocument,
+    (PROPERTYDESC *)&s_propdescCElementtitle,
+    (PROPERTYDESC *)&s_propdescCElementtitle,
+    (PROPERTYDESC *)&s_propdescCElementlanguage,
+    (PROPERTYDESC *)&s_propdescCElementlanguage,
+    (PROPERTYDESC *)&s_propdescCElementonselectstart,
+    (PROPERTYDESC *)&s_propdescCElementonselectstart,
+    (PROPERTYDESC *)&s_methdescCElementscrollIntoView,
+    (PROPERTYDESC *)&s_methdescCElementcontains,
+    (PROPERTYDESC *)&s_propdescCElementsourceIndex,
+    (PROPERTYDESC *)&s_propdescCElementlang,
+    (PROPERTYDESC *)&s_propdescCElementlang,
+    (PROPERTYDESC *)&s_propdescCElementoffsetLeft,
+    (PROPERTYDESC *)&s_propdescCElementoffsetTop,
+    (PROPERTYDESC *)&s_propdescCElementoffsetWidth,
+    (PROPERTYDESC *)&s_propdescCElementoffsetHeight,
+    (PROPERTYDESC *)&s_propdescCElementoffsetParent,
+    (PROPERTYDESC *)&s_propdescCElementinnerText,
+    (PROPERTYDESC *)&s_propdescCElementinnerText,
+    (PROPERTYDESC *)&s_propdescCElementouterText,
+    (PROPERTYDESC *)&s_propdescCElementouterText,
+    (PROPERTYDESC *)&s_methdescCElementclick,
+    (PROPERTYDESC *)&s_propdescCElementondragstart,
+    (PROPERTYDESC *)&s_propdescCElementondragstart,
+    (PROPERTYDESC *)&s_methdescCElementtoString,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate,
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate,
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate,
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate,
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate,
+    (PROPERTYDESC *)&s_propdescCElementchildren,
+    (PROPERTYDESC *)&s_propdescCElementall,
+};
+
+
+const PROPERTYDESC * const CElement::s_ppropdescsInVtblOrderIHTMLElement2[] = {
+    (PROPERTYDESC *)&s_methdescCElementsetCapture,
+    (PROPERTYDESC *)&s_methdescCElementreleaseCapture,
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture,
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture,
+    (PROPERTYDESC *)&s_methdescCElementcomponentFromPoint,
+    (PROPERTYDESC *)&s_methdescCElementdoScroll,
+    (PROPERTYDESC *)&s_propdescCElementonscroll,
+    (PROPERTYDESC *)&s_propdescCElementonscroll,
+    (PROPERTYDESC *)&s_propdescCElementondrag,
+    (PROPERTYDESC *)&s_propdescCElementondrag,
+    (PROPERTYDESC *)&s_propdescCElementondragend,
+    (PROPERTYDESC *)&s_propdescCElementondragend,
+    (PROPERTYDESC *)&s_propdescCElementondragenter,
+    (PROPERTYDESC *)&s_propdescCElementondragenter,
+    (PROPERTYDESC *)&s_propdescCElementondragover,
+    (PROPERTYDESC *)&s_propdescCElementondragover,
+    (PROPERTYDESC *)&s_propdescCElementondragleave,
+    (PROPERTYDESC *)&s_propdescCElementondragleave,
+    (PROPERTYDESC *)&s_propdescCElementondrop,
+    (PROPERTYDESC *)&s_propdescCElementondrop,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut,
+    (PROPERTYDESC *)&s_propdescCElementoncut,
+    (PROPERTYDESC *)&s_propdescCElementoncut,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy,
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy,
+    (PROPERTYDESC *)&s_propdescCElementoncopy,
+    (PROPERTYDESC *)&s_propdescCElementoncopy,
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste,
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste,
+    (PROPERTYDESC *)&s_propdescCElementonpaste,
+    (PROPERTYDESC *)&s_propdescCElementonpaste,
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange,
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange,
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_methdescCElementfocus,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_methdescCElementblur,
+    (PROPERTYDESC *)&s_propdescCElementclientHeight,
+    (PROPERTYDESC *)&s_propdescCElementclientWidth,
+    (PROPERTYDESC *)&s_propdescCElementclientTop,
+    (PROPERTYDESC *)&s_propdescCElementclientLeft,
+    (PROPERTYDESC *)&s_methdescCBaseattachEvent,
+    (PROPERTYDESC *)&s_methdescCBasedetachEvent,
+    (PROPERTYDESC *)&s_propdescCElementreadyState,
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange,
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange,
+    (PROPERTYDESC *)&s_propdescCElementdir,
+    (PROPERTYDESC *)&s_propdescCElementdir,
+    (PROPERTYDESC *)&s_propdescCElementscrollHeight,
+    (PROPERTYDESC *)&s_propdescCElementscrollWidth,
+    (PROPERTYDESC *)&s_propdescCElementscrollTop,
+    (PROPERTYDESC *)&s_propdescCElementscrollTop,
+    (PROPERTYDESC *)&s_propdescCElementscrollLeft,
+    (PROPERTYDESC *)&s_propdescCElementscrollLeft,
+    (PROPERTYDESC *)&s_methdescCElementclearAttributes,
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu,
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu,
+    (PROPERTYDESC *)&s_propdescCElementcanHaveChildren,
+    (PROPERTYDESC *)&s_propdescCElementruntimeStyle,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus,
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus,
+    (PROPERTYDESC *)&s_propdescCElementreadyStateValue,
+    (PROPERTYDESC *)&s_methdescCElementgetElementsByTagName,
+    (PROPERTYDESC *)&s_propdescCElementonmousehover,
+    (PROPERTYDESC *)&s_propdescCElementonmousehover,
+};
+
+
+//    Tear-off table for class CElement
+BEGIN_TEAROFF_TABLE_PROPDESC(CElement, IHTMLElement)
+    //  IHTMLElement methods
+    TEAROFF_METHOD(CElement, &setAttribute, setattribute, (BSTR,VARIANT,LONG))
+    TEAROFF_METHOD(CElement, &getAttribute, getattribute, (BSTR,LONG,VARIANT*))
+    TEAROFF_METHOD(CElement, &removeAttribute, removeattribute, (BSTR,LONG,VARIANT_BOOL*))
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_className
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_className
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_id
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_id
+    TEAROFF_METHOD(CElement, &get_tagName, GET_tagName, (BSTR *))    // property get_tagName
+    TEAROFF_METHOD(CElement, &ContextThunk_get_parentElement, GET_parentElement, (IHTMLElement* *))    // property get_parentElement
+    TEAROFF_METHOD(CElement, &get_style, GET_style, (IHTMLStyle* *))    // property get_style
+    TEAROFF_METHOD(CElement, &put_onhelp, PUT_onhelp, (VARIANT))    // property set_onhelp
+    TEAROFF_METHOD(CElement, &get_onhelp, GET_onhelp, (VARIANT *))    // property get_onhelp
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onclick
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onclick
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondblclick
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondblclick
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeydown
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeydown
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeyup
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeyup
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeypress
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeypress
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseout
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseout
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseover
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseover
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmousemove
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmousemove
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmousedown
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmousedown
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseup
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseup
+    TEAROFF_METHOD(CElement, &get_document, GET_document, (IDispatch* *))    // property get_document
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_title
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_title
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_language
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_language
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onselectstart
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onselectstart
+    TEAROFF_METHOD(CElement, &scrollIntoView, scrollintoview, (VARIANT))
+    TEAROFF_METHOD(CElement, &contains, cONTAINS, (IHTMLElement*,VARIANT_BOOL*))
+    TEAROFF_METHOD(CElement, &get_sourceIndex, GET_sourceIndex, (long *))    // property get_sourceIndex
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_lang
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_lang
+    TEAROFF_METHOD(CElement, &get_offsetLeft, GET_offsetLeft, (long *))    // property get_offsetLeft
+    TEAROFF_METHOD(CElement, &get_offsetTop, GET_offsetTop, (long *))    // property get_offsetTop
+    TEAROFF_METHOD(CElement, &get_offsetWidth, GET_offsetWidth, (long *))    // property get_offsetWidth
+    TEAROFF_METHOD(CElement, &get_offsetHeight, GET_offsetHeight, (long *))    // property get_offsetHeight
+    TEAROFF_METHOD(CElement, &get_offsetParent, GET_offsetParent, (IHTMLElement* *))    // property get_offsetParent
+    TEAROFF_METHOD(CElement, &put_innerText, PUT_innerText, (BSTR))    // property set_innerText
+    TEAROFF_METHOD(CElement, &get_innerText, GET_innerText, (BSTR *))    // property get_innerText
+    TEAROFF_METHOD(CElement, &put_outerText, PUT_outerText, (BSTR))    // property set_outerText
+    TEAROFF_METHOD(CElement, &get_outerText, GET_outerText, (BSTR *))    // property get_outerText
+    TEAROFF_METHOD(CElement, &ContextThunk_click, cLICK, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragstart
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragstart
+    TEAROFF_METHOD(CElement, &toString, tostring, (BSTR*))
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforeupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforeupdate
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onafterupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onafterupdate
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onerrorupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onerrorupdate
+    TEAROFF_METHOD(CElement, &get_children, GET_children, (IDispatch* *))    // property get_children
+    TEAROFF_METHOD(CElement, &get_all, GET_all, (IDispatch* *))    // property get_all
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class CElement
+BEGIN_TEAROFF_TABLE_PROPDESC(CElement, IHTMLElement2)
+    //  IHTMLElement2 methods
+    TEAROFF_METHOD(CElement, &setCapture, setcapture, (VARIANT_BOOL))
+    TEAROFF_METHOD(CElement, &releaseCapture, releasecapture, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onlosecapture
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onlosecapture
+    TEAROFF_METHOD(CElement, &componentFromPoint, componentfrompoint, (long,long,BSTR*))
+    TEAROFF_METHOD(CElement, &doScroll, doscroll, (VARIANT))
+    TEAROFF_METHOD(CElement, &put_onscroll, PUT_onscroll, (VARIANT))    // property set_onscroll
+    TEAROFF_METHOD(CElement, &get_onscroll, GET_onscroll, (VARIANT *))    // property get_onscroll
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondrag
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondrag
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragend
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragend
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragenter
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragenter
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragover
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragover
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragleave
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragleave
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondrop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondrop
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforecut
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforecut
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncut
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncut
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforecopy
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforecopy
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncopy
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncopy
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforepaste
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforepaste
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onpaste
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onpaste
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onpropertychange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onpropertychange
+    TEAROFF_METHOD(CBase, &put_Short, PUT_Short, (short))    // property set_tabIndex
+    TEAROFF_METHOD(CElement, &get_tabIndex, GET_tabIndex, (short *))    // property get_tabIndex
+    TEAROFF_METHOD(CElement, &focus, fOCUS, ())
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_accessKey
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_accessKey
+    TEAROFF_METHOD(CElement, &put_onblur, PUT_onblur, (VARIANT))    // property set_onblur
+    TEAROFF_METHOD(CElement, &get_onblur, GET_onblur, (VARIANT *))    // property get_onblur
+    TEAROFF_METHOD(CElement, &put_onfocus, PUT_onfocus, (VARIANT))    // property set_onfocus
+    TEAROFF_METHOD(CElement, &get_onfocus, GET_onfocus, (VARIANT *))    // property get_onfocus
+    TEAROFF_METHOD(CElement, &put_onresize, PUT_onresize, (VARIANT))    // property set_onresize
+    TEAROFF_METHOD(CElement, &get_onresize, GET_onresize, (VARIANT *))    // property get_onresize
+    TEAROFF_METHOD(CElement, &blur, bLUR, ())
+    TEAROFF_METHOD(CElement, &get_clientHeight, GET_clientHeight, (long *))    // property get_clientHeight
+    TEAROFF_METHOD(CElement, &get_clientWidth, GET_clientWidth, (long *))    // property get_clientWidth
+    TEAROFF_METHOD(CElement, &get_clientTop, GET_clientTop, (long *))    // property get_clientTop
+    TEAROFF_METHOD(CElement, &get_clientLeft, GET_clientLeft, (long *))    // property get_clientLeft
+    TEAROFF_METHOD(CBase, &attachEvent, attachevent, (BSTR,IDispatch*,VARIANT_BOOL*))
+    TEAROFF_METHOD(CBase, &detachEvent, detachevent, (BSTR,IDispatch*))
+    TEAROFF_METHOD(CElement, &get_readyState, GET_readyState, (VARIANT *))    // property get_readyState
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onreadystatechange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onreadystatechange
+    TEAROFF_METHOD(CElement, &put_dir, PUT_dir, (BSTR))    // property set_dir
+    TEAROFF_METHOD(CElement, &get_dir, GET_dir, (BSTR *))    // property get_dir
+    TEAROFF_METHOD(CElement, &get_scrollHeight, GET_scrollHeight, (long *))    // property get_scrollHeight
+    TEAROFF_METHOD(CElement, &get_scrollWidth, GET_scrollWidth, (long *))    // property get_scrollWidth
+    TEAROFF_METHOD(CElement, &put_scrollTop, PUT_scrollTop, (long))    // property set_scrollTop
+    TEAROFF_METHOD(CElement, &get_scrollTop, GET_scrollTop, (long *))    // property get_scrollTop
+    TEAROFF_METHOD(CElement, &put_scrollLeft, PUT_scrollLeft, (long))    // property set_scrollLeft
+    TEAROFF_METHOD(CElement, &get_scrollLeft, GET_scrollLeft, (long *))    // property get_scrollLeft
+    TEAROFF_METHOD(CElement, &clearAttributes, clearattributes, ())
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncontextmenu
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncontextmenu
+    TEAROFF_METHOD(CElement, &get_canHaveChildren, GET_canHaveChildren, (VARIANT_BOOL *))    // property get_canHaveChildren
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforeeditfocus
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforeeditfocus
+    TEAROFF_METHOD(CElement, &get_readyStateValue, GET_readyStateValue, (long *))    // property get_readyStateValue
+    TEAROFF_METHOD(CElement, &getElementsByTagName, getelementsbytagname, (BSTR,IHTMLElementCollection**))
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmousehover
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmousehover
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class CElement
+BEGIN_TEAROFF_TABLE(CElement, IObjectIdentity)
+    //  IObjectIdentity methods
+    TEAROFF_METHOD(CElement, &IsEqualObject, isequalobject, (IUnknown*))
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+LPCTSTR CElement::GetAAclassName() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementclassName.a, &v);
+    return *(LPCTSTR*)&v;
+}
+HRESULT CElement::SetAAuniqueName(LPCTSTR pv)
+{
+    RRETURN( CAttrArray::SetString(GetAttrArray(), &s_propdescCElementuniqueName.a, pv) );
+}
+LPCTSTR CElement::GetAAuniqueName() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementuniqueName.a, &v);
+    return *(LPCTSTR*)&v;
+}
+HRESULT CElement::SetAAsubmitName(LPCTSTR pv)
+{
+    RRETURN( CAttrArray::SetString(GetAttrArray(), &s_propdescCElementsubmitName.a, pv) );
+}
+LPCTSTR CElement::GetAAsubmitName() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementsubmitName.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAApropdescname() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementpropdescname.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonhelp() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonhelp.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonclick() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonclick.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondblclick() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondblclick.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmouseout() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmouseout.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmouseover() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmouseover.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmouseup() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmouseup.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmousedown() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmousedown.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmousemove() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmousemove.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonkeyup() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonkeyup.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonkeydown() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonkeydown.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonkeypress() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonkeypress.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonselectstart() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonselectstart.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondragstart() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondragstart.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonlosecapture() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonlosecapture.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonscroll() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonscroll.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondrag() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondrag.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondragend() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondragend.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondragenter() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondragenter.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondragover() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondragover.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondragleave() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondragleave.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAondrop() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementondrop.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonbeforecut() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonbeforecut.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAoncut() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementoncut.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonbeforecopy() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonbeforecopy.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAoncopy() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementoncopy.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonbeforepaste() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonbeforepaste.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonpaste() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonpaste.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAlanguage() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementlanguage.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAtitle() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementtitle.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonpropertychange() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonpropertychange.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonbeforeupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonbeforeupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonafterupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonafterupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonerrorupdate() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonerrorupdate.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAoncontextmenu() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementoncontextmenu.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonbeforeeditfocus() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonbeforeeditfocus.a, &v);
+    return *(LPCTSTR*)&v;
+}
+short CElement::GetAAtabIndex() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCElementtabIndex.a, &v);
+    return *(short*)&v;
+}
+VARIANT_BOOL CElement::GetAAdisabled() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCElementdisabled.a, &v);
+    return *(VARIANT_BOOL*)&v;
+}
+LPCTSTR CElement::GetAAonblur() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonblur.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonfocus() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonfocus.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAaccessKey() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementaccessKey.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonresize() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonresize.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonreadystatechange() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonreadystatechange.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CElement::GetAAonmousehover() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonmousehover.a, &v);
+    return *(LPCTSTR*)&v;
+}
+#ifdef USE_STACK_SPEW
+#pragma check_stack(off)
+#endif
+STDMETHODIMP CElement::ContextThunk_get_parentElement(IHTMLElement* *p)
+{
+    CTreeNode* pNode;
+    CONTEXTTHUNK_SETTREENODE
+    return get_parentElement(p,pNode);
+}
+STDMETHODIMP CElement::ContextThunk_click()
+{
+    CTreeNode* pNode;
+    CONTEXTTHUNK_SETTREENODE
+    return click(pNode);
+}
+#ifdef USE_STACK_SPEW
+#pragma check_stack(on)
+#endif
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CElement_
+
+
+//  Cascaded Property get method prototypes for class CElement
+
+public:
+    LPCTSTR GetAAclassName() const;
+    HRESULT SetAAuniqueName(LPCTSTR);
+    LPCTSTR GetAAuniqueName() const;
+    HRESULT SetAAsubmitName(LPCTSTR);
+    LPCTSTR GetAAsubmitName() const;
+    LPCTSTR GetAApropdescname() const;
+    LPCTSTR GetAAonhelp() const;
+    LPCTSTR GetAAonclick() const;
+    LPCTSTR GetAAondblclick() const;
+    LPCTSTR GetAAonmouseout() const;
+    LPCTSTR GetAAonmouseover() const;
+    LPCTSTR GetAAonmouseup() const;
+    LPCTSTR GetAAonmousedown() const;
+    LPCTSTR GetAAonmousemove() const;
+    LPCTSTR GetAAonkeyup() const;
+    LPCTSTR GetAAonkeydown() const;
+    LPCTSTR GetAAonkeypress() const;
+    LPCTSTR GetAAonselectstart() const;
+    LPCTSTR GetAAondragstart() const;
+    LPCTSTR GetAAonlosecapture() const;
+    LPCTSTR GetAAonscroll() const;
+    LPCTSTR GetAAondrag() const;
+    LPCTSTR GetAAondragend() const;
+    LPCTSTR GetAAondragenter() const;
+    LPCTSTR GetAAondragover() const;
+    LPCTSTR GetAAondragleave() const;
+    LPCTSTR GetAAondrop() const;
+    LPCTSTR GetAAonbeforecut() const;
+    LPCTSTR GetAAoncut() const;
+    LPCTSTR GetAAonbeforecopy() const;
+    LPCTSTR GetAAoncopy() const;
+    LPCTSTR GetAAonbeforepaste() const;
+    LPCTSTR GetAAonpaste() const;
+    LPCTSTR GetAAlanguage() const;
+    LPCTSTR GetAAtitle() const;
+    LPCTSTR GetAAonpropertychange() const;
+    LPCTSTR GetAAonbeforeupdate() const;
+    LPCTSTR GetAAonafterupdate() const;
+    LPCTSTR GetAAonerrorupdate() const;
+    LPCTSTR GetAAoncontextmenu() const;
+    LPCTSTR GetAAonbeforeeditfocus() const;
+    short GetAAtabIndex() const;
+    VARIANT_BOOL GetAAdisabled() const;
+    LPCTSTR GetAAonblur() const;
+    LPCTSTR GetAAonfocus() const;
+    LPCTSTR GetAAaccessKey() const;
+    LPCTSTR GetAAonresize() const;
+    LPCTSTR GetAAonreadystatechange() const;
+    LPCTSTR GetAAonmousehover() const;
+
+//    Property get/set method declarations for class CElement
+    static const PROPERTYDESC * const CElement::s_ppropdescsInVtblOrderIHTMLElement [];
+    static const PROPERTYDESC * const CElement::s_ppropdescsInVtblOrderIHTMLElement2 [];
+    static const CONNECTION_POINT_INFO CElement::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD(get_tagName, GET_tagName, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(ContextThunk_get_parentElement, GET_parentElement, (IHTMLElement**p));
+    NV_DECLARE_TEAROFF_METHOD(get_style, GET_style, (IHTMLStyle**p));
+    DECLARE_TEAROFF_METHOD(get_document, GET_document, (IDispatch**p));
+    NV_DECLARE_TEAROFF_METHOD(get_offsetLeft, GET_offsetLeft, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_offsetTop, GET_offsetTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_offsetWidth, GET_offsetWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_offsetHeight, GET_offsetHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_offsetParent, GET_offsetParent, (IHTMLElement**p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, scrollIntoView, scrollintoview, (VARIANT varargStart));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, contains, cONTAINS, (IHTMLElement* pChild,VARIANT_BOOL* pfResult));
+    NV_DECLARE_TEAROFF_METHOD(get_sourceIndex, GET_sourceIndex, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_innerText, PUT_innerText, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_innerText, GET_innerText, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(put_outerText, PUT_outerText, (BSTR v));
+    NV_DECLARE_TEAROFF_METHOD(get_outerText, GET_outerText, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, ContextThunk_click, cLICK, ());
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, toString, tostring, (BSTR* String));
+    NV_DECLARE_TEAROFF_METHOD(get_children, GET_children, (IDispatch**p));
+    NV_DECLARE_TEAROFF_METHOD(get_all, GET_all, (IDispatch**p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, setCapture, setcapture, (VARIANT_BOOL containerCapture));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, releaseCapture, releasecapture, ());
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, componentFromPoint, componentfrompoint, (long x,long y,BSTR* component));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, doScroll, doscroll, (VARIANT component));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, focus, fOCUS, ());
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, blur, bLUR, ());
+    NV_DECLARE_TEAROFF_METHOD(get_clientHeight, GET_clientHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientWidth, GET_clientWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientTop, GET_clientTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientLeft, GET_clientLeft, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_attributes, GET_attributes, (IDispatch**p));
+    NV_DECLARE_TEAROFF_METHOD(get_uniqueID, GET_uniqueID, (BSTR*p));
+    NV_DECLARE_TEAROFF_METHOD(get_readyState, GET_readyState, (VARIANT*p));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollHeight, GET_scrollHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollWidth, GET_scrollWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_scrollTop, PUT_scrollTop, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollTop, GET_scrollTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_scrollLeft, PUT_scrollLeft, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_scrollLeft, GET_scrollLeft, (long*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, clearAttributes, clearattributes, ());
+    NV_DECLARE_TEAROFF_METHOD(get_canHaveChildren, GET_canHaveChildren, (VARIANT_BOOL*p));
+    NV_DECLARE_TEAROFF_METHOD(get_readyStateValue, GET_readyStateValue, (long*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, getElementsByTagName, getelementsbytagname, (BSTR v,IHTMLElementCollection** pelColl));
+//    Event fire method declarations for events HTMLElementEvents
+    BOOL Fire_onhelp(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONHELP, DISPID_EVPROP_ONHELP, _T("help"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onclick(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONCLICK, DISPID_EVPROP_ONCLICK, _T("click"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_ondblclick(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONDBLCLICK, DISPID_EVPROP_ONDBLCLICK, _T("dblclick"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onselectstart(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONSELECTSTART, DISPID_EVPROP_ONSELECTSTART, _T("selectstart"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_ondragstart(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONDRAGSTART, DISPID_EVPROP_ONDRAGSTART, _T("dragstart"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onbeforeupdate(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONBEFOREUPDATE, DISPID_EVPROP_ONBEFOREUPDATE, _T("beforeupdate"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onafterupdate(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        BubbleEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONAFTERUPDATE, DISPID_EVPROP_ONAFTERUPDATE, _T("afterupdate"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onerrorupdate(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONERRORUPDATE, DISPID_EVPROP_ONERRORUPDATE, _T("errorupdate"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onlosecapture()
+    {
+        FireEvent(DISPID_EVMETH_ONLOSECAPTURE, DISPID_EVPROP_ONLOSECAPTURE, _T("losecapture"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onresize()
+    {
+        FireEvent(DISPID_EVMETH_ONRESIZE, DISPID_EVPROP_ONRESIZE, _T("resize"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_ondrag(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONDRAG, DISPID_EVPROP_ONDRAG, _T("drag"), (BYTE *) VTS_NONE);
+    }
+    void Fire_ondragleave(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        BubbleEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONDRAGLEAVE, DISPID_EVPROP_ONDRAGLEAVE, _T("dragleave"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onbeforecut(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONBEFORECUT, DISPID_EVPROP_ONBEFORECUT, _T("beforecut"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_oncut(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONCUT, DISPID_EVPROP_ONCUT, _T("cut"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onbeforecopy(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONBEFORECOPY, DISPID_EVPROP_ONBEFORECOPY, _T("beforecopy"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_oncopy(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONCOPY, DISPID_EVPROP_ONCOPY, _T("copy"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onbeforepaste(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONBEFOREPASTE, DISPID_EVPROP_ONBEFOREPASTE, _T("beforepaste"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onpaste(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONPASTE, DISPID_EVPROP_ONPASTE, _T("paste"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_oncontextmenu(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONCONTEXTMENU, DISPID_EVPROP_ONCONTEXTMENU, _T("contextmenu"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onreadystatechange()
+    {
+        FireEvent(DISPID_EVMETH_ONREADYSTATECHANGE, DISPID_EVPROP_ONREADYSTATECHANGE, _T("readystatechange"), (BYTE *) VTS_NONE);
+    }
+    BOOL Fire_onmousehover(CTreeNode * pNodeContext = NULL, long lSubDivision = -1)
+    {
+        return BubbleCancelableEvent(pNodeContext, lSubDivision, DISPID_EVMETH_ONMOUSEHOVER, DISPID_EVPROP_ONMOUSEHOVER, _T("mousehover"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLElement)
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLElement2)
+    DECLARE_TEAROFF_TABLE(IObjectIdentity)
+    DECLARE_TEAROFF_TABLE(IPerPropertyBrowsing)
+    STDMETHODIMP get_parentElement(IHTMLElement* *p, CTreeNode *pNode);
+    STDMETHODIMP click(CTreeNode *pNode);
+
+#endif // _CElement_
+
+#undef _CElement_
+

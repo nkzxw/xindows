@@ -1,0 +1,179 @@
+
+#ifdef _hxx_
+
+#include "e1d.h"
+
+//    DISPIDs for class C1DElement
+
+EXTERN_C const GUID CLSID_HTMLDivPosition;
+#define DISPID_C1DElement_align     STDPROPID_XOBJ_CONTROLALIGN
+//    DISPIDs for classIHTMLDivPosition
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _C1DElement_PROPDESCS_
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescC1DElementalign =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("align"), NULL, (ULONG_PTR)htmlControlAlignNotSet, (ULONG_PTR)htmlControlAlignNotSet,
+#else
+    PROPERTYDESC::HandleEnumProperty, _T("align"), NULL, (ULONG_PTR)htmlControlAlignNotSet,(ULONG_PTR)htmlControlAlignNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, STDPROPID_XOBJ_CONTROLALIGN, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlControlAlign,
+    },
+};
+
+
+
+const PROPERTYDESC * const C1DElement::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCElementaccessKey, // accessKey
+    (PROPERTYDESC *)&s_propdescC1DElementalign.a, // align
+    (PROPERTYDESC *)&s_propdescCElementclassName, // class
+    (PROPERTYDESC *)&s_propdescCElementdir, // dir
+    (PROPERTYDESC *)&s_propdescCElementdisabled, // disabled
+    (PROPERTYDESC *)&s_propdescCElementid, // id
+    (PROPERTYDESC *)&s_propdescCElementlang, // lang
+    (PROPERTYDESC *)&s_propdescCElementlanguage, // language
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy, // onbeforecopy
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut, // onbeforecut
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste, // onbeforepaste
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCElementonblur, // onblur
+    (PROPERTYDESC *)&s_propdescCElementonclick, // onclick
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCElementoncopy, // oncopy
+    (PROPERTYDESC *)&s_propdescCElementoncut, // oncut
+    (PROPERTYDESC *)&s_propdescCElementondblclick, // ondblclick
+    (PROPERTYDESC *)&s_propdescCElementondrag, // ondrag
+    (PROPERTYDESC *)&s_propdescCElementondragend, // ondragend
+    (PROPERTYDESC *)&s_propdescCElementondragenter, // ondragenter
+    (PROPERTYDESC *)&s_propdescCElementondragleave, // ondragleave
+    (PROPERTYDESC *)&s_propdescCElementondragover, // ondragover
+    (PROPERTYDESC *)&s_propdescCElementondragstart, // ondragstart
+    (PROPERTYDESC *)&s_propdescCElementondrop, // ondrop
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCElementonfocus, // onfocus
+    (PROPERTYDESC *)&s_propdescCElementonhelp, // onhelp
+    (PROPERTYDESC *)&s_propdescCElementonkeydown, // onkeydown
+    (PROPERTYDESC *)&s_propdescCElementonkeypress, // onkeypress
+    (PROPERTYDESC *)&s_propdescCElementonkeyup, // onkeyup
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture, // onlosecapture
+    (PROPERTYDESC *)&s_propdescCElementonmousedown, // onmousedown
+    (PROPERTYDESC *)&s_propdescCElementonmousemove, // onmousemove
+    (PROPERTYDESC *)&s_propdescCElementonmouseout, // onmouseout
+    (PROPERTYDESC *)&s_propdescCElementonmouseover, // onmouseover
+    (PROPERTYDESC *)&s_propdescCElementonmouseup, // onmouseup
+    (PROPERTYDESC *)&s_propdescCElementonpaste, // onpaste
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCElementonresize, // onresize
+    (PROPERTYDESC *)&s_propdescCElementonscroll, // onscroll
+    (PROPERTYDESC *)&s_propdescCElementonselectstart, // onselectstart
+    (PROPERTYDESC *)&s_propdescCElementstyle_Str, // style
+    (PROPERTYDESC *)&s_propdescCElementtabIndex, // tabIndex
+    (PROPERTYDESC *)&s_propdescCElementtitle, // title
+    NULL
+};
+
+const VTABLEDESC C1DElement::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescC1DElementalign, 0x0},        // Property align
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const C1DElement::s_ppropdescsInVtblOrderIHTMLDivPosition[] = {
+    (PROPERTYDESC *)&s_propdescC1DElementalign,
+    (PROPERTYDESC *)&s_propdescC1DElementalign,
+};
+
+
+HDLDESC C1DElement::s_apHdlDescs = {  &DIID_DispHTMLDivPosition,C1DElement::s_ppropdescs, 60, C1DElement::s_apVTableInterf, 1, C1DElement::s_ppropdescsInVtblOrderIHTMLDivPosition};
+
+
+//    Tear-off table for class C1DElement
+BEGIN_TEAROFF_TABLE_PROPDESC(C1DElement, IHTMLDivPosition)
+    //  IDispatch methods
+    TEAROFF_METHOD(C1DElement, GetTypeInfoCount, gettypeinfocount, (unsigned int *))
+    TEAROFF_METHOD(C1DElement, GetTypeInfo, gettypeinfo, (unsigned int, unsigned long, ITypeInfo **))
+    TEAROFF_METHOD(C1DElement, GetIDsOfNames, getidsofnames, (REFIID, LPOLESTR *, unsigned int, LCID, DISPID *))
+    TEAROFF_METHOD(C1DElement, Invoke, invoke, (DISPID, REFIID, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, unsigned int *))
+    //  IHTMLDivPosition methods
+    TEAROFF_METHOD(CBase, put_String, PUT_String, (BSTR))    // property set_align
+    TEAROFF_METHOD(CBase, get_Property, GET_Property, (void *))    // property get_align
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class C1DElement
+BEGIN_TEAROFF_TABLE(C1DElement, IHTMLTextContainer)
+    //  IDispatch methods
+    TEAROFF_METHOD(C1DElement, GetTypeInfoCount, gettypeinfocount, (unsigned int *))
+    TEAROFF_METHOD(C1DElement, GetTypeInfo, gettypeinfo, (unsigned int, unsigned long, ITypeInfo **))
+    TEAROFF_METHOD(C1DElement, GetIDsOfNames, getidsofnames, (REFIID, LPOLESTR *, unsigned int, LCID, DISPID *))
+    TEAROFF_METHOD(C1DElement, Invoke, invoke, (DISPID, REFIID, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, unsigned int *))
+    //  IHTMLTextContainer methods
+    TEAROFF_METHOD(C1DElement, createControlRange, createcontrolrange, (IDispatch**))
+    TEAROFF_METHOD(C1DElement, get_scrollHeight, GET_scrollHeight, (long *))    // property get_scrollHeight
+    TEAROFF_METHOD(C1DElement, get_scrollWidth, GET_scrollWidth, (long *))    // property get_scrollWidth
+    TEAROFF_METHOD(C1DElement, put_scrollTop, PUT_scrollTop, (long))    // property set_scrollTop
+    TEAROFF_METHOD(C1DElement, get_scrollTop, GET_scrollTop, (long *))    // property get_scrollTop
+    TEAROFF_METHOD(C1DElement, put_scrollLeft, PUT_scrollLeft, (long))    // property set_scrollLeft
+    TEAROFF_METHOD(C1DElement, get_scrollLeft, GET_scrollLeft, (long *))    // property get_scrollLeft
+    TEAROFF_METHOD(C1DElement, put_onscroll, PUT_onscroll, (VARIANT))    // property set_onscroll
+    TEAROFF_METHOD(C1DElement, get_onscroll, GET_onscroll, (VARIANT *))    // property get_onscroll
+END_TEAROFF_TABLE()
+
+
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _C1DElement_
+
+
+//  Cascaded Property get method prototypes for class C1DElement
+
+public:
+
+//    Property get/set method declarations for class C1DElement
+
+public:
+    static const PROPERTYDESC * const C1DElement::s_ppropdescs [];
+    static const VTABLEDESC C1DElement::s_apVTableInterf [];
+    static HDLDESC C1DElement::s_apHdlDescs;
+    static const PROPERTYDESC * const C1DElement::s_ppropdescsInVtblOrderIHTMLDivPosition [];
+//    Event fire method declarations for events HTMLTextContainerEvents
+    void Fire_onchange()
+    {
+        FireEvent(DISPID_EVMETH_ONCHANGE, DISPID_EVPROP_ONCHANGE, _T("change"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onselect()
+    {
+        FireEvent(DISPID_EVMETH_ONSELECT, DISPID_EVPROP_ONSELECT, _T("select"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLDivPosition)
+    DECLARE_TEAROFF_TABLE(IHTMLTextContainer)
+
+#endif // _C1DElement_
+
+#undef _C1DElement_
+

@@ -1,0 +1,257 @@
+
+#ifdef _hxx_
+
+#include "csite.h"
+
+//    DISPIDs for class CSite
+
+#define DISPID_CSite_focus     DISPID_SITE+0
+#define DISPID_CSite_blur     DISPID_SITE+2
+#define DISPID_CSite_onblur     DISPID_EVPROP_ONBLUR
+#define DISPID_CSite_onfocus     DISPID_EVPROP_ONFOCUS
+#define DISPID_CSite_accessKey     DISPID_SITE+5
+#define DISPID_CSite_onresize     DISPID_EVPROP_ONRESIZE
+#define DISPID_CSite_clientHeight     DISPID_SITE+19
+#define DISPID_CSite_clientWidth     DISPID_SITE+20
+#define DISPID_CSite_clientTop     DISPID_SITE+21
+#define DISPID_CSite_clientLeft     DISPID_SITE+22
+#define DISPID_CSite_tabIndex     STDPROPID_XOBJ_TABINDEX
+//    DISPIDs for classIHTMLControlElement
+
+//    DISPIDs for classIUnknown
+
+
+EXTERN_C const GUID DIID_HTMLControlElementEvents2;
+
+EXTERN_C const GUID DIID_HTMLControlElementEvents;
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdeschtmlStart = 
+{ 2, 3, {
+    { _T("fileopen"),0},
+    { _T("mouseover"),1},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CSite_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCSiteonblur =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onblur"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onblur"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBLUR, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCSiteonfocus =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onfocus"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onfocus"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONFOCUS, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCSiteaccessKey =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("accessKey"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("accessKey"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_SITE+5, ELEMCHNG_UPDATECOLLECTION|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlToken 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCSiteonresize =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onresize"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onresize"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONRESIZE, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCSiteclientHeight = 
+{
+    NULL, _T("clientHeight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+19, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCSiteclientWidth = 
+{
+    NULL, _T("clientWidth"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+20, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCSiteclientTop = 
+{
+    NULL, _T("clientTop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+21, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCSiteclientLeft = 
+{
+    NULL, _T("clientLeft"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet, DISPID_SITE+22, 0, IDX_G_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCSitetabIndex =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("tabIndex"), NULL, (ULONG_PTR)htmlTabIndexNotSet, (ULONG_PTR)htmlTabIndexNotSet,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("tabIndex"), NULL, (ULONG_PTR)htmlTabIndexNotSet,(ULONG_PTR)htmlTabIndexNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , STDPROPID_XOBJ_TABINDEX, 0, IDX_GS_short, 0 
+        },
+        VT_I2, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+
+const CONNECTION_POINT_INFO CSite::s_acpi[] = {
+    CPI_ENTRY(IID_IPropertyNotifySink, DISPID_A_PROPNOTIFYSINK)
+    CPI_ENTRY(DIID_HTMLControlElementEvents, DISPID_A_EVENTSINK)
+    CPI_ENTRY(DIID_HTMLControlElementEvents2, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_ITridentEventSink, DISPID_A_EVENTSINK)
+    CPI_ENTRY(IID_IDispatch, DISPID_A_EVENTSINK)
+    CPI_ENTRY_NULL
+};
+
+const PROPERTYDESC * const CSite::s_ppropdescsInVtblOrderIHTMLControlElement[] = {
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_propdescCElementtabIndex,
+    (PROPERTYDESC *)&s_methdescCElementfocus,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementaccessKey,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonblur,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonfocus,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_propdescCElementonresize,
+    (PROPERTYDESC *)&s_methdescCElementblur,
+    (PROPERTYDESC *)&s_propdescCElementclientHeight,
+    (PROPERTYDESC *)&s_propdescCElementclientWidth,
+    (PROPERTYDESC *)&s_propdescCElementclientTop,
+    (PROPERTYDESC *)&s_propdescCElementclientLeft,
+};
+
+
+//    Tear-off table for class CSite
+BEGIN_TEAROFF_TABLE_PROPDESC(CSite, IHTMLControlElement)
+    //  IHTMLControlElement methods
+    TEAROFF_METHOD(CBase, &put_Short, PUT_Short, (short))    // property set_tabIndex
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_tabIndex
+    TEAROFF_METHOD(CSite, &super::focus, super::FOCUS, ())
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_accessKey
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_accessKey
+    TEAROFF_METHOD(CSite, &super::put_onblur, super::PUT_ONBLUR, (VARIANT))    // property set_onblur
+    TEAROFF_METHOD(CSite, &super::get_onblur, super::GET_ONBLUR, (VARIANT *))    // property get_onblur
+    TEAROFF_METHOD(CSite, &super::put_onfocus, super::PUT_ONFOCUS, (VARIANT))    // property set_onfocus
+    TEAROFF_METHOD(CSite, &super::get_onfocus, super::GET_ONFOCUS, (VARIANT *))    // property get_onfocus
+    TEAROFF_METHOD(CSite, &super::put_onresize, super::PUT_ONRESIZE, (VARIANT))    // property set_onresize
+    TEAROFF_METHOD(CSite, &super::get_onresize, super::GET_ONRESIZE, (VARIANT *))    // property get_onresize
+    TEAROFF_METHOD(CSite, &super::blur, super::BLUR, ())
+    TEAROFF_METHOD(CSite, &super::get_clientHeight, super::get_clientheight, (long *))    // property get_clientHeight
+    TEAROFF_METHOD(CSite, &super::get_clientWidth, super::get_clientwidth, (long *))    // property get_clientWidth
+    TEAROFF_METHOD(CSite, &super::get_clientTop, super::get_clienttop, (long *))    // property get_clientTop
+    TEAROFF_METHOD(CSite, &super::get_clientLeft, super::get_clientleft, (long *))    // property get_clientLeft
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+LPCTSTR CSite::GetAAonblur() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonblur.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CSite::GetAAonfocus() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonfocus.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CSite::GetAAaccessKey() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementaccessKey.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CSite::GetAAonresize() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCElementonresize.a, &v);
+    return *(LPCTSTR*)&v;
+}
+short CSite::GetAAtabIndex() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCElementtabIndex.a, &v);
+    return *(short*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CSite_
+
+
+//  Cascaded Property get method prototypes for class CSite
+
+public:
+    LPCTSTR GetAAonblur() const;
+    LPCTSTR GetAAonfocus() const;
+    LPCTSTR GetAAaccessKey() const;
+    LPCTSTR GetAAonresize() const;
+    short GetAAtabIndex() const;
+
+//    Property get/set method declarations for class CSite
+    static const PROPERTYDESC * const CSite::s_ppropdescsInVtblOrderIHTMLControlElement [];
+    static const CONNECTION_POINT_INFO CSite::s_acpi[];
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, focus, fOCUS, ());
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, blur, bLUR, ());
+    NV_DECLARE_TEAROFF_METHOD(get_clientHeight, GET_clientHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientWidth, GET_clientWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientTop, GET_clientTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(get_clientLeft, GET_clientLeft, (long*p));
+//    Event fire method declarations for events HTMLControlElementEvents
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLControlElement)
+
+#endif // _CSite_
+
+#undef _CSite_
+

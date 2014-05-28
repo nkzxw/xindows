@@ -1,0 +1,249 @@
+
+#ifdef _hxx_
+
+#include "markup.h"
+
+//    DISPIDs for class CMarkup
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CMarkup_PROPDESCS_
+
+
+const PROPERTYDESC * const CMarkup::s_ppropdescsInVtblOrderIHTMLDocument2[] = {
+    (PROPERTYDESC *)&s_propdescCDocScript,
+    (PROPERTYDESC *)&s_propdescCDocall,
+    (PROPERTYDESC *)&s_propdescCDocbody,
+    (PROPERTYDESC *)&s_propdescCDocactiveElement,
+    (PROPERTYDESC *)&s_propdescCDoctitle,
+    (PROPERTYDESC *)&s_propdescCDoctitle,
+    (PROPERTYDESC *)&s_propdescCDocscripts,
+    (PROPERTYDESC *)&s_propdescCDocreadyState,
+    (PROPERTYDESC *)&s_propdescCDocalinkColor,
+    (PROPERTYDESC *)&s_propdescCDocalinkColor,
+    (PROPERTYDESC *)&s_propdescCDocbgColor,
+    (PROPERTYDESC *)&s_propdescCDocbgColor,
+    (PROPERTYDESC *)&s_propdescCDocfgColor,
+    (PROPERTYDESC *)&s_propdescCDocfgColor,
+    (PROPERTYDESC *)&s_propdescCDoclinkColor,
+    (PROPERTYDESC *)&s_propdescCDoclinkColor,
+    (PROPERTYDESC *)&s_propdescCDocvlinkColor,
+    (PROPERTYDESC *)&s_propdescCDocvlinkColor,
+    (PROPERTYDESC *)&s_propdescCDocexpando,
+    (PROPERTYDESC *)&s_propdescCDocexpando,
+    (PROPERTYDESC *)&s_propdescCDocnameProp,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandSupported,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandEnabled,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandState,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandIndeterm,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandText,
+    (PROPERTYDESC *)&s_methdescCDocqueryCommandValue,
+    (PROPERTYDESC *)&s_methdescCDocexecCommand,
+    (PROPERTYDESC *)&s_methdescCDocexecCommandShowHelp,
+    (PROPERTYDESC *)&s_methdescCDoccreateElement,
+    (PROPERTYDESC *)&s_propdescCDoconhelp,
+    (PROPERTYDESC *)&s_propdescCDoconhelp,
+    (PROPERTYDESC *)&s_propdescCDoconclick,
+    (PROPERTYDESC *)&s_propdescCDoconclick,
+    (PROPERTYDESC *)&s_propdescCDocondblclick,
+    (PROPERTYDESC *)&s_propdescCDocondblclick,
+    (PROPERTYDESC *)&s_propdescCDoconkeyup,
+    (PROPERTYDESC *)&s_propdescCDoconkeyup,
+    (PROPERTYDESC *)&s_propdescCDoconkeydown,
+    (PROPERTYDESC *)&s_propdescCDoconkeydown,
+    (PROPERTYDESC *)&s_propdescCDoconkeypress,
+    (PROPERTYDESC *)&s_propdescCDoconkeypress,
+    (PROPERTYDESC *)&s_propdescCDoconmouseup,
+    (PROPERTYDESC *)&s_propdescCDoconmouseup,
+    (PROPERTYDESC *)&s_propdescCDoconmousedown,
+    (PROPERTYDESC *)&s_propdescCDoconmousedown,
+    (PROPERTYDESC *)&s_propdescCDoconmousemove,
+    (PROPERTYDESC *)&s_propdescCDoconmousemove,
+    (PROPERTYDESC *)&s_propdescCDoconmouseout,
+    (PROPERTYDESC *)&s_propdescCDoconmouseout,
+    (PROPERTYDESC *)&s_propdescCDoconmouseover,
+    (PROPERTYDESC *)&s_propdescCDoconmouseover,
+    (PROPERTYDESC *)&s_propdescCDoconreadystatechange,
+    (PROPERTYDESC *)&s_propdescCDoconreadystatechange,
+    (PROPERTYDESC *)&s_propdescCDoconafterupdate,
+    (PROPERTYDESC *)&s_propdescCDoconafterupdate,
+    (PROPERTYDESC *)&s_propdescCDocondragstart,
+    (PROPERTYDESC *)&s_propdescCDocondragstart,
+    (PROPERTYDESC *)&s_propdescCDoconselectstart,
+    (PROPERTYDESC *)&s_propdescCDoconselectstart,
+    (PROPERTYDESC *)&s_methdescCDocelementFromPoint,
+    (PROPERTYDESC *)&s_propdescCDocparentWindow,
+    (PROPERTYDESC *)&s_propdescCDoconbeforeupdate,
+    (PROPERTYDESC *)&s_propdescCDoconbeforeupdate,
+    (PROPERTYDESC *)&s_propdescCDoconerrorupdate,
+    (PROPERTYDESC *)&s_propdescCDoconerrorupdate,
+    (PROPERTYDESC *)&s_methdescCDoctoString,
+};
+
+
+const PROPERTYDESC * const CMarkup::s_ppropdescsInVtblOrderIHTMLDocument3[] = {
+    (PROPERTYDESC *)&s_methdescCDocreleaseCapture,
+    (PROPERTYDESC *)&s_methdescCDoccreateTextNode,
+    (PROPERTYDESC *)&s_propdescCDocdocumentElement,
+    (PROPERTYDESC *)&s_propdescCDocuniqueID,
+    (PROPERTYDESC *)&s_methdescCBaseattachEvent,
+    (PROPERTYDESC *)&s_methdescCBasedetachEvent,
+    (PROPERTYDESC *)&s_propdescCDoconpropertychange,
+    (PROPERTYDESC *)&s_propdescCDoconpropertychange,
+    (PROPERTYDESC *)&s_propdescCDoconcontextmenu,
+    (PROPERTYDESC *)&s_propdescCDoconcontextmenu,
+    (PROPERTYDESC *)&s_propdescCDoconstop,
+    (PROPERTYDESC *)&s_propdescCDoconstop,
+    (PROPERTYDESC *)&s_propdescCDocparentDocument,
+    (PROPERTYDESC *)&s_propdescCDocenableDownload,
+    (PROPERTYDESC *)&s_propdescCDocenableDownload,
+    (PROPERTYDESC *)&s_propdescCDocbaseUrl,
+    (PROPERTYDESC *)&s_propdescCDocbaseUrl,
+    (PROPERTYDESC *)&s_propdescCDoconbeforeeditfocus,
+    (PROPERTYDESC *)&s_propdescCDoconbeforeeditfocus,
+    (PROPERTYDESC *)&s_methdescCDocgetElementsByName,
+    (PROPERTYDESC *)&s_methdescCDocgetElementById,
+    (PROPERTYDESC *)&s_methdescCDocgetElementsByTagName,
+};
+
+
+//    Tear-off table for class CMarkup
+BEGIN_TEAROFF_TABLE_PROPDESC(CMarkup, IHTMLDocument2)
+    //  IHTMLDocument methods
+    TEAROFF_METHOD(CMarkup, &get_Script, GET_Script, (IDispatch* *))    // property get_Script
+    //  IHTMLDocument2 methods
+    TEAROFF_METHOD(CMarkup, &get_all, GET_all, (IHTMLElementCollection* *))    // property get_all
+    TEAROFF_METHOD(CMarkup, &get_body, GET_body, (IHTMLElement* *))    // property get_body
+    TEAROFF_METHOD(CMarkup, &get_activeElement, GET_activeElement, (IHTMLElement* *))    // property get_activeElement
+    TEAROFF_METHOD(CMarkup, &put_title, PUT_title, (BSTR))    // property set_title
+    TEAROFF_METHOD(CMarkup, &get_title, GET_title, (BSTR *))    // property get_title
+    TEAROFF_METHOD(CMarkup, &get_readyState, GET_readyState, (BSTR *))    // property get_readyState
+    TEAROFF_METHOD(CMarkup, &put_alinkColor, PUT_alinkColor, (VARIANT))    // property set_alinkColor
+    TEAROFF_METHOD(CMarkup, &get_alinkColor, GET_alinkColor, (VARIANT *))    // property get_alinkColor
+    TEAROFF_METHOD(CMarkup, &put_bgColor, PUT_bgColor, (VARIANT))    // property set_bgColor
+    TEAROFF_METHOD(CMarkup, &get_bgColor, GET_bgColor, (VARIANT *))    // property get_bgColor
+    TEAROFF_METHOD(CMarkup, &put_fgColor, PUT_fgColor, (VARIANT))    // property set_fgColor
+    TEAROFF_METHOD(CMarkup, &get_fgColor, GET_fgColor, (VARIANT *))    // property get_fgColor
+    TEAROFF_METHOD(CMarkup, &put_linkColor, PUT_linkColor, (VARIANT))    // property set_linkColor
+    TEAROFF_METHOD(CMarkup, &get_linkColor, GET_linkColor, (VARIANT *))    // property get_linkColor
+    TEAROFF_METHOD(CMarkup, &put_vlinkColor, PUT_vlinkColor, (VARIANT))    // property set_vlinkColor
+    TEAROFF_METHOD(CMarkup, &get_vlinkColor, GET_vlinkColor, (VARIANT *))    // property get_vlinkColor
+    TEAROFF_METHOD(CMarkup, &put_expando, PUT_expando, (VARIANT_BOOL))    // property set_expando
+    TEAROFF_METHOD(CMarkup, &get_expando, GET_expando, (VARIANT_BOOL *))    // property get_expando
+    TEAROFF_METHOD(CMarkup, &get_nameProp, GET_nameProp, (BSTR *))    // property get_nameProp
+    TEAROFF_METHOD(CMarkup, &queryCommandSupported, querycommandsupported, (BSTR,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &queryCommandEnabled, querycommandenabled, (BSTR,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &queryCommandState, querycommandstate, (BSTR,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &queryCommandIndeterm, querycommandindeterm, (BSTR,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &queryCommandText, querycommandtext, (BSTR,BSTR*))
+    TEAROFF_METHOD(CMarkup, &queryCommandValue, querycommandvalue, (BSTR,VARIANT*))
+    TEAROFF_METHOD(CMarkup, &execCommand, execcommand, (BSTR,VARIANT_BOOL,VARIANT,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &execCommandShowHelp, execcommandshowhelp, (BSTR,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &createElement, createelement, (BSTR,IHTMLElement**))
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onhelp
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onhelp
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onclick
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onclick
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondblclick
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondblclick
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeyup
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeyup
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeydown
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeydown
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onkeypress
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onkeypress
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseup
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseup
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmousedown
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmousedown
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmousemove
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmousemove
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseout
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseout
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onmouseover
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onmouseover
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onreadystatechange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onreadystatechange
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onafterupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onafterupdate
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onrowexit
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onrowexit
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onrowenter
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onrowenter
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_ondragstart
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_ondragstart
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onselectstart
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onselectstart
+    TEAROFF_METHOD(CMarkup, &elementFromPoint, elementfrompoint, (long,long,IHTMLElement**))
+    TEAROFF_METHOD(CMarkup, &get_parentWindow, GET_parentWindow, (IHTMLWindow2* *))    // property get_parentWindow
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforeupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforeupdate
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onerrorupdate
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onerrorupdate
+    TEAROFF_METHOD(CMarkup, &toString, tostring, (BSTR*))
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class CMarkup
+BEGIN_TEAROFF_TABLE_PROPDESC(CMarkup, IHTMLDocument3)
+    //  IHTMLDocument3 methods
+    TEAROFF_METHOD(CMarkup, &releaseCapture, releasecapture, ())
+    TEAROFF_METHOD(CMarkup, &get_documentElement, GET_documentElement, (IHTMLElement* *))    // property get_documentElement
+    TEAROFF_METHOD(CMarkup, &get_uniqueID, GET_uniqueID, (BSTR *))    // property get_uniqueID
+    TEAROFF_METHOD(CMarkup, &attachEvent, attachevent, (BSTR,IDispatch*,VARIANT_BOOL*))
+    TEAROFF_METHOD(CMarkup, &detachEvent, detachevent, (BSTR,IDispatch*))
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onpropertychange
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onpropertychange
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_oncontextmenu
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_oncontextmenu
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onstop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onstop
+    TEAROFF_METHOD(CMarkup, &get_parentDocument, GET_parentDocument, (IHTMLDocument2* *))    // property get_parentDocument
+    TEAROFF_METHOD(CMarkup, &put_enableDownload, PUT_enableDownload, (VARIANT_BOOL))    // property set_enableDownload
+    TEAROFF_METHOD(CMarkup, &get_enableDownload, GET_enableDownload, (VARIANT_BOOL *))    // property get_enableDownload
+    TEAROFF_METHOD(CMarkup, &put_baseUrl, PUT_baseUrl, (BSTR))    // property set_baseUrl
+    TEAROFF_METHOD(CMarkup, &get_baseUrl, GET_baseUrl, (BSTR *))    // property get_baseUrl
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onbeforeeditfocus
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onbeforeeditfocus
+    TEAROFF_METHOD(CMarkup, &getElementsByName, getelementsbyname, (BSTR,IHTMLElementCollection**))
+    TEAROFF_METHOD(CMarkup, &getElementById, getelementbyid, (BSTR,IHTMLElement**))
+    TEAROFF_METHOD(CMarkup, &getElementsByTagName, getelementsbytagname, (BSTR,IHTMLElementCollection**))
+END_TEAROFF_TABLE()
+
+
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CMarkup_
+
+
+//  Cascaded Property get method prototypes for class CMarkup
+
+public:
+
+//    Property get/set method declarations for class CMarkup
+    static const PROPERTYDESC * const CMarkup::s_ppropdescsInVtblOrderIHTMLDocument2 [];
+    static const PROPERTYDESC * const CMarkup::s_ppropdescsInVtblOrderIHTMLDocument3 [];
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLDocument2)
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLDocument3)
+
+#endif // _CMarkup_
+
+#undef _CMarkup_
+

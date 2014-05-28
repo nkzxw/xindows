@@ -1,0 +1,2973 @@
+
+#ifdef _hxx_
+
+#include "style.h"
+
+//    DISPIDs for class CStyle
+
+EXTERN_C const GUID CLSID_HTMLStyle;
+#define DISPID_CStyle_fontFamily     DISPID_A_FONTFACE
+#define DISPID_CStyle_fontStyle     DISPID_A_FONTSTYLE
+#define DISPID_CStyle_fontVariant     DISPID_A_FONTVARIANT
+#define DISPID_CStyle_fontWeight     DISPID_A_FONTWEIGHT
+#define DISPID_CStyle_fontSize     DISPID_A_FONTSIZE
+#define DISPID_CStyle_font     DISPID_A_FONT
+#define DISPID_CStyle_color     DISPID_A_COLOR
+#define DISPID_CStyle_background     DISPID_A_BACKGROUND
+#define DISPID_CStyle_backgroundColor     DISPID_BACKCOLOR
+#define DISPID_CStyle_backgroundImage     DISPID_A_BACKGROUNDIMAGE
+#define DISPID_CStyle_backgroundRepeat     DISPID_A_BACKGROUNDREPEAT
+#define DISPID_CStyle_backgroundAttachment     DISPID_A_BACKGROUNDATTACHMENT
+#define DISPID_CStyle_backgroundPosition     DISPID_A_BACKGROUNDPOSITION
+#define DISPID_CStyle_backgroundPositionX     DISPID_A_BACKGROUNDPOSX
+#define DISPID_CStyle_backgroundPositionY     DISPID_A_BACKGROUNDPOSY
+#define DISPID_CStyle_wordSpacing     DISPID_A_WORDSPACING
+#define DISPID_CStyle_letterSpacing     DISPID_A_LETTERSPACING
+#define DISPID_CStyle_textDecoration     DISPID_A_TEXTDECORATION
+#define DISPID_CStyle_textDecorationNone     DISPID_A_TEXTDECORATIONNONE
+#define DISPID_CStyle_textDecorationUnderline     DISPID_A_TEXTDECORATIONUNDERLINE
+#define DISPID_CStyle_textDecorationOverline     DISPID_A_TEXTDECORATIONOVERLINE
+#define DISPID_CStyle_textDecorationLineThrough     DISPID_A_TEXTDECORATIONLINETHROUGH
+#define DISPID_CStyle_textDecorationBlink     DISPID_A_TEXTDECORATIONBLINK
+#define DISPID_CStyle_accelerator     DISPID_A_ACCELERATOR
+#define DISPID_CStyle_verticalAlign     DISPID_A_VERTICALALIGN
+#define DISPID_CStyle_textTransform     DISPID_A_TEXTTRANSFORM
+#define DISPID_CStyle_textAlign     STDPROPID_XOBJ_BLOCKALIGN
+#define DISPID_CStyle_textIndent     DISPID_A_TEXTINDENT
+#define DISPID_CStyle_lineHeight     DISPID_A_LINEHEIGHT
+#define DISPID_CStyle_marginTop     DISPID_A_MARGINTOP
+#define DISPID_CStyle_marginRight     DISPID_A_MARGINRIGHT
+#define DISPID_CStyle_marginBottom     DISPID_A_MARGINBOTTOM
+#define DISPID_CStyle_marginLeft     DISPID_A_MARGINLEFT
+#define DISPID_CStyle_margin     DISPID_A_MARGIN
+#define DISPID_CStyle_paddingTop     DISPID_A_PADDINGTOP
+#define DISPID_CStyle_paddingRight     DISPID_A_PADDINGRIGHT
+#define DISPID_CStyle_paddingBottom     DISPID_A_PADDINGBOTTOM
+#define DISPID_CStyle_paddingLeft     DISPID_A_PADDINGLEFT
+#define DISPID_CStyle_padding     DISPID_A_PADDING
+#define DISPID_CStyle_border     DISPID_A_BORDER
+#define DISPID_CStyle_borderTop     DISPID_A_BORDERTOP
+#define DISPID_CStyle_borderRight     DISPID_A_BORDERRIGHT
+#define DISPID_CStyle_borderBottom     DISPID_A_BORDERBOTTOM
+#define DISPID_CStyle_borderLeft     DISPID_A_BORDERLEFT
+#define DISPID_CStyle_borderColor     DISPID_A_BORDERCOLOR
+#define DISPID_CStyle_borderTopColor     DISPID_A_BORDERTOPCOLOR
+#define DISPID_CStyle_borderRightColor     DISPID_A_BORDERRIGHTCOLOR
+#define DISPID_CStyle_borderBottomColor     DISPID_A_BORDERBOTTOMCOLOR
+#define DISPID_CStyle_borderLeftColor     DISPID_A_BORDERLEFTCOLOR
+#define DISPID_CStyle_borderWidth     DISPID_A_BORDERWIDTH
+#define DISPID_CStyle_borderTopWidth     DISPID_A_BORDERTOPWIDTH
+#define DISPID_CStyle_borderRightWidth     DISPID_A_BORDERRIGHTWIDTH
+#define DISPID_CStyle_borderBottomWidth     DISPID_A_BORDERBOTTOMWIDTH
+#define DISPID_CStyle_borderLeftWidth     DISPID_A_BORDERLEFTWIDTH
+#define DISPID_CStyle_borderStyle     DISPID_A_BORDERSTYLE
+#define DISPID_CStyle_borderTopStyle     DISPID_A_BORDERTOPSTYLE
+#define DISPID_CStyle_borderRightStyle     DISPID_A_BORDERRIGHTSTYLE
+#define DISPID_CStyle_borderBottomStyle     DISPID_A_BORDERBOTTOMSTYLE
+#define DISPID_CStyle_borderLeftStyle     DISPID_A_BORDERLEFTSTYLE
+#define DISPID_CStyle_styleFloat     DISPID_A_FLOAT
+#define DISPID_CStyle_clear     DISPID_A_CLEAR
+#define DISPID_CStyle_display     DISPID_A_DISPLAY
+#define DISPID_CStyle_visibility     DISPID_A_VISIBILITY
+#define DISPID_CStyle_listStyleType     DISPID_A_LISTSTYLETYPE
+#define DISPID_CStyle_listStylePosition     DISPID_A_LISTSTYLEPOSITION
+#define DISPID_CStyle_listStyleImage     DISPID_A_LISTSTYLEIMAGE
+#define DISPID_CStyle_listStyle     DISPID_A_LISTSTYLE
+#define DISPID_CStyle_whiteSpace     DISPID_A_WHITESPACE
+#define DISPID_CStyle_top     STDPROPID_XOBJ_TOP
+#define DISPID_CStyle_bottom     STDPROPID_XOBJ_BOTTOM
+#define DISPID_CStyle_left     STDPROPID_XOBJ_LEFT
+#define DISPID_CStyle_right     STDPROPID_XOBJ_RIGHT
+#define DISPID_CStyle_width     STDPROPID_XOBJ_WIDTH
+#define DISPID_CStyle_height     STDPROPID_XOBJ_HEIGHT
+#define DISPID_CStyle_pixelTop     DISPID_STYLE+0
+#define DISPID_CStyle_pixelLeft     DISPID_STYLE+1
+#define DISPID_CStyle_pixelWidth     DISPID_STYLE+2
+#define DISPID_CStyle_pixelHeight     DISPID_STYLE+3
+#define DISPID_CStyle_posTop     DISPID_STYLE+4
+#define DISPID_CStyle_posLeft     DISPID_STYLE+5
+#define DISPID_CStyle_posWidth     DISPID_STYLE+6
+#define DISPID_CStyle_posHeight     DISPID_STYLE+7
+#define DISPID_CStyle_pixelBottom     DISPID_STYLE+9
+#define DISPID_CStyle_pixelRight     DISPID_STYLE+10
+#define DISPID_CStyle_posBottom     DISPID_STYLE+11
+#define DISPID_CStyle_posRight     DISPID_STYLE+12
+#define DISPID_CStyle_overflow     DISPID_A_OVERFLOW
+#define DISPID_CStyle_pageBreakBefore     DISPID_A_PAGEBREAKBEFORE
+#define DISPID_CStyle_pageBreakAfter     DISPID_A_PAGEBREAKAFTER
+#define DISPID_CStyle_cssText     DISPID_A_STYLETEXT
+#define DISPID_CStyle_position2     DISPID_A_POSITION
+#define DISPID_CStyle_zIndex     DISPID_A_ZINDEX
+#define DISPID_CStyle_clip     DISPID_A_CLIP
+#define DISPID_CStyle_clipTop     DISPID_A_CLIPRECTTOP
+#define DISPID_CStyle_clipRight     DISPID_A_CLIPRECTRIGHT
+#define DISPID_CStyle_clipBottom     DISPID_A_CLIPRECTBOTTOM
+#define DISPID_CStyle_clipLeft     DISPID_A_CLIPRECTLEFT
+#define DISPID_CStyle_cursor     DISPID_A_CURSOR
+#define DISPID_CStyle_tableLayout     DISPID_A_TABLELAYOUT
+#define DISPID_CStyle_borderCollapse     DISPID_A_BORDERCOLLAPSE
+#define DISPID_CStyle_toString     DISPID_STYLE+8
+#define DISPID_CStyle_direction     DISPID_A_DIRECTION
+#define DISPID_CStyle_unicodeBidi     DISPID_A_UNICODEBIDI
+#define DISPID_CStyle_behavior     DISPID_A_BEHAVIOR
+#define DISPID_CStyle_position     DISPID_A_POSITION
+#define DISPID_CStyle_imeMode     DISPID_A_IMEMODE
+#define DISPID_CStyle_rubyAlign     DISPID_A_RUBYALIGN
+#define DISPID_CStyle_rubyPosition     DISPID_A_RUBYPOSITION
+#define DISPID_CStyle_rubyOverhang     DISPID_A_RUBYOVERHANG
+#define DISPID_CStyle_textAutospace     DISPID_A_TEXTAUTOSPACE
+#define DISPID_CStyle_lineBreak     DISPID_A_LINEBREAK
+#define DISPID_CStyle_wordBreak     DISPID_A_WORDBREAK
+#define DISPID_CStyle_layoutGridChar     DISPID_A_LAYOUTGRIDCHAR
+#define DISPID_CStyle_layoutGridLine     DISPID_A_LAYOUTGRIDLINE
+#define DISPID_CStyle_layoutGridMode     DISPID_A_LAYOUTGRIDMODE
+#define DISPID_CStyle_layoutGridType     DISPID_A_LAYOUTGRIDTYPE
+#define DISPID_CStyle_layoutGrid     DISPID_A_LAYOUTGRID
+#define DISPID_CStyle_textJustify     DISPID_A_TEXTJUSTIFY
+#define DISPID_CStyle_textJustifyTrim     DISPID_A_TEXTJUSTIFYTRIM
+#define DISPID_CStyle_textKashida     DISPID_A_TEXTKASHIDA
+#define DISPID_CStyle_overflowX     DISPID_A_OVERFLOWX
+#define DISPID_CStyle_overflowY     DISPID_A_OVERFLOWY
+//    DISPIDs for classIHTMLStyle
+
+//    DISPIDs for classIHTMLStyle2
+
+//    DISPIDs for classIHTMLRuleStyle
+
+//    DISPIDs for classIHTMLRuleStyle2
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdescstyleTextTransform = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("capitalize"),1},
+    { _T("lowercase"),2},
+    { _T("uppercase"),3},
+    { _T("none"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleDataRepeat = 
+{ 2, 3, {
+    { _T("none"),0},
+    { _T("inner"),1},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleOverflow = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("hidden"),2},
+    { _T("visible"),3},
+    { _T("scroll"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleTableLayout = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("fixed"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBorderCollapse = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("separate"),1},
+    { _T("collapse"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleFontStyle = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("italic"),1},
+    { _T("oblique"),2},
+    { _T("normal"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleFontVariant = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("small-caps"),1},
+    { _T("normal"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBackgroundRepeat = 
+{ 5, 31, {
+    { _T("repeat"),0},
+    { _T("repeat-x"),1},
+    { _T("repeat-y"),2},
+    { _T("no-repeat"),3},
+    { _T(""),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBackgroundAttachment = 
+{ 3, 7, {
+    { _T("fixed"),0},
+    { _T("scroll"),1},
+    { _T(""),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleVerticalAlign = 
+{ 10, 1023, {
+    { _T("baseline"),0},
+    { _T("sub"),1},
+    { _T("super"),2},
+    { _T("top"),3},
+    { _T("text-top"),4},
+    { _T("middle"),5},
+    { _T("bottom"),6},
+    { _T("text-bottom"),7},
+    { _T("Percentage"),8},
+    { _T(""),9},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleFontWeight = 
+{ 14, 16383, {
+    { _T(""),0},
+    { _T("100"),1},
+    { _T("200"),2},
+    { _T("300"),3},
+    { _T("400"),4},
+    { _T("500"),5},
+    { _T("600"),6},
+    { _T("700"),7},
+    { _T("800"),8},
+    { _T("900"),9},
+    { _T("normal"),10},
+    { _T("bold"),11},
+    { _T("bolder"),12},
+    { _T("lighter"),13},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBackgroundPositionX = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("left"),1},
+    { _T("center"),2},
+    { _T("right"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBackgroundPositionY = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("top"),1},
+    { _T("center"),2},
+    { _T("bottom"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleFontSize = 
+{ 9, 511, {
+    { _T("xx-small"),0},
+    { _T("x-small"),1},
+    { _T("small"),2},
+    { _T("medium"),3},
+    { _T("large"),4},
+    { _T("x-large"),5},
+    { _T("xx-large"),6},
+    { _T("smaller"),7},
+    { _T("larger"),8},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleAuto = 
+{ 1, 1, {
+    { _T("auto"),0},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleNormal = 
+{ 1, 1, {
+    { _T("normal"),0},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBorderWidth = 
+{ 3, 7, {
+    { _T("thin"),0},
+    { _T("medium"),1},
+    { _T("thick"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstylePosition = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("static"),1},
+    { _T("relative"),2},
+    { _T("absolute"),3},
+    { _T("fixed"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBorderStyle = 
+{ 10, 1023, {
+    { _T(""),0},
+    { _T("dotted"),1},
+    { _T("dashed"),2},
+    { _T("solid"),3},
+    { _T("double"),4},
+    { _T("groove"),5},
+    { _T("ridge"),6},
+    { _T("inset"),7},
+    { _T("outset"),8},
+    { _T("none"),9},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleStyleFloat = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("left"),1},
+    { _T("right"),2},
+    { _T("none"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleDisplay = 
+{ 7, 127, {
+    { _T(""),0},
+    { _T("block"),1},
+    { _T("inline"),2},
+    { _T("list-item"),3},
+    { _T("none"),4},
+    { _T("table-header-group"),5},
+    { _T("table-footer-group"),6},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleVisibility = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("inherit"),1},
+    { _T("visible"),2},
+    { _T("hidden"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleListStyleType = 
+{ 10, 1023, {
+    { _T(""),0},
+    { _T("disc"),1},
+    { _T("circle"),2},
+    { _T("square"),3},
+    { _T("decimal"),4},
+    { _T("lower-roman"),5},
+    { _T("upper-roman"),6},
+    { _T("lower-alpha"),7},
+    { _T("upper-alpha"),8},
+    { _T("none"),9},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleListStylePosition = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("inside"),1},
+    { _T("outside"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleWhiteSpace = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("normal"),1},
+    { _T("pre"),2},
+    { _T("nowrap"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstylePageBreak = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("always"),2},
+    { _T("left"),3},
+    { _T("right"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleCursor = 
+{ 17, 131071, {
+    { _T("auto"),0},
+    { _T("crosshair"),1},
+    { _T("default"),2},
+    { _T("hand"),3},
+    { _T("move"),4},
+    { _T("e-resize"),5},
+    { _T("ne-resize"),6},
+    { _T("nw-resize"),7},
+    { _T("n-resize"),8},
+    { _T("se-resize"),9},
+    { _T("sw-resize"),10},
+    { _T("s-resize"),11},
+    { _T("w-resize"),12},
+    { _T("text"),13},
+    { _T("wait"),14},
+    { _T("help"),15},
+    { _T(""),16},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleDir = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("ltr"),1},
+    { _T("rtl"),2},
+    { _T("inherit"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleBidi = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("normal"),1},
+    { _T("embed"),2},
+    { _T("bidi-override"),3},
+    { _T("inherit"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleImeMode = 
+{ 5, 31, {
+    { _T("auto"),0},
+    { _T("active"),1},
+    { _T("inactive"),2},
+    { _T("disabled"),3},
+    { _T(""),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleRubyAlign = 
+{ 8, 255, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("left"),2},
+    { _T("center"),3},
+    { _T("right"),4},
+    { _T("distribute-letter"),5},
+    { _T("distribute-space"),6},
+    { _T("line-edge"),7},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleRubyPosition = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("above"),1},
+    { _T("inline"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleRubyOverhang = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("whitespace"),2},
+    { _T("none"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleLayoutGridChar = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("none"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleLayoutGridLine = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("auto"),1},
+    { _T("none"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleLayoutGridMode = 
+{ 5, 31, {
+    { _T(""),0},
+    { _T("char"),1},
+    { _T("line"),2},
+    { _T("both"),3},
+    { _T("none"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleLayoutGridType = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("loose"),1},
+    { _T("strict"),2},
+    { _T("fixed"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleLineBreak = 
+{ 3, 7, {
+    { _T(""),0},
+    { _T("normal"),1},
+    { _T("strict"),2},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleWordBreak = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("normal"),1},
+    { _T("break-all"),2},
+    { _T("keep-all"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleTextJustify = 
+{ 7, 127, {
+    { _T(""),0},
+    { _T("inter-word"),1},
+    { _T("newspaper"),2},
+    { _T("distribute"),3},
+    { _T("distribute-all-lines"),4},
+    { _T("inter-ideograph"),5},
+    { _T("auto"),6},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleTextJustifyTrim = 
+{ 4, 15, {
+    { _T(""),0},
+    { _T("none"),1},
+    { _T("punctuation"),2},
+    { _T("punct-and-kana"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescstyleAccelerator = 
+{ 2, 3, {
+    { _T("false"),0},
+    { _T("true"),1},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CStyle_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylefontFamily =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("FONT-FAMILY"), _T("fontFamily"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("FONT-FAMILY"), _T("fontFamily"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_FONTFACE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylefontStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("FONT-STYLE"), _T("fontStyle"), (ULONG_PTR)styleFontStyleNotSet, (ULONG_PTR)styleFontStyleNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("FONT-STYLE"), _T("fontStyle"), (ULONG_PTR)styleFontStyleNotSet,(ULONG_PTR)styleFontStyleNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_FONTSTYLE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleFontStyle,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylefontVariant =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("FONT-VARIANT"), _T("fontVariant"), (ULONG_PTR)styleFontVariantNotSet, (ULONG_PTR)styleFontVariantNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("FONT-VARIANT"), _T("fontVariant"), (ULONG_PTR)styleFontVariantNotSet,(ULONG_PTR)styleFontVariantNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_FONTVARIANT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleFontVariant,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylefontWeight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("FONT-WEIGHT"), _T("fontWeight"), (ULONG_PTR)styleFontWeightNotSet, (ULONG_PTR)styleFontWeightNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("FONT-WEIGHT"), _T("fontWeight"), (ULONG_PTR)styleFontWeightNotSet,(ULONG_PTR)styleFontWeightNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_FONTWEIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleFontWeight,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylefontSize =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("FONT-SIZE"), _T("fontSize"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("FONT-SIZE"), _T("fontSize"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_UNITFONT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_FONTSIZE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleFontSize
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylefont =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("FONT"), _T("font"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("FONT"), _T("font"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_FONT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylecolor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("COLOR"), _T("color"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("COLOR"), _T("color"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_COLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylebackground =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BACKGROUND"), _T("background"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BACKGROUND"), _T("background"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BACKGROUND, ELEMCHNG_RESIZENONSITESONLY|ELEMCHNG_SITEREDRAW, IDX_GS_BSTR, 4736 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylebackgroundColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("BACKGROUND-COLOR"), _T("backgroundColor"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("BACKGROUND-COLOR"), _T("backgroundColor"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_BACKCOLOR, ELEMCHNG_RESIZENONSITESONLY|ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylebackgroundImage =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BACKGROUND-IMAGE"), _T("backgroundImage"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BACKGROUND-IMAGE"), _T("backgroundImage"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_BACKGROUNDIMAGE, ELEMCHNG_RESIZENONSITESONLY|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylebackgroundRepeat =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BACKGROUND-REPEAT"), _T("backgroundRepeat"), (ULONG_PTR)styleBackgroundRepeatNotSet, (ULONG_PTR)styleBackgroundRepeatNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BACKGROUND-REPEAT"), _T("backgroundRepeat"), (ULONG_PTR)styleBackgroundRepeatNotSet,(ULONG_PTR)styleBackgroundRepeatNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BACKGROUNDREPEAT, ELEMCHNG_CLEARFF, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBackgroundRepeat,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylebackgroundAttachment =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BACKGROUND-ATTACHMENT"), _T("backgroundAttachment"), (ULONG_PTR)styleBackgroundAttachmentNotSet, (ULONG_PTR)styleBackgroundAttachmentNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BACKGROUND-ATTACHMENT"), _T("backgroundAttachment"), (ULONG_PTR)styleBackgroundAttachmentNotSet,(ULONG_PTR)styleBackgroundAttachmentNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BACKGROUNDATTACHMENT, ELEMCHNG_CLEARFF|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBackgroundAttachment,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylebackgroundPosition =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BACKGROUND-POSITION"), _T("backgroundPosition"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BACKGROUND-POSITION"), _T("backgroundPosition"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BACKGROUNDPOSITION, 0, IDX_GS_BSTR, 256 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylebackgroundPositionX =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BACKGROUND-POSITION-X"), _T("backgroundPositionX"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BACKGROUND-POSITION-X"), _T("backgroundPositionX"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BACKGROUNDPOSX, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleBackgroundPositionX
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylebackgroundPositionY =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BACKGROUND-POSITION-Y"), _T("backgroundPositionY"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BACKGROUND-POSITION-Y"), _T("backgroundPositionY"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BACKGROUNDPOSY, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleBackgroundPositionY
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylewordSpacing =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("WORD-SPACING"), _T("wordSpacing"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("WORD-SPACING"), _T("wordSpacing"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_WORDSPACING, 0, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleNormal
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleletterSpacing =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("LETTER-SPACING"), _T("letterSpacing"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("LETTER-SPACING"), _T("letterSpacing"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_LETTERSPACING, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleNormal
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecoration =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("TEXT-DECORATION"), _T("textDecoration"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("TEXT-DECORATION"), _T("textDecoration"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_TEXTDECORATION, ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecorationNone =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("textDecorationNone"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("textDecorationNone"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_TEXTDECORATIONNONE, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecorationUnderline =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("textDecorationUnderline"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("textDecorationUnderline"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_TEXTDECORATIONUNDERLINE, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecorationOverline =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("textDecorationOverline"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("textDecorationOverline"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_TEXTDECORATIONOVERLINE, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecorationLineThrough =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("textDecorationLineThrough"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("textDecorationLineThrough"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_TEXTDECORATIONLINETHROUGH, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextDecorationBlink =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("textDecorationBlink"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("textDecorationBlink"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_TEXTDECORATIONBLINK, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANTBOOL, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleaccelerator =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("ACCELERATOR"), _T("accelerator"), (ULONG_PTR)styleAcceleratorFalse, (ULONG_PTR)styleAcceleratorFalse,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("ACCELERATOR"), _T("accelerator"), (ULONG_PTR)styleAcceleratorFalse,(ULONG_PTR)styleAcceleratorFalse,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_ACCELERATOR, ELEMCHNG_CLEARCACHES|ELEMCHNG_ACCESSIBILITY, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleAccelerator,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleverticalAlign =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("VERTICAL-ALIGN"), _T("verticalAlign"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("VERTICAL-ALIGN"), _T("verticalAlign"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_PERCENTAGE | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_VERTICALALIGN, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleVerticalAlign
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletextTransform =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("TEXT-TRANSFORM"), _T("textTransform"), (ULONG_PTR)styleTextTransformNotSet, (ULONG_PTR)styleTextTransformNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("TEXT-TRANSFORM"), _T("textTransform"), (ULONG_PTR)styleTextTransformNotSet,(ULONG_PTR)styleTextTransformNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_TEXTTRANSFORM, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleTextTransform,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletextAlign =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("TEXT-ALIGN"), _T("textAlign"), (ULONG_PTR)htmlBlockAlignNotSet, (ULONG_PTR)htmlBlockAlignNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("TEXT-ALIGN"), _T("textAlign"), (ULONG_PTR)htmlBlockAlignNotSet,(ULONG_PTR)htmlBlockAlignNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, STDPROPID_XOBJ_BLOCKALIGN, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlBlockAlign,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletextIndent =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("TEXT-INDENT"), _T("textIndent"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("TEXT-INDENT"), _T("textIndent"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_TEXTINDENT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylelineHeight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("LINE-HEIGHT"), _T("lineHeight"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)MAKEUNITVALUE(10000,UNIT_FLOAT),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("LINE-HEIGHT"), _T("lineHeight"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)MAKEUNITVALUE(10000,UNIT_FLOAT),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_DONTUSENOTASSIGNED | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_LINEHEIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleNormal
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylemarginTop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("MARGIN-TOP"), _T("marginTop"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("MARGIN-TOP"), _T("marginTop"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_MARGINTOP, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylemarginRight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("MARGIN-RIGHT"), _T("marginRight"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("MARGIN-RIGHT"), _T("marginRight"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_MARGINRIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylemarginBottom =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("MARGIN-BOTTOM"), _T("marginBottom"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("MARGIN-BOTTOM"), _T("marginBottom"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_MARGINBOTTOM, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylemarginLeft =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("MARGIN-LEFT"), _T("marginLeft"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("MARGIN-LEFT"), _T("marginLeft"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_MARGINLEFT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylemargin =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("MARGIN"), _T("margin"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("MARGIN"), _T("margin"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_MARGIN, 0, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepaddingTop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("PADDING-TOP"), _T("paddingTop"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("PADDING-TOP"), _T("paddingTop"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_PADDINGTOP, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepaddingRight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("PADDING-RIGHT"), _T("paddingRight"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("PADDING-RIGHT"), _T("paddingRight"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_PADDINGRIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepaddingBottom =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("PADDING-BOTTOM"), _T("paddingBottom"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("PADDING-BOTTOM"), _T("paddingBottom"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_PADDINGBOTTOM, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepaddingLeft =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("PADDING-LEFT"), _T("paddingLeft"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("PADDING-LEFT"), _T("paddingLeft"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_PADDINGLEFT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylepadding =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("PADDING"), _T("padding"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("PADDING"), _T("padding"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_PADDING, 0, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborder =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER"), _T("border"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER"), _T("border"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BORDER, 0, IDX_GS_BSTR, 1152 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderTop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-TOP"), _T("borderTop"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-TOP"), _T("borderTop"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BORDERTOP, 0, IDX_GS_BSTR, 384 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderRight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-RIGHT"), _T("borderRight"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-RIGHT"), _T("borderRight"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BORDERRIGHT, 0, IDX_GS_BSTR, 384 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderBottom =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-BOTTOM"), _T("borderBottom"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-BOTTOM"), _T("borderBottom"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BORDERBOTTOM, 0, IDX_GS_BSTR, 384 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderLeft =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-LEFT"), _T("borderLeft"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-LEFT"), _T("borderLeft"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_BORDERLEFT, 0, IDX_GS_BSTR, 384 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-COLOR"), _T("borderColor"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-COLOR"), _T("borderColor"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_BORDERCOLOR, 0, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderTopColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("BORDER-TOP-COLOR"), _T("borderTopColor"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("BORDER-TOP-COLOR"), _T("borderTopColor"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_BORDERTOPCOLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderRightColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("BORDER-RIGHT-COLOR"), _T("borderRightColor"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("BORDER-RIGHT-COLOR"), _T("borderRightColor"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_BORDERRIGHTCOLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderBottomColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("BORDER-BOTTOM-COLOR"), _T("borderBottomColor"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("BORDER-BOTTOM-COLOR"), _T("borderBottomColor"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_BORDERBOTTOMCOLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderLeftColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("BORDER-LEFT-COLOR"), _T("borderLeftColor"), (ULONG_PTR)VALUE_UNDEF, (ULONG_PTR)VALUE_UNDEF,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("BORDER-LEFT-COLOR"), _T("borderLeftColor"), (ULONG_PTR)VALUE_UNDEF,(ULONG_PTR)VALUE_UNDEF,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY, DISPID_A_BORDERLEFTCOLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderWidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-WIDTH"), _T("borderWidth"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-WIDTH"), _T("borderWidth"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_BORDERWIDTH, 0, IDX_GS_BSTR, pdlLength 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleborderTopWidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BORDER-TOP-WIDTH"), _T("borderTopWidth"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BORDER-TOP-WIDTH"), _T("borderTopWidth"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BORDERTOPWIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleBorderWidth
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleborderRightWidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BORDER-RIGHT-WIDTH"), _T("borderRightWidth"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BORDER-RIGHT-WIDTH"), _T("borderRightWidth"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BORDERRIGHTWIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleBorderWidth
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleborderBottomWidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BORDER-BOTTOM-WIDTH"), _T("borderBottomWidth"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BORDER-BOTTOM-WIDTH"), _T("borderBottomWidth"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BORDERBOTTOMWIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleBorderWidth
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleborderLeftWidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BORDER-LEFT-WIDTH"), _T("borderLeftWidth"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BORDER-LEFT-WIDTH"), _T("borderLeftWidth"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_BORDERLEFTWIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleBorderWidth
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleborderStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BORDER-STYLE"), _T("borderStyle"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BORDER-STYLE"), _T("borderStyle"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_BORDERSTYLE, 0, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleborderTopStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BORDER-TOP-STYLE"), _T("borderTopStyle"), (ULONG_PTR)styleBorderStyleNotSet, (ULONG_PTR)styleBorderStyleNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BORDER-TOP-STYLE"), _T("borderTopStyle"), (ULONG_PTR)styleBorderStyleNotSet,(ULONG_PTR)styleBorderStyleNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BORDERTOPSTYLE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBorderStyle,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleborderRightStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BORDER-RIGHT-STYLE"), _T("borderRightStyle"), (ULONG_PTR)styleBorderStyleNotSet, (ULONG_PTR)styleBorderStyleNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BORDER-RIGHT-STYLE"), _T("borderRightStyle"), (ULONG_PTR)styleBorderStyleNotSet,(ULONG_PTR)styleBorderStyleNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BORDERRIGHTSTYLE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBorderStyle,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleborderBottomStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BORDER-BOTTOM-STYLE"), _T("borderBottomStyle"), (ULONG_PTR)styleBorderStyleNotSet, (ULONG_PTR)styleBorderStyleNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BORDER-BOTTOM-STYLE"), _T("borderBottomStyle"), (ULONG_PTR)styleBorderStyleNotSet,(ULONG_PTR)styleBorderStyleNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BORDERBOTTOMSTYLE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBorderStyle,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleborderLeftStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BORDER-LEFT-STYLE"), _T("borderLeftStyle"), (ULONG_PTR)styleBorderStyleNotSet, (ULONG_PTR)styleBorderStyleNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BORDER-LEFT-STYLE"), _T("borderLeftStyle"), (ULONG_PTR)styleBorderStyleNotSet,(ULONG_PTR)styleBorderStyleNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BORDERLEFTSTYLE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBorderStyle,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylestyleFloat =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("FLOAT"), _T("styleFloat"), (ULONG_PTR)styleStyleFloatNotSet, (ULONG_PTR)styleStyleFloatNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("FLOAT"), _T("styleFloat"), (ULONG_PTR)styleStyleFloatNotSet,(ULONG_PTR)styleStyleFloatNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_FLOAT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleStyleFloat,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleclear =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("CLEAR"), _T("clear"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("CLEAR"), _T("clear"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_CLEAR, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdeschtmlClear,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyledisplay =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("DISPLAY"), _T("display"), (ULONG_PTR)styleDisplayNotSet, (ULONG_PTR)styleDisplayNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("DISPLAY"), _T("display"), (ULONG_PTR)styleDisplayNotSet,(ULONG_PTR)styleDisplayNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_DISPLAY, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREINPARENT|ELEMCHNG_ACCESSIBILITY, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleDisplay,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylevisibility =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("VISIBILITY"), _T("visibility"), (ULONG_PTR)styleVisibilityNotSet, (ULONG_PTR)styleVisibilityNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("VISIBILITY"), _T("visibility"), (ULONG_PTR)styleVisibilityNotSet,(ULONG_PTR)styleVisibilityNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_VISIBILITY, ELEMCHNG_REMEASUREINPARENT|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_CLEARCACHES|ELEMCHNG_ACCESSIBILITY, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleVisibility,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylelistStyleType =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("LIST-STYLE-TYPE"), _T("listStyleType"), (ULONG_PTR)styleListStyleTypeNotSet, (ULONG_PTR)styleListStyleTypeNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("LIST-STYLE-TYPE"), _T("listStyleType"), (ULONG_PTR)styleListStyleTypeNotSet,(ULONG_PTR)styleListStyleTypeNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_LISTSTYLETYPE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleListStyleType,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylelistStylePosition =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("LIST-STYLE-POSITION"), _T("listStylePosition"), (ULONG_PTR)styleListStylePositionNotSet, (ULONG_PTR)styleListStylePositionNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("LIST-STYLE-POSITION"), _T("listStylePosition"), (ULONG_PTR)styleListStylePositionNotSet,(ULONG_PTR)styleListStylePositionNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_LISTSTYLEPOSITION, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleListStylePosition,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylelistStyleImage =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("LIST-STYLE-IMAGE"), _T("listStyleImage"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("LIST-STYLE-IMAGE"), _T("listStyleImage"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_LISTSTYLEIMAGE, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED|ELEMCHNG_SITEREDRAW, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylelistStyle =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("LIST-STYLE"), _T("listStyle"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("LIST-STYLE"), _T("listStyle"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_A_LISTSTYLE, 0, IDX_GS_BSTR, 4352 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylewhiteSpace =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("WHITE-SPACE"), _T("whiteSpace"), (ULONG_PTR)styleWhiteSpaceNotSet, (ULONG_PTR)styleWhiteSpaceNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("WHITE-SPACE"), _T("whiteSpace"), (ULONG_PTR)styleWhiteSpaceNotSet,(ULONG_PTR)styleWhiteSpaceNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_WHITESPACE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleWhiteSpace,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyletop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("TOP"), _T("top"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("TOP"), _T("top"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_TOP, ELEMCHNG_SITEPOSITION|ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylebottom =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("BOTTOM"), _T("bottom"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("BOTTOM"), _T("bottom"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_BOTTOM, ELEMCHNG_SITEPOSITION|ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleleft =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("LEFT"), _T("left"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("LEFT"), _T("left"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_LEFT, ELEMCHNG_SITEPOSITION|ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleright =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("RIGHT"), _T("right"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("RIGHT"), _T("right"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_RIGHT, ELEMCHNG_SITEPOSITION|ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylewidth =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("WIDTH"), _T("width"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("WIDTH"), _T("width"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_WIDTH, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleheight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("HEIGHT"), _T("height"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("HEIGHT"), _T("height"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, STDPROPID_XOBJ_HEIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelTop = 
+{
+    NULL, _T("pixelTop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+0, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelLeft = 
+{
+    NULL, _T("pixelLeft"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+1, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelWidth = 
+{
+    NULL, _T("pixelWidth"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+2, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelHeight = 
+{
+    NULL, _T("pixelHeight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+3, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposTop = 
+{
+    NULL, _T("posTop"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+4, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposLeft = 
+{
+    NULL, _T("posLeft"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+5, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposWidth = 
+{
+    NULL, _T("posWidth"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+6, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposHeight = 
+{
+    NULL, _T("posHeight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+7, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelBottom = 
+{
+    NULL, _T("pixelBottom"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+9, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStylepixelRight = 
+{
+    NULL, _T("pixelRight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_HIDDEN, DISPID_STYLE+10, 0, IDX_GS_long, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposBottom = 
+{
+    NULL, _T("posBottom"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+11, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC_ABSTRACT s_propdescCStyleposRight = 
+{
+    NULL, _T("posRight"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet, DISPID_STYLE+12, 0, IDX_GS_float, 0 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleoverflow =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("OVERFLOW"), _T("overflow"), (ULONG_PTR)styleOverflowNotSet, (ULONG_PTR)styleOverflowNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("OVERFLOW"), _T("overflow"), (ULONG_PTR)styleOverflowNotSet,(ULONG_PTR)styleOverflowNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_OVERFLOW, ELEMCHNG_CLEARFF|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleOverflow,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepageBreakBefore =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("PAGE-BREAK-BEFORE"), _T("pageBreakBefore"), (ULONG_PTR)stylePageBreakNotSet, (ULONG_PTR)stylePageBreakNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("PAGE-BREAK-BEFORE"), _T("pageBreakBefore"), (ULONG_PTR)stylePageBreakNotSet,(ULONG_PTR)stylePageBreakNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_PAGEBREAKBEFORE, ELEMCHNG_CLEARCACHES, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstylePageBreak,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylepageBreakAfter =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("PAGE-BREAK-AFTER"), _T("pageBreakAfter"), (ULONG_PTR)stylePageBreakNotSet, (ULONG_PTR)stylePageBreakNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("PAGE-BREAK-AFTER"), _T("pageBreakAfter"), (ULONG_PTR)stylePageBreakNotSet,(ULONG_PTR)stylePageBreakNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_PAGEBREAKAFTER, ELEMCHNG_CLEARCACHES, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstylePageBreak,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylecssText =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("cssText"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("cssText"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_NOPERSIST | PROPPARAM_ATTRARRAY , DISPID_A_STYLETEXT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylezIndex =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("Z-INDEX"), _T("zIndex"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("Z-INDEX"), _T("zIndex"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_ZINDEX, ELEMCHNG_SITEPOSITION|ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyleclip =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("CLIP"), _T("clip"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("CLIP"), _T("clip"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_CLIP, ELEMCHNG_CLEARFF, IDX_GS_BSTR, 528 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleclipTop =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("clipTop"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("clipTop"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_HIDDEN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_CLIPRECTTOP, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleclipRight =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("clipRight"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("clipRight"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_HIDDEN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_CLIPRECTRIGHT, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleclipBottom =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("clipBottom"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("clipBottom"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_HIDDEN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_CLIPRECTBOTTOM, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyleclipLeft =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("clipLeft"), NULL, (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("clipLeft"), NULL, (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_HIDDEN | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_CLIPRECTLEFT, ELEMCHNG_CLEARFF, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleAuto
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylecursor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("CURSOR"), _T("cursor"), (ULONG_PTR)styleCursorNotSet, (ULONG_PTR)styleCursorNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("CURSOR"), _T("cursor"), (ULONG_PTR)styleCursorNotSet,(ULONG_PTR)styleCursorNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_CURSOR, ELEMCHNG_CLEARCACHES, IDX_GS_PropEnum, 4112 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleCursor,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletableLayout =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("TABLE-LAYOUT"), _T("tableLayout"), (ULONG_PTR)styleTableLayoutNotSet, (ULONG_PTR)styleTableLayoutNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("TABLE-LAYOUT"), _T("tableLayout"), (ULONG_PTR)styleTableLayoutNotSet,(ULONG_PTR)styleTableLayoutNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_TABLELAYOUT, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleTableLayout,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleborderCollapse =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("BORDER-COLLAPSE"), _T("borderCollapse"), (ULONG_PTR)styleBorderCollapseNotSet, (ULONG_PTR)styleBorderCollapseNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("BORDER-COLLAPSE"), _T("borderCollapse"), (ULONG_PTR)styleBorderCollapseNotSet,(ULONG_PTR)styleBorderCollapseNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BORDERCOLLAPSE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBorderCollapse,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_METHOD s_methdescCStyletoString = 
+{
+    NULL, NULL, _T("toString"), (ULONG)0, (ULONG)0,
+    {
+        0, DISPID_STYLE+8, 0, IDX_Method_BSTRp_void, 0
+    },
+    NULL, 0, 0
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyledirection =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("DIRECTION"), _T("direction"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("DIRECTION"), _T("direction"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_DIRECTION, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleDir,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleunicodeBidi =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("unicode-bidi"), _T("unicodeBidi"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("unicode-bidi"), _T("unicodeBidi"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_UNICODEBIDI, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBidi,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylebehavior =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("BEHAVIOR"), _T("behavior"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("BEHAVIOR"), _T("behavior"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_BEHAVIOR, ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, pdlUrlLen 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleposition =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("POSITION"), _T("position"), (ULONG_PTR)stylePositionNotSet, (ULONG_PTR)stylePositionNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("POSITION"), _T("position"), (ULONG_PTR)stylePositionNotSet,(ULONG_PTR)stylePositionNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_POSITION, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREINPARENT, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstylePosition,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleimeMode =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("IME-MODE"), _T("imeMode"), (ULONG_PTR)styleImeModeNotSet, (ULONG_PTR)styleImeModeNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("IME-MODE"), _T("imeMode"), (ULONG_PTR)styleImeModeNotSet,(ULONG_PTR)styleImeModeNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_IMEMODE, 0, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleImeMode,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylerubyAlign =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("RUBY-ALIGN"), _T("rubyAlign"), (ULONG_PTR)styleRubyAlignNotSet, (ULONG_PTR)styleRubyAlignNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("RUBY-ALIGN"), _T("rubyAlign"), (ULONG_PTR)styleRubyAlignNotSet,(ULONG_PTR)styleRubyAlignNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_RUBYALIGN, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleRubyAlign,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylerubyPosition =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("RUBY-POSITION"), _T("rubyPosition"), (ULONG_PTR)styleRubyPositionNotSet, (ULONG_PTR)styleRubyPositionNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("RUBY-POSITION"), _T("rubyPosition"), (ULONG_PTR)styleRubyPositionNotSet,(ULONG_PTR)styleRubyPositionNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_RUBYPOSITION, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleRubyPosition,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylerubyOverhang =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("RUBY-OVERHANG"), _T("rubyOverhang"), (ULONG_PTR)styleRubyOverhangNotSet, (ULONG_PTR)styleRubyOverhangNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("RUBY-OVERHANG"), _T("rubyOverhang"), (ULONG_PTR)styleRubyOverhangNotSet,(ULONG_PTR)styleRubyOverhangNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_RUBYOVERHANG, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED|ELEMCHNG_REMEASURECONTENTS, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleRubyOverhang,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStyletextAutospace =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("TEXT-AUTOSPACE"), _T("textAutospace"), (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("TEXT-AUTOSPACE"), _T("textAutospace"), (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_TEXTAUTOSPACE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_BSTR, 512 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylelineBreak =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("LINE-BREAK"), _T("lineBreak"), (ULONG_PTR)styleLineBreakNotSet, (ULONG_PTR)styleLineBreakNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("LINE-BREAK"), _T("lineBreak"), (ULONG_PTR)styleLineBreakNotSet,(ULONG_PTR)styleLineBreakNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_LINEBREAK, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleLineBreak,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylewordBreak =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("WORD-BREAK"), _T("wordBreak"), (ULONG_PTR)styleWordBreakNotSet, (ULONG_PTR)styleWordBreakNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("WORD-BREAK"), _T("wordBreak"), (ULONG_PTR)styleWordBreakNotSet,(ULONG_PTR)styleWordBreakNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_WORDBREAK, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleWordBreak,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylelayoutGridChar =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("LAYOUT-GRID-CHAR"), _T("layoutGridChar"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("LAYOUT-GRID-CHAR"), _T("layoutGridChar"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_LAYOUTGRIDCHAR, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleLayoutGridChar
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStylelayoutGridLine =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("LAYOUT-GRID-LINE"), _T("layoutGridLine"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("LAYOUT-GRID-LINE"), _T("layoutGridLine"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_SCALER_OR_PERCENT | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_STYLESHEET_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_LAYOUTGRIDLINE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), 0, LONG_MAX,
+    },
+    0, &s_enumdescstyleLayoutGridLine
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylelayoutGridMode =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("LAYOUT-GRID-MODE"), _T("layoutGridMode"), (ULONG_PTR)styleLayoutGridModeNotSet, (ULONG_PTR)styleLayoutGridModeNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("LAYOUT-GRID-MODE"), _T("layoutGridMode"), (ULONG_PTR)styleLayoutGridModeNotSet,(ULONG_PTR)styleLayoutGridModeNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_LAYOUTGRIDMODE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleLayoutGridMode,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStylelayoutGridType =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("LAYOUT-GRID-TYPE"), _T("layoutGridType"), (ULONG_PTR)styleLayoutGridTypeNotSet, (ULONG_PTR)styleLayoutGridTypeNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("LAYOUT-GRID-TYPE"), _T("layoutGridType"), (ULONG_PTR)styleLayoutGridTypeNotSet,(ULONG_PTR)styleLayoutGridTypeNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_LAYOUTGRIDTYPE, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleLayoutGridType,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCStylelayoutGrid =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStyleComponentproperty, _T("LAYOUT-GRID"), _T("layoutGrid"), (ULONG_PTR)"", (ULONG_PTR)"",
+#else
+    &PROPERTYDESC::HandleStyleComponentProperty, _T("LAYOUT-GRID"), _T("layoutGrid"), (ULONG_PTR)"",(ULONG_PTR)"",
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_LAYOUTGRID, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASURECONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_BSTR, pdlNoLimit 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletextJustify =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("TEXT-JUSTIFY"), _T("textJustify"), (ULONG_PTR)styleTextJustifyNotSet, (ULONG_PTR)styleTextJustifyNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("TEXT-JUSTIFY"), _T("textJustify"), (ULONG_PTR)styleTextJustifyNotSet,(ULONG_PTR)styleTextJustifyNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_TEXTJUSTIFY, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleTextJustify,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyletextJustifyTrim =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("TEXT-JUSTIFY-TRIM"), _T("textJustifyTrim"), (ULONG_PTR)styleTextJustifyTrimNotSet, (ULONG_PTR)styleTextJustifyTrimNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("TEXT-JUSTIFY-TRIM"), _T("textJustifyTrim"), (ULONG_PTR)styleTextJustifyTrimNotSet,(ULONG_PTR)styleTextJustifyTrimNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_TEXTJUSTIFYTRIM, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleTextJustifyTrim,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP_ENUMREF s_propdescCStyletextKashida =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("TEXT-KASHIDA"), _T("textKashida"), (ULONG_PTR)NULL_UNITVALUE, (ULONG_PTR)NULL_UNITVALUE,
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("TEXT-KASHIDA"), _T("textKashida"), (ULONG_PTR)NULL_UNITVALUE,(ULONG_PTR)NULL_UNITVALUE,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_PERCENTAGE | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM | PROPPARAM_ANUMBER, DISPID_A_TEXTKASHIDA, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+    0, &s_enumdescstyleVerticalAlign
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleoverflowX =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("OVERFLOW-X"), _T("overflowX"), (ULONG_PTR)styleOverflowNotSet, (ULONG_PTR)styleOverflowNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("OVERFLOW-X"), _T("overflowX"), (ULONG_PTR)styleOverflowNotSet,(ULONG_PTR)styleOverflowNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_OVERFLOWX, ELEMCHNG_CLEARFF|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleOverflow,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCStyleoverflowY =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("OVERFLOW-Y"), _T("overflowY"), (ULONG_PTR)styleOverflowNotSet, (ULONG_PTR)styleOverflowNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("OVERFLOW-Y"), _T("overflowY"), (ULONG_PTR)styleOverflowNotSet,(ULONG_PTR)styleOverflowNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_OVERFLOWY, ELEMCHNG_CLEARFF|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleOverflow,
+    },
+};
+
+
+
+#define _CRuleStyle_PROPDESCS_
+
+const PROPERTYDESC * const CStyle::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCStyleaccelerator.a, // ACCELERATOR
+    (PROPERTYDESC *)&s_propdescCStylebackground.a, // BACKGROUND
+    (PROPERTYDESC *)&s_propdescCStylebackgroundAttachment.a, // BACKGROUND-ATTACHMENT
+    (PROPERTYDESC *)&s_propdescCStylebackgroundColor.a, // BACKGROUND-COLOR
+    (PROPERTYDESC *)&s_propdescCStylebackgroundImage.a, // BACKGROUND-IMAGE
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPosition.a, // BACKGROUND-POSITION
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionX.a, // BACKGROUND-POSITION-X
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionY.a, // BACKGROUND-POSITION-Y
+    (PROPERTYDESC *)&s_propdescCStylebackgroundRepeat.a, // BACKGROUND-REPEAT
+    (PROPERTYDESC *)&s_propdescCStylebehavior.a, // BEHAVIOR
+    (PROPERTYDESC *)&s_propdescCStyleborder.a, // BORDER
+    (PROPERTYDESC *)&s_propdescCStyleborderBottom.a, // BORDER-BOTTOM
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomColor.a, // BORDER-BOTTOM-COLOR
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomStyle.a, // BORDER-BOTTOM-STYLE
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomWidth.a, // BORDER-BOTTOM-WIDTH
+    (PROPERTYDESC *)&s_propdescCStyleborderCollapse.a, // BORDER-COLLAPSE
+    (PROPERTYDESC *)&s_propdescCStyleborderColor.a, // BORDER-COLOR
+    (PROPERTYDESC *)&s_propdescCStyleborderLeft.a, // BORDER-LEFT
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftColor.a, // BORDER-LEFT-COLOR
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftStyle.a, // BORDER-LEFT-STYLE
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftWidth.a, // BORDER-LEFT-WIDTH
+    (PROPERTYDESC *)&s_propdescCStyleborderRight.a, // BORDER-RIGHT
+    (PROPERTYDESC *)&s_propdescCStyleborderRightColor.a, // BORDER-RIGHT-COLOR
+    (PROPERTYDESC *)&s_propdescCStyleborderRightStyle.a, // BORDER-RIGHT-STYLE
+    (PROPERTYDESC *)&s_propdescCStyleborderRightWidth.a, // BORDER-RIGHT-WIDTH
+    (PROPERTYDESC *)&s_propdescCStyleborderStyle.a, // BORDER-STYLE
+    (PROPERTYDESC *)&s_propdescCStyleborderTop.a, // BORDER-TOP
+    (PROPERTYDESC *)&s_propdescCStyleborderTopColor.a, // BORDER-TOP-COLOR
+    (PROPERTYDESC *)&s_propdescCStyleborderTopStyle.a, // BORDER-TOP-STYLE
+    (PROPERTYDESC *)&s_propdescCStyleborderTopWidth.a, // BORDER-TOP-WIDTH
+    (PROPERTYDESC *)&s_propdescCStyleborderWidth.a, // BORDER-WIDTH
+    (PROPERTYDESC *)&s_propdescCStylebottom.a, // BOTTOM
+    (PROPERTYDESC *)&s_propdescCStyleclear.a, // CLEAR
+    (PROPERTYDESC *)&s_propdescCStyleclip.a, // CLIP
+    (PROPERTYDESC *)&s_propdescCStyleclipBottom.a, // clipBottom
+    (PROPERTYDESC *)&s_propdescCStyleclipLeft.a, // clipLeft
+    (PROPERTYDESC *)&s_propdescCStyleclipRight.a, // clipRight
+    (PROPERTYDESC *)&s_propdescCStyleclipTop.a, // clipTop
+    (PROPERTYDESC *)&s_propdescCStylecolor.a, // COLOR
+    (PROPERTYDESC *)&s_propdescCStylecssText.a, // cssText
+    (PROPERTYDESC *)&s_propdescCStylecursor.a, // CURSOR
+    (PROPERTYDESC *)&s_propdescCStyledirection.a, // DIRECTION
+    (PROPERTYDESC *)&s_propdescCStyledisplay.a, // DISPLAY
+    (PROPERTYDESC *)&s_propdescCStylestyleFloat.a, // FLOAT
+    (PROPERTYDESC *)&s_propdescCStylefont.a, // FONT
+    (PROPERTYDESC *)&s_propdescCStylefontFamily.a, // FONT-FAMILY
+    (PROPERTYDESC *)&s_propdescCStylefontSize.a, // FONT-SIZE
+    (PROPERTYDESC *)&s_propdescCStylefontStyle.a, // FONT-STYLE
+    (PROPERTYDESC *)&s_propdescCStylefontVariant.a, // FONT-VARIANT
+    (PROPERTYDESC *)&s_propdescCStylefontWeight.a, // FONT-WEIGHT
+    (PROPERTYDESC *)&s_propdescCStyleheight.a, // HEIGHT
+    (PROPERTYDESC *)&s_propdescCStyleimeMode.a, // IME-MODE
+    (PROPERTYDESC *)&s_propdescCStylelayoutGrid.a, // LAYOUT-GRID
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridChar.a, // LAYOUT-GRID-CHAR
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridLine.a, // LAYOUT-GRID-LINE
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridMode.a, // LAYOUT-GRID-MODE
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridType.a, // LAYOUT-GRID-TYPE
+    (PROPERTYDESC *)&s_propdescCStyleleft.a, // LEFT
+    (PROPERTYDESC *)&s_propdescCStyleletterSpacing.a, // LETTER-SPACING
+    (PROPERTYDESC *)&s_propdescCStylelineBreak.a, // LINE-BREAK
+    (PROPERTYDESC *)&s_propdescCStylelineHeight.a, // LINE-HEIGHT
+    (PROPERTYDESC *)&s_propdescCStylelistStyle.a, // LIST-STYLE
+    (PROPERTYDESC *)&s_propdescCStylelistStyleImage.a, // LIST-STYLE-IMAGE
+    (PROPERTYDESC *)&s_propdescCStylelistStylePosition.a, // LIST-STYLE-POSITION
+    (PROPERTYDESC *)&s_propdescCStylelistStyleType.a, // LIST-STYLE-TYPE
+    (PROPERTYDESC *)&s_propdescCStylemargin.a, // MARGIN
+    (PROPERTYDESC *)&s_propdescCStylemarginBottom.a, // MARGIN-BOTTOM
+    (PROPERTYDESC *)&s_propdescCStylemarginLeft.a, // MARGIN-LEFT
+    (PROPERTYDESC *)&s_propdescCStylemarginRight.a, // MARGIN-RIGHT
+    (PROPERTYDESC *)&s_propdescCStylemarginTop.a, // MARGIN-TOP
+    (PROPERTYDESC *)&s_propdescCStyleoverflow.a, // OVERFLOW
+    (PROPERTYDESC *)&s_propdescCStyleoverflowX.a, // OVERFLOW-X
+    (PROPERTYDESC *)&s_propdescCStyleoverflowY.a, // OVERFLOW-Y
+    (PROPERTYDESC *)&s_propdescCStylepadding.a, // PADDING
+    (PROPERTYDESC *)&s_propdescCStylepaddingBottom.a, // PADDING-BOTTOM
+    (PROPERTYDESC *)&s_propdescCStylepaddingLeft.a, // PADDING-LEFT
+    (PROPERTYDESC *)&s_propdescCStylepaddingRight.a, // PADDING-RIGHT
+    (PROPERTYDESC *)&s_propdescCStylepaddingTop.a, // PADDING-TOP
+    (PROPERTYDESC *)&s_propdescCStylepageBreakAfter.a, // PAGE-BREAK-AFTER
+    (PROPERTYDESC *)&s_propdescCStylepageBreakBefore.a, // PAGE-BREAK-BEFORE
+    (PROPERTYDESC *)&s_propdescCStyleposition.a, // POSITION
+    (PROPERTYDESC *)&s_propdescCStyleright.a, // RIGHT
+    (PROPERTYDESC *)&s_propdescCStylerubyAlign.a, // RUBY-ALIGN
+    (PROPERTYDESC *)&s_propdescCStylerubyOverhang.a, // RUBY-OVERHANG
+    (PROPERTYDESC *)&s_propdescCStylerubyPosition.a, // RUBY-POSITION
+    (PROPERTYDESC *)&s_propdescCStyletableLayout.a, // TABLE-LAYOUT
+    (PROPERTYDESC *)&s_propdescCStyletextAlign.a, // TEXT-ALIGN
+    (PROPERTYDESC *)&s_propdescCStyletextAutospace.a, // TEXT-AUTOSPACE
+    (PROPERTYDESC *)&s_propdescCStyletextDecoration.a, // TEXT-DECORATION
+    (PROPERTYDESC *)&s_propdescCStyletextIndent.a, // TEXT-INDENT
+    (PROPERTYDESC *)&s_propdescCStyletextJustify.a, // TEXT-JUSTIFY
+    (PROPERTYDESC *)&s_propdescCStyletextJustifyTrim.a, // TEXT-JUSTIFY-TRIM
+    (PROPERTYDESC *)&s_propdescCStyletextKashida.a, // TEXT-KASHIDA
+    (PROPERTYDESC *)&s_propdescCStyletextTransform.a, // TEXT-TRANSFORM
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationBlink.a, // textDecorationBlink
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationLineThrough.a, // textDecorationLineThrough
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationNone.a, // textDecorationNone
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationOverline.a, // textDecorationOverline
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationUnderline.a, // textDecorationUnderline
+    (PROPERTYDESC *)&s_propdescCStyletop.a, // TOP
+    (PROPERTYDESC *)&s_propdescCStyleunicodeBidi.a, // unicode-bidi
+    (PROPERTYDESC *)&s_propdescCStyleverticalAlign.a, // VERTICAL-ALIGN
+    (PROPERTYDESC *)&s_propdescCStylevisibility.a, // VISIBILITY
+    (PROPERTYDESC *)&s_propdescCStylewhiteSpace.a, // WHITE-SPACE
+    (PROPERTYDESC *)&s_propdescCStylewidth.a, // WIDTH
+    (PROPERTYDESC *)&s_propdescCStylewordBreak.a, // WORD-BREAK
+    (PROPERTYDESC *)&s_propdescCStylewordSpacing.a, // WORD-SPACING
+    (PROPERTYDESC *)&s_propdescCStylezIndex.a, // Z-INDEX
+    NULL
+};
+
+const VTABLEDESC CStyle::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCStyleaccelerator, 0x13d},        // Property accelerator
+    {(PROPERTYDESC *)&s_propdescCStylebackground, 0xe},        // Property background
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundAttachment, 0x16},        // Property backgroundAttachment
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundColor, 0x10},        // Property backgroundColor
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundImage, 0x12},        // Property backgroundImage
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundPosition, 0x18},        // Property backgroundPosition
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundPositionX, 0x1a},        // Property backgroundPositionX
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundPositionY, 0x1c},        // Property backgroundPositionY
+    {(PROPERTYDESC *)&s_propdescCStylebackgroundRepeat, 0x14},        // Property backgroundRepeat
+    {(PROPERTYDESC *)&s_propdescCStylebehavior, 0x106},        // Property behavior
+    {(PROPERTYDESC *)&s_propdescCStyleborder, 0x4c},        // Property border
+    {(PROPERTYDESC *)&s_propdescCStyleborderBottom, 0x52},        // Property borderBottom
+    {(PROPERTYDESC *)&s_propdescCStyleborderBottomColor, 0x5c},        // Property borderBottomColor
+    {(PROPERTYDESC *)&s_propdescCStyleborderBottomStyle, 0x70},        // Property borderBottomStyle
+    {(PROPERTYDESC *)&s_propdescCStyleborderBottomWidth, 0x66},        // Property borderBottomWidth
+    {(PROPERTYDESC *)&s_propdescCStyleborderCollapse, 0x102},        // Property borderCollapse
+    {(PROPERTYDESC *)&s_propdescCStyleborderColor, 0x56},        // Property borderColor
+    {(PROPERTYDESC *)&s_propdescCStyleborderLeft, 0x54},        // Property borderLeft
+    {(PROPERTYDESC *)&s_propdescCStyleborderLeftColor, 0x5e},        // Property borderLeftColor
+    {(PROPERTYDESC *)&s_propdescCStyleborderLeftStyle, 0x72},        // Property borderLeftStyle
+    {(PROPERTYDESC *)&s_propdescCStyleborderLeftWidth, 0x68},        // Property borderLeftWidth
+    {(PROPERTYDESC *)&s_propdescCStyleborderRight, 0x50},        // Property borderRight
+    {(PROPERTYDESC *)&s_propdescCStyleborderRightColor, 0x5a},        // Property borderRightColor
+    {(PROPERTYDESC *)&s_propdescCStyleborderRightStyle, 0x6e},        // Property borderRightStyle
+    {(PROPERTYDESC *)&s_propdescCStyleborderRightWidth, 0x64},        // Property borderRightWidth
+    {(PROPERTYDESC *)&s_propdescCStyleborderStyle, 0x6a},        // Property borderStyle
+    {(PROPERTYDESC *)&s_propdescCStyleborderTop, 0x4e},        // Property borderTop
+    {(PROPERTYDESC *)&s_propdescCStyleborderTopColor, 0x58},        // Property borderTopColor
+    {(PROPERTYDESC *)&s_propdescCStyleborderTopStyle, 0x6c},        // Property borderTopStyle
+    {(PROPERTYDESC *)&s_propdescCStyleborderTopWidth, 0x62},        // Property borderTopWidth
+    {(PROPERTYDESC *)&s_propdescCStyleborderWidth, 0x60},        // Property borderWidth
+    {(PROPERTYDESC *)&s_propdescCStylebottom, 0x10f},        // Property bottom
+    {(PROPERTYDESC *)&s_propdescCStyleclear, 0x7a},        // Property clear
+    {(PROPERTYDESC *)&s_propdescCStyleclip, 0xab},        // Property clip
+    {(PROPERTYDESC *)&s_propdescCStylecolor, 0xc},        // Property color
+    {(PROPERTYDESC *)&s_propdescCStylecssText, 0x97},        // Property cssText
+    {(PROPERTYDESC *)&s_propdescCStylecursor, 0xa9},        // Property cursor
+    {(PROPERTYDESC *)&s_propdescCStyledirection, 0x104},        // Property direction
+    {(PROPERTYDESC *)&s_propdescCStyledisplay, 0x7c},        // Property display
+    {(PROPERTYDESC *)&s_propdescCStylefont, 0xa},        // Property font
+    {(PROPERTYDESC *)&s_propdescCStylefontFamily, 0x0},        // Property fontFamily
+    {(PROPERTYDESC *)&s_propdescCStylefontSize, 0x8},        // Property fontSize
+    {(PROPERTYDESC *)&s_propdescCStylefontStyle, 0x2},        // Property fontStyle
+    {(PROPERTYDESC *)&s_propdescCStylefontVariant, 0x4},        // Property fontVariant
+    {(PROPERTYDESC *)&s_propdescCStylefontWeight, 0x6},        // Property fontWeight
+    {(PROPERTYDESC *)&s_methdescCBasegetAttribute, 0xb0},        // Method getAttribute
+    {(PROPERTYDESC *)&s_propdescCStyleheight, 0x76},        // Property height
+    {(PROPERTYDESC *)&s_propdescCStyleimeMode, 0x11b},        // Property imeMode
+    {(PROPERTYDESC *)&s_propdescCStylelayoutGrid, 0x12b},        // Property layoutGrid
+    {(PROPERTYDESC *)&s_propdescCStylelayoutGridChar, 0x123},        // Property layoutGridChar
+    {(PROPERTYDESC *)&s_propdescCStylelayoutGridLine, 0x125},        // Property layoutGridLine
+    {(PROPERTYDESC *)&s_propdescCStylelayoutGridMode, 0x127},        // Property layoutGridMode
+    {(PROPERTYDESC *)&s_propdescCStylelayoutGridType, 0x129},        // Property layoutGridType
+    {(PROPERTYDESC *)&s_propdescCStyleleft, 0x8c},        // Property left
+    {(PROPERTYDESC *)&s_propdescCStyleletterSpacing, 0x20},        // Property letterSpacing
+    {(PROPERTYDESC *)&s_propdescCStylelineBreak, 0x12f},        // Property lineBreak
+    {(PROPERTYDESC *)&s_propdescCStylelineHeight, 0x36},        // Property lineHeight
+    {(PROPERTYDESC *)&s_propdescCStylelistStyle, 0x86},        // Property listStyle
+    {(PROPERTYDESC *)&s_propdescCStylelistStyleImage, 0x84},        // Property listStyleImage
+    {(PROPERTYDESC *)&s_propdescCStylelistStylePosition, 0x82},        // Property listStylePosition
+    {(PROPERTYDESC *)&s_propdescCStylelistStyleType, 0x80},        // Property listStyleType
+    {(PROPERTYDESC *)&s_propdescCStylemargin, 0x40},        // Property margin
+    {(PROPERTYDESC *)&s_propdescCStylemarginBottom, 0x3c},        // Property marginBottom
+    {(PROPERTYDESC *)&s_propdescCStylemarginLeft, 0x3e},        // Property marginLeft
+    {(PROPERTYDESC *)&s_propdescCStylemarginRight, 0x3a},        // Property marginRight
+    {(PROPERTYDESC *)&s_propdescCStylemarginTop, 0x38},        // Property marginTop
+    {(PROPERTYDESC *)&s_propdescCStyleoverflow, 0x91},        // Property overflow
+    {(PROPERTYDESC *)&s_propdescCStyleoverflowX, 0x139},        // Property overflowX
+    {(PROPERTYDESC *)&s_propdescCStyleoverflowY, 0x13b},        // Property overflowY
+    {(PROPERTYDESC *)&s_propdescCStylepadding, 0x4a},        // Property padding
+    {(PROPERTYDESC *)&s_propdescCStylepaddingBottom, 0x46},        // Property paddingBottom
+    {(PROPERTYDESC *)&s_propdescCStylepaddingLeft, 0x48},        // Property paddingLeft
+    {(PROPERTYDESC *)&s_propdescCStylepaddingRight, 0x44},        // Property paddingRight
+    {(PROPERTYDESC *)&s_propdescCStylepaddingTop, 0x42},        // Property paddingTop
+    {(PROPERTYDESC *)&s_propdescCStylepageBreakAfter, 0x95},        // Property pageBreakAfter
+    {(PROPERTYDESC *)&s_propdescCStylepageBreakBefore, 0x93},        // Property pageBreakBefore
+    {(PROPERTYDESC *)&s_propdescCStylepixelBottom, 0x113},        // Property pixelBottom
+    {(PROPERTYDESC *)&s_propdescCStylepixelHeight, 0x9f},        // Property pixelHeight
+    {(PROPERTYDESC *)&s_propdescCStylepixelLeft, 0x9b},        // Property pixelLeft
+    {(PROPERTYDESC *)&s_propdescCStylepixelRight, 0x115},        // Property pixelRight
+    {(PROPERTYDESC *)&s_propdescCStylepixelTop, 0x99},        // Property pixelTop
+    {(PROPERTYDESC *)&s_propdescCStylepixelWidth, 0x9d},        // Property pixelWidth
+    {(PROPERTYDESC *)&s_propdescCStyleposBottom, 0x117},        // Property posBottom
+    {(PROPERTYDESC *)&s_propdescCStyleposHeight, 0xa7},        // Property posHeight
+    {(PROPERTYDESC *)&s_propdescCStyleposition, 0x10b},        // Property position
+    {(PROPERTYDESC *)&s_propdescCStyleposLeft, 0xa3},        // Property posLeft
+    {(PROPERTYDESC *)&s_propdescCStyleposRight, 0x119},        // Property posRight
+    {(PROPERTYDESC *)&s_propdescCStyleposTop, 0xa1},        // Property posTop
+    {(PROPERTYDESC *)&s_propdescCStyleposWidth, 0xa5},        // Property posWidth
+    {(PROPERTYDESC *)&s_methdescCBaseremoveAttribute, 0xb1},        // Method removeAttribute
+    {(PROPERTYDESC *)&s_propdescCStyleright, 0x111},        // Property right
+    {(PROPERTYDESC *)&s_propdescCStylerubyAlign, 0x11d},        // Property rubyAlign
+    {(PROPERTYDESC *)&s_propdescCStylerubyOverhang, 0x121},        // Property rubyOverhang
+    {(PROPERTYDESC *)&s_propdescCStylerubyPosition, 0x11f},        // Property rubyPosition
+    {(PROPERTYDESC *)&s_methdescCBasesetAttribute, 0xaf},        // Method setAttribute
+    {(PROPERTYDESC *)&s_propdescCStylestyleFloat, 0x78},        // Property styleFloat
+    {(PROPERTYDESC *)&s_propdescCStyletableLayout, 0x100},        // Property tableLayout
+    {(PROPERTYDESC *)&s_propdescCStyletextAlign, 0x32},        // Property textAlign
+    {(PROPERTYDESC *)&s_propdescCStyletextAutospace, 0x137},        // Property textAutospace
+    {(PROPERTYDESC *)&s_propdescCStyletextDecoration, 0x22},        // Property textDecoration
+    {(PROPERTYDESC *)&s_propdescCStyletextDecorationBlink, 0x2c},        // Property textDecorationBlink
+    {(PROPERTYDESC *)&s_propdescCStyletextDecorationLineThrough, 0x2a},        // Property textDecorationLineThrough
+    {(PROPERTYDESC *)&s_propdescCStyletextDecorationNone, 0x24},        // Property textDecorationNone
+    {(PROPERTYDESC *)&s_propdescCStyletextDecorationOverline, 0x28},        // Property textDecorationOverline
+    {(PROPERTYDESC *)&s_propdescCStyletextDecorationUnderline, 0x26},        // Property textDecorationUnderline
+    {(PROPERTYDESC *)&s_propdescCStyletextIndent, 0x34},        // Property textIndent
+    {(PROPERTYDESC *)&s_propdescCStyletextJustify, 0x131},        // Property textJustify
+    {(PROPERTYDESC *)&s_propdescCStyletextJustifyTrim, 0x133},        // Property textJustifyTrim
+    {(PROPERTYDESC *)&s_propdescCStyletextKashida, 0x135},        // Property textKashida
+    {(PROPERTYDESC *)&s_propdescCStyletextTransform, 0x30},        // Property textTransform
+    {(PROPERTYDESC *)&s_propdescCStyletop, 0x8a},        // Property top
+    {(PROPERTYDESC *)&s_methdescCStyletoString, 0xb2},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCStyleunicodeBidi, 0x10d},        // Property unicodeBidi
+    {(PROPERTYDESC *)&s_propdescCStyleverticalAlign, 0x2e},        // Property verticalAlign
+    {(PROPERTYDESC *)&s_propdescCStylevisibility, 0x7e},        // Property visibility
+    {(PROPERTYDESC *)&s_propdescCStylewhiteSpace, 0x88},        // Property whiteSpace
+    {(PROPERTYDESC *)&s_propdescCStylewidth, 0x74},        // Property width
+    {(PROPERTYDESC *)&s_propdescCStylewordBreak, 0x12d},        // Property wordBreak
+    {(PROPERTYDESC *)&s_propdescCStylewordSpacing, 0x1e},        // Property wordSpacing
+    {(PROPERTYDESC *)&s_propdescCStylezIndex, 0x8f},        // Property zIndex
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const CStyle::s_ppropdescsInVtblOrderIHTMLStyle2[] = {
+    (PROPERTYDESC *)&s_propdescCStyletableLayout,
+    (PROPERTYDESC *)&s_propdescCStyletableLayout,
+    (PROPERTYDESC *)&s_propdescCStyleborderCollapse,
+    (PROPERTYDESC *)&s_propdescCStyleborderCollapse,
+    (PROPERTYDESC *)&s_propdescCStyledirection,
+    (PROPERTYDESC *)&s_propdescCStyledirection,
+    (PROPERTYDESC *)&s_propdescCStylebehavior,
+    (PROPERTYDESC *)&s_propdescCStylebehavior,
+    (PROPERTYDESC *)&s_propdescCStyleposition,
+    (PROPERTYDESC *)&s_propdescCStyleposition,
+    (PROPERTYDESC *)&s_propdescCStyleunicodeBidi,
+    (PROPERTYDESC *)&s_propdescCStyleunicodeBidi,
+    (PROPERTYDESC *)&s_propdescCStylebottom,
+    (PROPERTYDESC *)&s_propdescCStylebottom,
+    (PROPERTYDESC *)&s_propdescCStyleright,
+    (PROPERTYDESC *)&s_propdescCStyleright,
+    (PROPERTYDESC *)&s_propdescCStylepixelBottom,
+    (PROPERTYDESC *)&s_propdescCStylepixelBottom,
+    (PROPERTYDESC *)&s_propdescCStylepixelRight,
+    (PROPERTYDESC *)&s_propdescCStylepixelRight,
+    (PROPERTYDESC *)&s_propdescCStyleposBottom,
+    (PROPERTYDESC *)&s_propdescCStyleposBottom,
+    (PROPERTYDESC *)&s_propdescCStyleposRight,
+    (PROPERTYDESC *)&s_propdescCStyleposRight,
+    (PROPERTYDESC *)&s_propdescCStyleimeMode,
+    (PROPERTYDESC *)&s_propdescCStyleimeMode,
+    (PROPERTYDESC *)&s_propdescCStylerubyAlign,
+    (PROPERTYDESC *)&s_propdescCStylerubyAlign,
+    (PROPERTYDESC *)&s_propdescCStylerubyPosition,
+    (PROPERTYDESC *)&s_propdescCStylerubyPosition,
+    (PROPERTYDESC *)&s_propdescCStylerubyOverhang,
+    (PROPERTYDESC *)&s_propdescCStylerubyOverhang,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridChar,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridChar,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridLine,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridLine,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridMode,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridMode,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridType,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGridType,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGrid,
+    (PROPERTYDESC *)&s_propdescCStylelayoutGrid,
+    (PROPERTYDESC *)&s_propdescCStylewordBreak,
+    (PROPERTYDESC *)&s_propdescCStylewordBreak,
+    (PROPERTYDESC *)&s_propdescCStylelineBreak,
+    (PROPERTYDESC *)&s_propdescCStylelineBreak,
+    (PROPERTYDESC *)&s_propdescCStyletextJustify,
+    (PROPERTYDESC *)&s_propdescCStyletextJustify,
+    (PROPERTYDESC *)&s_propdescCStyletextJustifyTrim,
+    (PROPERTYDESC *)&s_propdescCStyletextJustifyTrim,
+    (PROPERTYDESC *)&s_propdescCStyletextKashida,
+    (PROPERTYDESC *)&s_propdescCStyletextKashida,
+    (PROPERTYDESC *)&s_propdescCStyletextAutospace,
+    (PROPERTYDESC *)&s_propdescCStyletextAutospace,
+    (PROPERTYDESC *)&s_propdescCStyleoverflowX,
+    (PROPERTYDESC *)&s_propdescCStyleoverflowX,
+    (PROPERTYDESC *)&s_propdescCStyleoverflowY,
+    (PROPERTYDESC *)&s_propdescCStyleoverflowY,
+    (PROPERTYDESC *)&s_propdescCStyleaccelerator,
+    (PROPERTYDESC *)&s_propdescCStyleaccelerator,
+};
+
+
+const PROPERTYDESC * const CStyle::s_ppropdescsInVtblOrderIHTMLStyle[] = {
+    (PROPERTYDESC *)&s_propdescCStylefontFamily,
+    (PROPERTYDESC *)&s_propdescCStylefontFamily,
+    (PROPERTYDESC *)&s_propdescCStylefontStyle,
+    (PROPERTYDESC *)&s_propdescCStylefontStyle,
+    (PROPERTYDESC *)&s_propdescCStylefontVariant,
+    (PROPERTYDESC *)&s_propdescCStylefontVariant,
+    (PROPERTYDESC *)&s_propdescCStylefontWeight,
+    (PROPERTYDESC *)&s_propdescCStylefontWeight,
+    (PROPERTYDESC *)&s_propdescCStylefontSize,
+    (PROPERTYDESC *)&s_propdescCStylefontSize,
+    (PROPERTYDESC *)&s_propdescCStylefont,
+    (PROPERTYDESC *)&s_propdescCStylefont,
+    (PROPERTYDESC *)&s_propdescCStylecolor,
+    (PROPERTYDESC *)&s_propdescCStylecolor,
+    (PROPERTYDESC *)&s_propdescCStylebackground,
+    (PROPERTYDESC *)&s_propdescCStylebackground,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundColor,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundColor,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundImage,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundImage,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundRepeat,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundRepeat,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundAttachment,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundAttachment,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPosition,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPosition,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionX,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionX,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionY,
+    (PROPERTYDESC *)&s_propdescCStylebackgroundPositionY,
+    (PROPERTYDESC *)&s_propdescCStylewordSpacing,
+    (PROPERTYDESC *)&s_propdescCStylewordSpacing,
+    (PROPERTYDESC *)&s_propdescCStyleletterSpacing,
+    (PROPERTYDESC *)&s_propdescCStyleletterSpacing,
+    (PROPERTYDESC *)&s_propdescCStyletextDecoration,
+    (PROPERTYDESC *)&s_propdescCStyletextDecoration,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationNone,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationNone,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationUnderline,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationUnderline,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationOverline,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationOverline,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationLineThrough,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationLineThrough,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationBlink,
+    (PROPERTYDESC *)&s_propdescCStyletextDecorationBlink,
+    (PROPERTYDESC *)&s_propdescCStyleverticalAlign,
+    (PROPERTYDESC *)&s_propdescCStyleverticalAlign,
+    (PROPERTYDESC *)&s_propdescCStyletextTransform,
+    (PROPERTYDESC *)&s_propdescCStyletextTransform,
+    (PROPERTYDESC *)&s_propdescCStyletextAlign,
+    (PROPERTYDESC *)&s_propdescCStyletextAlign,
+    (PROPERTYDESC *)&s_propdescCStyletextIndent,
+    (PROPERTYDESC *)&s_propdescCStyletextIndent,
+    (PROPERTYDESC *)&s_propdescCStylelineHeight,
+    (PROPERTYDESC *)&s_propdescCStylelineHeight,
+    (PROPERTYDESC *)&s_propdescCStylemarginTop,
+    (PROPERTYDESC *)&s_propdescCStylemarginTop,
+    (PROPERTYDESC *)&s_propdescCStylemarginRight,
+    (PROPERTYDESC *)&s_propdescCStylemarginRight,
+    (PROPERTYDESC *)&s_propdescCStylemarginBottom,
+    (PROPERTYDESC *)&s_propdescCStylemarginBottom,
+    (PROPERTYDESC *)&s_propdescCStylemarginLeft,
+    (PROPERTYDESC *)&s_propdescCStylemarginLeft,
+    (PROPERTYDESC *)&s_propdescCStylemargin,
+    (PROPERTYDESC *)&s_propdescCStylemargin,
+    (PROPERTYDESC *)&s_propdescCStylepaddingTop,
+    (PROPERTYDESC *)&s_propdescCStylepaddingTop,
+    (PROPERTYDESC *)&s_propdescCStylepaddingRight,
+    (PROPERTYDESC *)&s_propdescCStylepaddingRight,
+    (PROPERTYDESC *)&s_propdescCStylepaddingBottom,
+    (PROPERTYDESC *)&s_propdescCStylepaddingBottom,
+    (PROPERTYDESC *)&s_propdescCStylepaddingLeft,
+    (PROPERTYDESC *)&s_propdescCStylepaddingLeft,
+    (PROPERTYDESC *)&s_propdescCStylepadding,
+    (PROPERTYDESC *)&s_propdescCStylepadding,
+    (PROPERTYDESC *)&s_propdescCStyleborder,
+    (PROPERTYDESC *)&s_propdescCStyleborder,
+    (PROPERTYDESC *)&s_propdescCStyleborderTop,
+    (PROPERTYDESC *)&s_propdescCStyleborderTop,
+    (PROPERTYDESC *)&s_propdescCStyleborderRight,
+    (PROPERTYDESC *)&s_propdescCStyleborderRight,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottom,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottom,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeft,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeft,
+    (PROPERTYDESC *)&s_propdescCStyleborderColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftColor,
+    (PROPERTYDESC *)&s_propdescCStyleborderWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftWidth,
+    (PROPERTYDESC *)&s_propdescCStyleborderStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderTopStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderRightStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderBottomStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftStyle,
+    (PROPERTYDESC *)&s_propdescCStyleborderLeftStyle,
+    (PROPERTYDESC *)&s_propdescCStylewidth,
+    (PROPERTYDESC *)&s_propdescCStylewidth,
+    (PROPERTYDESC *)&s_propdescCStyleheight,
+    (PROPERTYDESC *)&s_propdescCStyleheight,
+    (PROPERTYDESC *)&s_propdescCStylestyleFloat,
+    (PROPERTYDESC *)&s_propdescCStylestyleFloat,
+    (PROPERTYDESC *)&s_propdescCStyleclear,
+    (PROPERTYDESC *)&s_propdescCStyleclear,
+    (PROPERTYDESC *)&s_propdescCStyledisplay,
+    (PROPERTYDESC *)&s_propdescCStyledisplay,
+    (PROPERTYDESC *)&s_propdescCStylevisibility,
+    (PROPERTYDESC *)&s_propdescCStylevisibility,
+    (PROPERTYDESC *)&s_propdescCStylelistStyleType,
+    (PROPERTYDESC *)&s_propdescCStylelistStyleType,
+    (PROPERTYDESC *)&s_propdescCStylelistStylePosition,
+    (PROPERTYDESC *)&s_propdescCStylelistStylePosition,
+    (PROPERTYDESC *)&s_propdescCStylelistStyleImage,
+    (PROPERTYDESC *)&s_propdescCStylelistStyleImage,
+    (PROPERTYDESC *)&s_propdescCStylelistStyle,
+    (PROPERTYDESC *)&s_propdescCStylelistStyle,
+    (PROPERTYDESC *)&s_propdescCStylewhiteSpace,
+    (PROPERTYDESC *)&s_propdescCStylewhiteSpace,
+    (PROPERTYDESC *)&s_propdescCStyletop,
+    (PROPERTYDESC *)&s_propdescCStyletop,
+    (PROPERTYDESC *)&s_propdescCStyleleft,
+    (PROPERTYDESC *)&s_propdescCStyleleft,
+    (PROPERTYDESC *)&s_propdescCStyleposition,
+    (PROPERTYDESC *)&s_propdescCStylezIndex,
+    (PROPERTYDESC *)&s_propdescCStylezIndex,
+    (PROPERTYDESC *)&s_propdescCStyleoverflow,
+    (PROPERTYDESC *)&s_propdescCStyleoverflow,
+    (PROPERTYDESC *)&s_propdescCStylepageBreakBefore,
+    (PROPERTYDESC *)&s_propdescCStylepageBreakBefore,
+    (PROPERTYDESC *)&s_propdescCStylepageBreakAfter,
+    (PROPERTYDESC *)&s_propdescCStylepageBreakAfter,
+    (PROPERTYDESC *)&s_propdescCStylecssText,
+    (PROPERTYDESC *)&s_propdescCStylecssText,
+    (PROPERTYDESC *)&s_propdescCStylepixelTop,
+    (PROPERTYDESC *)&s_propdescCStylepixelTop,
+    (PROPERTYDESC *)&s_propdescCStylepixelLeft,
+    (PROPERTYDESC *)&s_propdescCStylepixelLeft,
+    (PROPERTYDESC *)&s_propdescCStylepixelWidth,
+    (PROPERTYDESC *)&s_propdescCStylepixelWidth,
+    (PROPERTYDESC *)&s_propdescCStylepixelHeight,
+    (PROPERTYDESC *)&s_propdescCStylepixelHeight,
+    (PROPERTYDESC *)&s_propdescCStyleposTop,
+    (PROPERTYDESC *)&s_propdescCStyleposTop,
+    (PROPERTYDESC *)&s_propdescCStyleposLeft,
+    (PROPERTYDESC *)&s_propdescCStyleposLeft,
+    (PROPERTYDESC *)&s_propdescCStyleposWidth,
+    (PROPERTYDESC *)&s_propdescCStyleposWidth,
+    (PROPERTYDESC *)&s_propdescCStyleposHeight,
+    (PROPERTYDESC *)&s_propdescCStyleposHeight,
+    (PROPERTYDESC *)&s_propdescCStylecursor,
+    (PROPERTYDESC *)&s_propdescCStylecursor,
+    (PROPERTYDESC *)&s_propdescCStyleclip,
+    (PROPERTYDESC *)&s_propdescCStyleclip,
+    (PROPERTYDESC *)&s_methdescCBasesetAttribute,
+    (PROPERTYDESC *)&s_methdescCBasegetAttribute,
+    (PROPERTYDESC *)&s_methdescCBaseremoveAttribute,
+    (PROPERTYDESC *)&s_methdescCStyletoString,
+};
+
+
+HDLDESC CStyle::s_apHdlDescs = {  &DIID_DispHTMLStyle,CStyle::s_ppropdescs, 109, CStyle::s_apVTableInterf, 124, CStyle::s_ppropdescsInVtblOrderIHTMLStyle};
+
+//    Tear-off table for class CStyle
+BEGIN_TEAROFF_TABLE_PROPDESC(CStyle, IHTMLStyle2)
+    //  IHTMLStyle2 methods
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_tableLayout
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_tableLayout
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_borderCollapse
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderCollapse
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_direction
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_direction
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_behavior
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_behavior
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_position
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_position
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_unicodeBidi
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_unicodeBidi
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_bottom
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_bottom
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_right
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_right
+    TEAROFF_METHOD(CStyle, &put_pixelBottom, PUT_pixelBottom, (long))    // property set_pixelBottom
+    TEAROFF_METHOD(CStyle, &get_pixelBottom, GET_pixelBottom, (long *))    // property get_pixelBottom
+    TEAROFF_METHOD(CStyle, &put_pixelRight, PUT_pixelRight, (long))    // property set_pixelRight
+    TEAROFF_METHOD(CStyle, &get_pixelRight, GET_pixelRight, (long *))    // property get_pixelRight
+    TEAROFF_METHOD(CStyle, &put_posBottom, PUT_posBottom, (float))    // property set_posBottom
+    TEAROFF_METHOD(CStyle, &get_posBottom, GET_posBottom, (float *))    // property get_posBottom
+    TEAROFF_METHOD(CStyle, &put_posRight, PUT_posRight, (float))    // property set_posRight
+    TEAROFF_METHOD(CStyle, &get_posRight, GET_posRight, (float *))    // property get_posRight
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_imeMode
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_imeMode
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_rubyAlign
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rubyAlign
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_rubyPosition
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rubyPosition
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_rubyOverhang
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rubyOverhang
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_layoutGridChar
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_layoutGridChar
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_layoutGridLine
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_layoutGridLine
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_layoutGridMode
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_layoutGridMode
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_layoutGridType
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_layoutGridType
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_layoutGrid
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_layoutGrid
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_wordBreak
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_wordBreak
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_lineBreak
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_lineBreak
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_textJustify
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textJustify
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_textJustifyTrim
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textJustifyTrim
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_textKashida
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textKashida
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_textAutospace
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_textAutospace
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_overflowX
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_overflowX
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_overflowY
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_overflowY
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_accelerator
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_accelerator
+END_TEAROFF_TABLE()
+
+//    Tear-off table for class CStyle
+BEGIN_TEAROFF_TABLE_PROPDESC(CStyle, IHTMLStyle)
+    //  IHTMLStyle methods
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_fontFamily
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_fontFamily
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_fontStyle
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_fontStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_fontVariant
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_fontVariant
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_fontWeight
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_fontWeight
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_fontSize
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_fontSize
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_font
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_font
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_color
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_color
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_background
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_background
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_backgroundColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_backgroundColor
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_backgroundImage
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_backgroundImage
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_backgroundRepeat
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_backgroundRepeat
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_backgroundAttachment
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_backgroundAttachment
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_backgroundPosition
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_backgroundPosition
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_backgroundPositionX
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_backgroundPositionX
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_backgroundPositionY
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_backgroundPositionY
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_wordSpacing
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_wordSpacing
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_letterSpacing
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_letterSpacing
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_textDecoration
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_textDecoration
+    TEAROFF_METHOD(CStyle, &put_textDecorationNone, PUT_textDecorationNone, (VARIANT_BOOL))    // property set_textDecorationNone
+    TEAROFF_METHOD(CStyle, &get_textDecorationNone, GET_textDecorationNone, (VARIANT_BOOL *))    // property get_textDecorationNone
+    TEAROFF_METHOD(CStyle, &put_textDecorationUnderline, PUT_textDecorationUnderline, (VARIANT_BOOL))    // property set_textDecorationUnderline
+    TEAROFF_METHOD(CStyle, &get_textDecorationUnderline, GET_textDecorationUnderline, (VARIANT_BOOL *))    // property get_textDecorationUnderline
+    TEAROFF_METHOD(CStyle, &put_textDecorationOverline, PUT_textDecorationOverline, (VARIANT_BOOL))    // property set_textDecorationOverline
+    TEAROFF_METHOD(CStyle, &get_textDecorationOverline, GET_textDecorationOverline, (VARIANT_BOOL *))    // property get_textDecorationOverline
+    TEAROFF_METHOD(CStyle, &put_textDecorationLineThrough, PUT_textDecorationLineThrough, (VARIANT_BOOL))    // property set_textDecorationLineThrough
+    TEAROFF_METHOD(CStyle, &get_textDecorationLineThrough, GET_textDecorationLineThrough, (VARIANT_BOOL *))    // property get_textDecorationLineThrough
+    TEAROFF_METHOD(CStyle, &put_textDecorationBlink, PUT_textDecorationBlink, (VARIANT_BOOL))    // property set_textDecorationBlink
+    TEAROFF_METHOD(CStyle, &get_textDecorationBlink, GET_textDecorationBlink, (VARIANT_BOOL *))    // property get_textDecorationBlink
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_verticalAlign
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_verticalAlign
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_textTransform
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textTransform
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_textAlign
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textAlign
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_textIndent
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_textIndent
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_lineHeight
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_lineHeight
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_marginTop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_marginTop
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_marginRight
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_marginRight
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_marginBottom
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_marginBottom
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_marginLeft
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_marginLeft
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_margin
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_margin
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_paddingTop
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_paddingTop
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_paddingRight
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_paddingRight
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_paddingBottom
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_paddingBottom
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_paddingLeft
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_paddingLeft
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_padding
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_padding
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_border
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_border
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderTop
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderTop
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderRight
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderRight
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderBottom
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderBottom
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderLeft
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderLeft
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderColor
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderColor
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderTopColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderTopColor
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderRightColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderRightColor
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderBottomColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderBottomColor
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderLeftColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderLeftColor
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderWidth
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderWidth
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderTopWidth
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderTopWidth
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderRightWidth
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderRightWidth
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderBottomWidth
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderBottomWidth
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_borderLeftWidth
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderLeftWidth
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_borderStyle
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_borderStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_borderTopStyle
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderTopStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_borderRightStyle
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderRightStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_borderBottomStyle
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderBottomStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_borderLeftStyle
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_borderLeftStyle
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_width
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_width
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_height
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_height
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_styleFloat
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_styleFloat
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_clear
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_clear
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_display
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_display
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_visibility
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_visibility
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_listStyleType
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_listStyleType
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_listStylePosition
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_listStylePosition
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_listStyleImage
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_listStyleImage
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_listStyle
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_listStyle
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_whiteSpace
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_whiteSpace
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_top
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_top
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_left
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_left
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_position2
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_zIndex
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_zIndex
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_overflow
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_overflow
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_pageBreakBefore
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_pageBreakBefore
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_pageBreakAfter
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_pageBreakAfter
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_cssText
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_cssText
+    TEAROFF_METHOD(CStyle, &put_pixelTop, PUT_pixelTop, (long))    // property set_pixelTop
+    TEAROFF_METHOD(CStyle, &get_pixelTop, GET_pixelTop, (long *))    // property get_pixelTop
+    TEAROFF_METHOD(CStyle, &put_pixelLeft, PUT_pixelLeft, (long))    // property set_pixelLeft
+    TEAROFF_METHOD(CStyle, &get_pixelLeft, GET_pixelLeft, (long *))    // property get_pixelLeft
+    TEAROFF_METHOD(CStyle, &put_pixelWidth, PUT_pixelWidth, (long))    // property set_pixelWidth
+    TEAROFF_METHOD(CStyle, &get_pixelWidth, GET_pixelWidth, (long *))    // property get_pixelWidth
+    TEAROFF_METHOD(CStyle, &put_pixelHeight, PUT_pixelHeight, (long))    // property set_pixelHeight
+    TEAROFF_METHOD(CStyle, &get_pixelHeight, GET_pixelHeight, (long *))    // property get_pixelHeight
+    TEAROFF_METHOD(CStyle, &put_posTop, PUT_posTop, (float))    // property set_posTop
+    TEAROFF_METHOD(CStyle, &get_posTop, GET_posTop, (float *))    // property get_posTop
+    TEAROFF_METHOD(CStyle, &put_posLeft, PUT_posLeft, (float))    // property set_posLeft
+    TEAROFF_METHOD(CStyle, &get_posLeft, GET_posLeft, (float *))    // property get_posLeft
+    TEAROFF_METHOD(CStyle, &put_posWidth, PUT_posWidth, (float))    // property set_posWidth
+    TEAROFF_METHOD(CStyle, &get_posWidth, GET_posWidth, (float *))    // property get_posWidth
+    TEAROFF_METHOD(CStyle, &put_posHeight, PUT_posHeight, (float))    // property set_posHeight
+    TEAROFF_METHOD(CStyle, &get_posHeight, GET_posHeight, (float *))    // property get_posHeight
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_cursor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_cursor
+    TEAROFF_METHOD(CBase, &put_StyleComponent, PUT_StyleComponent, (BSTR))    // property set_clip
+    TEAROFF_METHOD(CBase, &get_StyleComponent, GET_StyleComponent, (BSTR *))    // property get_clip
+    TEAROFF_METHOD(CStyle, &setAttribute, setattribute, (BSTR,VARIANT,LONG))
+    TEAROFF_METHOD(CStyle, &getAttribute, getattribute, (BSTR,LONG,VARIANT*))
+    TEAROFF_METHOD(CStyle, &removeAttribute, removeattribute, (BSTR,LONG,VARIANT_BOOL*))
+    TEAROFF_METHOD(CStyle, &toString, tostring, (BSTR*))
+END_TEAROFF_TABLE()
+
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CStyle_
+
+
+//  Cascaded Property get method prototypes for class CStyle
+
+public:
+
+//    Property get/set method declarations for class CStyle
+
+public:
+    static const PROPERTYDESC * const CStyle::s_ppropdescs [];
+    static const VTABLEDESC CStyle::s_apVTableInterf [];
+    static HDLDESC CStyle::s_apHdlDescs;
+    static const PROPERTYDESC * const CStyle::s_ppropdescsInVtblOrderIHTMLStyle2 [];
+    static const PROPERTYDESC * const CStyle::s_ppropdescsInVtblOrderIHTMLStyle [];
+    NV_DECLARE_TEAROFF_METHOD(put_pixelTop, PUT_pixelTop, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelTop, GET_pixelTop, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_pixelLeft, PUT_pixelLeft, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelLeft, GET_pixelLeft, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_pixelWidth, PUT_pixelWidth, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelWidth, GET_pixelWidth, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_pixelHeight, PUT_pixelHeight, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelHeight, GET_pixelHeight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posTop, PUT_posTop, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posTop, GET_posTop, (float*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posLeft, PUT_posLeft, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posLeft, GET_posLeft, (float*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posWidth, PUT_posWidth, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posWidth, GET_posWidth, (float*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posHeight, PUT_posHeight, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posHeight, GET_posHeight, (float*p));
+    NV_DECLARE_TEAROFF_METHOD(put_pixelBottom, PUT_pixelBottom, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelBottom, GET_pixelBottom, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_pixelRight, PUT_pixelRight, (long v));
+    NV_DECLARE_TEAROFF_METHOD(get_pixelRight, GET_pixelRight, (long*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posBottom, PUT_posBottom, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posBottom, GET_posBottom, (float*p));
+    NV_DECLARE_TEAROFF_METHOD(put_posRight, PUT_posRight, (float v));
+    NV_DECLARE_TEAROFF_METHOD(get_posRight, GET_posRight, (float*p));
+    NV_DECLARE_TEAROFF_METHOD_(HRESULT, toString, tostring, (BSTR* String));
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLStyle2)
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLStyle)
+
+#endif // _CStyle_
+
+#undef _CStyle_
+

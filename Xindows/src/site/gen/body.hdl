@@ -1,0 +1,643 @@
+
+#ifdef _hxx_
+
+#include "body.h"
+
+//    DISPIDs for class CBodyElement
+
+EXTERN_C const GUID CLSID_HTMLBody;
+#define DISPID_CBodyElement_bgColor     DISPID_BACKCOLOR
+#define DISPID_CBodyElement_background     DISPID_A_BACKGROUNDIMAGE
+#define DISPID_CBodyElement_bgProperties     DISPID_A_BACKGROUNDATTACHMENT
+#define DISPID_CBodyElement_topMargin     DISPID_A_MARGINTOP
+#define DISPID_CBodyElement_leftMargin     DISPID_A_MARGINLEFT
+#define DISPID_CBodyElement_rightMargin     DISPID_A_MARGINRIGHT
+#define DISPID_CBodyElement_bottomMargin     DISPID_A_MARGINBOTTOM
+#define DISPID_CBodyElement_noWrap     DISPID_A_NOWRAP
+#define DISPID_CBodyElement_text     DISPID_A_COLOR
+#define DISPID_CBodyElement_link     DISPID_BODY+10
+#define DISPID_CBodyElement_aLink     DISPID_BODY+11
+#define DISPID_CBodyElement_vLink     DISPID_BODY+12
+#define DISPID_CBodyElement_onload     DISPID_EVPROP_ONLOAD
+#define DISPID_CBodyElement_onunload     DISPID_EVPROP_ONUNLOAD
+#define DISPID_CBodyElement_scroll     DISPID_A_SCROLL
+#define DISPID_CBodyElement_onselect     DISPID_EVPROP_ONSELECT
+#define DISPID_CBodyElement_onbeforeunload     DISPID_EVPROP_ONBEFOREUNLOAD
+//    DISPIDs for classIHTMLBodyElement
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdescbodyScroll = 
+{ 4, 30, {
+    { _T("yes"),1},
+    { _T("no"),2},
+    { _T("auto"),4},
+    { _T(""),3},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+
+
+#define _CBodyElement_PROPDESCS_
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementbgColor =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("bgColor"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("bgColor"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_BACKCOLOR, ELEMCHNG_SITEREDRAW|ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementbackground =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleStringproperty, _T("background"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleStringProperty, _T("background"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_BACKGROUNDIMAGE, ELEMCHNG_SITEREDRAW|ELEMCHNG_CLEARCACHES, IDX_GS_BSTR, 4736 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementbgProperties =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("bgProperties"), NULL, (ULONG_PTR)styleBackgroundAttachmentNotSet, (ULONG_PTR)styleBackgroundAttachmentNotSet,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("bgProperties"), NULL, (ULONG_PTR)styleBackgroundAttachmentNotSet,(ULONG_PTR)styleBackgroundAttachmentNotSet,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY | PROPPARAM_ENUM, DISPID_A_BACKGROUNDATTACHMENT, ELEMCHNG_SITEREDRAW|ELEMCHNG_CLEARFF|ELEMCHNG_SIZECHANGED, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescstyleBackgroundAttachment,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementtopMargin =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("topMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15), (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("topMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),(ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH | PROPPARAM_ATTRARRAY  | PROPPARAM_MINOUT | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_MARGINTOP, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(0), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementleftMargin =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("leftMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10), (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("leftMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),(ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH | PROPPARAM_ATTRARRAY  | PROPPARAM_MINOUT | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_MARGINLEFT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(0), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementrightMargin =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("rightMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10), (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("rightMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),(ULONG_PTR)MAKE_PIXEL_UNITVALUE(10),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH | PROPPARAM_ATTRARRAY  | PROPPARAM_MINOUT | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_MARGINRIGHT, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(0), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementbottomMargin =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleUnitValueproperty, _T("bottomMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15), (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),
+#else
+    &PROPERTYDESC::HandleUnitValueProperty, _T("bottomMargin"), NULL, (ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),(ULONG_PTR)MAKE_PIXEL_UNITVALUE(15),
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PP_UV_LENGTH | PROPPARAM_ATTRARRAY  | PROPPARAM_MINOUT | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_MARGINBOTTOM, ELEMCHNG_CLEARCACHES|ELEMCHNG_SIZECHANGED, IDX_GS_VARIANT, pdlLength 
+        },
+        VT_I4, sizeof(DWORD), MAKE_PIXEL_UNITVALUE(0), LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementnoWrap =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleNumproperty, _T("noWrap"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleNumProperty, _T("noWrap"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_NOWRAP, ELEMCHNG_CLEARCACHES|ELEMCHNG_REMEASUREALLCONTENTS, IDX_GS_VARIANTBOOL, 0 
+        },
+        VT_BOOL, sizeof(DWORD), LONG_MIN, LONG_MAX,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementtext =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("text"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("text"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_STYLISTIC_PROPERTY, DISPID_A_COLOR, ELEMCHNG_CLEARCACHES, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementlink =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("link"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("link"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_BODY+10, ELEMCHNG_CLEARCACHES|ELEMCHNG_SITEREDRAW, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementaLink =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("aLink"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("aLink"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_BODY+11, ELEMCHNG_CLEARCACHES|ELEMCHNG_SITEREDRAW, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementvLink =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleColorproperty, _T("vLink"), NULL, (ULONG_PTR)-1, (ULONG_PTR)-1,
+#else
+    &PROPERTYDESC::HandleColorProperty, _T("vLink"), NULL, (ULONG_PTR)-1,(ULONG_PTR)-1,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY , DISPID_BODY+12, ELEMCHNG_CLEARCACHES|ELEMCHNG_SITEREDRAW, IDX_GS_VARIANT, pdlColor 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementonload =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onload"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onload"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONLOAD, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementonunload =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onunload"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onunload"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONUNLOAD, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_NUMPROP s_propdescCBodyElementscroll =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleEnumproperty, _T("scroll"), NULL, (ULONG_PTR)bodyScrolldefault, (ULONG_PTR)bodyScrolldefault,
+#else
+    &PROPERTYDESC::HandleEnumProperty, _T("scroll"), NULL, (ULONG_PTR)bodyScrolldefault,(ULONG_PTR)bodyScrolldefault,
+#endif
+    {
+        {
+            PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_ENUM, DISPID_A_SCROLL, ELEMCHNG_SIZECHANGED|ELEMCHNG_CLEARCACHES, IDX_GS_PropEnum, pdlToken 
+        },
+        VT_I4, sizeof(DWORD), 0, (LONG_PTR)&s_enumdescbodyScroll,
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementonselect =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onselect"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onselect"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONSELECT, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+EXTERN_C const PROPERTYDESC_BASIC s_propdescCBodyElementonbeforeunload =
+{
+#ifdef WIN16
+    (PFN_HANDLEPROPERTY)&PROPERTYDESC::handleCodeproperty, _T("onbeforeunload"), NULL, (ULONG_PTR)0, (ULONG_PTR)0,
+#else
+    &PROPERTYDESC::HandleCodeProperty, _T("onbeforeunload"), NULL, (ULONG_PTR)0,(ULONG_PTR)0,
+#endif
+    {
+        PROPPARAM_INVOKEGet | PROPPARAM_INVOKESet | PROPPARAM_ATTRARRAY  | PROPPARAM_SCRIPTLET, DISPID_EVPROP_ONBEFOREUNLOAD, 0, IDX_GS_VARIANT, pdlEvent 
+    },
+};
+
+
+const PROPERTYDESC * const CBodyElement::s_ppropdescs[] = {
+    (PROPERTYDESC *)&s_propdescCElementaccessKey, // accessKey
+    (PROPERTYDESC *)&s_propdescCBodyElementaLink.a, // aLink
+    (PROPERTYDESC *)&s_propdescCBodyElementbackground.a, // background
+    (PROPERTYDESC *)&s_propdescCBodyElementbgColor.a, // bgColor
+    (PROPERTYDESC *)&s_propdescCBodyElementbgProperties.a, // bgProperties
+    (PROPERTYDESC *)&s_propdescCBodyElementbottomMargin.a, // bottomMargin
+    (PROPERTYDESC *)&s_propdescCElementclassName, // class
+    (PROPERTYDESC *)&s_propdescCElementdir, // dir
+    (PROPERTYDESC *)&s_propdescCElementdisabled, // disabled
+    (PROPERTYDESC *)&s_propdescCElementid, // id
+    (PROPERTYDESC *)&s_propdescCElementlang, // lang
+    (PROPERTYDESC *)&s_propdescCElementlanguage, // language
+    (PROPERTYDESC *)&s_propdescCBodyElementleftMargin.a, // leftMargin
+    (PROPERTYDESC *)&s_propdescCBodyElementlink.a, // link
+    (PROPERTYDESC *)&s_propdescCBodyElementnoWrap.a, // noWrap
+    (PROPERTYDESC *)&s_propdescCElementonafterupdate, // onafterupdate
+    (PROPERTYDESC *)&s_propdescCElementonbeforecopy, // onbeforecopy
+    (PROPERTYDESC *)&s_propdescCElementonbeforecut, // onbeforecut
+    (PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, // onbeforeeditfocus
+    (PROPERTYDESC *)&s_propdescCElementonbeforepaste, // onbeforepaste
+    (PROPERTYDESC *)&s_propdescCBodyElementonbeforeunload.a, // onbeforeunload
+    (PROPERTYDESC *)&s_propdescCElementonbeforeupdate, // onbeforeupdate
+    (PROPERTYDESC *)&s_propdescCElementonblur, // onblur
+    (PROPERTYDESC *)&s_propdescCElementonclick, // onclick
+    (PROPERTYDESC *)&s_propdescCElementoncontextmenu, // oncontextmenu
+    (PROPERTYDESC *)&s_propdescCElementoncopy, // oncopy
+    (PROPERTYDESC *)&s_propdescCElementoncut, // oncut
+    (PROPERTYDESC *)&s_propdescCElementondblclick, // ondblclick
+    (PROPERTYDESC *)&s_propdescCElementondrag, // ondrag
+    (PROPERTYDESC *)&s_propdescCElementondragend, // ondragend
+    (PROPERTYDESC *)&s_propdescCElementondragenter, // ondragenter
+    (PROPERTYDESC *)&s_propdescCElementondragleave, // ondragleave
+    (PROPERTYDESC *)&s_propdescCElementondragover, // ondragover
+    (PROPERTYDESC *)&s_propdescCElementondragstart, // ondragstart
+    (PROPERTYDESC *)&s_propdescCElementondrop, // ondrop
+    (PROPERTYDESC *)&s_propdescCElementonerrorupdate, // onerrorupdate
+    (PROPERTYDESC *)&s_propdescCElementonfocus, // onfocus
+    (PROPERTYDESC *)&s_propdescCElementonhelp, // onhelp
+    (PROPERTYDESC *)&s_propdescCElementonkeydown, // onkeydown
+    (PROPERTYDESC *)&s_propdescCElementonkeypress, // onkeypress
+    (PROPERTYDESC *)&s_propdescCElementonkeyup, // onkeyup
+    (PROPERTYDESC *)&s_propdescCBodyElementonload.a, // onload
+    (PROPERTYDESC *)&s_propdescCElementonlosecapture, // onlosecapture
+    (PROPERTYDESC *)&s_propdescCElementonmousedown, // onmousedown
+    (PROPERTYDESC *)&s_propdescCElementonmousemove, // onmousemove
+    (PROPERTYDESC *)&s_propdescCElementonmouseout, // onmouseout
+    (PROPERTYDESC *)&s_propdescCElementonmouseover, // onmouseover
+    (PROPERTYDESC *)&s_propdescCElementonmouseup, // onmouseup
+    (PROPERTYDESC *)&s_propdescCElementonpaste, // onpaste
+    (PROPERTYDESC *)&s_propdescCElementonpropertychange, // onpropertychange
+    (PROPERTYDESC *)&s_propdescCElementonreadystatechange, // onreadystatechange
+    (PROPERTYDESC *)&s_propdescCElementonresize, // onresize
+    (PROPERTYDESC *)&s_propdescCElementonscroll, // onscroll
+    (PROPERTYDESC *)&s_propdescCBodyElementonselect.a, // onselect
+    (PROPERTYDESC *)&s_propdescCElementonselectstart, // onselectstart
+    (PROPERTYDESC *)&s_propdescCBodyElementonunload.a, // onunload
+    (PROPERTYDESC *)&s_propdescCBodyElementrightMargin.a, // rightMargin
+    (PROPERTYDESC *)&s_propdescCBodyElementscroll.a, // scroll
+    (PROPERTYDESC *)&s_propdescCElementstyle_Str, // style
+    (PROPERTYDESC *)&s_propdescCElementtabIndex, // tabIndex
+    (PROPERTYDESC *)&s_propdescCBodyElementtext.a, // text
+    (PROPERTYDESC *)&s_propdescCElementtitle, // title
+    (PROPERTYDESC *)&s_propdescCBodyElementtopMargin.a, // topMargin
+    (PROPERTYDESC *)&s_propdescCBodyElementvLink.a, // vLink
+    NULL
+};
+
+const VTABLEDESC CBodyElement::s_apVTableInterf[] = {
+    {(PROPERTYDESC *)&s_propdescCElementaccessKey, 0x52c},        // Property accessKey
+    {(PROPERTYDESC *)&s_propdescCBodyElementaLink, 0x16},        // Property aLink
+    {(PROPERTYDESC *)&s_propdescCElementall, 0x456},        // Property all
+    {(PROPERTYDESC *)&s_methdescCBaseattachEvent, 0x53b},        // Method attachEvent
+    {(PROPERTYDESC *)&s_propdescCElementattributes, 0x304},        // Property attributes
+    {(PROPERTYDESC *)&s_propdescCBodyElementbackground, 0x0},        // Property background
+    {(PROPERTYDESC *)&s_propdescCBodyElementbgColor, 0xe},        // Property bgColor
+    {(PROPERTYDESC *)&s_propdescCBodyElementbgProperties, 0x2},        // Property bgProperties
+    {(PROPERTYDESC *)&s_methdescCElementblur, 0x534},        // Method blur
+    {(PROPERTYDESC *)&s_propdescCBodyElementbottomMargin, 0xa},        // Property bottomMargin
+    {(PROPERTYDESC *)&s_propdescCElementcanHaveChildren, 0x557},        // Property canHaveChildren
+    {(PROPERTYDESC *)&s_propdescCElementchildren, 0x455},        // Property children
+    {(PROPERTYDESC *)&s_propdescCElementclassName, 0x403},        // Property className
+    {(PROPERTYDESC *)&s_methdescCElementclearAttributes, 0x54f},        // Method clearAttributes
+    {(PROPERTYDESC *)&s_methdescCElementclick, 0x43e},        // Method click
+    {(PROPERTYDESC *)&s_propdescCElementclientHeight, 0x537},        // Property clientHeight
+    {(PROPERTYDESC *)&s_propdescCElementclientLeft, 0x53a},        // Property clientLeft
+    {(PROPERTYDESC *)&s_propdescCElementclientTop, 0x539},        // Property clientTop
+    {(PROPERTYDESC *)&s_propdescCElementclientWidth, 0x538},        // Property clientWidth
+    {(PROPERTYDESC *)&s_methdescCElementcomponentFromPoint, 0x505},        // Method componentFromPoint
+    {(PROPERTYDESC *)&s_methdescCElementcontains, 0x428},        // Method contains
+    {(PROPERTYDESC *)&s_methdescCBasedetachEvent, 0x53c},        // Method detachEvent
+    {(PROPERTYDESC *)&s_propdescCElementdir, 0x546},        // Property dir
+    {(PROPERTYDESC *)&s_propdescCElementdocument, 0x420},        // Property document
+    {(PROPERTYDESC *)&s_methdescCElementdoScroll, 0x506},        // Method doScroll
+    {(PROPERTYDESC *)&s_methdescCElementfocus, 0x52b},        // Method focus
+    {(PROPERTYDESC *)&s_methdescCBasegetAttribute, 0x401},        // Method getAttribute
+    {(PROPERTYDESC *)&s_methdescCElementgetElementsByTagName, 0x561},        // Method getElementsByTagName
+    {(PROPERTYDESC *)&s_propdescCElementid, 0x405},        // Property id
+    {(PROPERTYDESC *)&s_propdescCElementinnerText, 0x434},        // Property innerText
+    {(PROPERTYDESC *)&s_propdescCElementlang, 0x42b},        // Property lang
+    {(PROPERTYDESC *)&s_propdescCElementlanguage, 0x423},        // Property language
+    {(PROPERTYDESC *)&s_propdescCBodyElementleftMargin, 0x4},        // Property leftMargin
+    {(PROPERTYDESC *)&s_propdescCBodyElementlink, 0x12},        // Property link
+    {(PROPERTYDESC *)&s_propdescCBodyElementnoWrap, 0xc},        // Property noWrap
+    {(PROPERTYDESC *)&s_propdescCElementoffsetHeight, 0x430},        // Property offsetHeight
+    {(PROPERTYDESC *)&s_propdescCElementoffsetLeft, 0x42d},        // Property offsetLeft
+    {(PROPERTYDESC *)&s_propdescCElementoffsetParent, 0x431},        // Property offsetParent
+    {(PROPERTYDESC *)&s_propdescCElementoffsetTop, 0x42e},        // Property offsetTop
+    {(PROPERTYDESC *)&s_propdescCElementoffsetWidth, 0x42f},        // Property offsetWidth
+    {(PROPERTYDESC *)&s_propdescCElementonafterupdate, 0x445},        // Property onafterupdate
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecopy, 0x519},        // Property onbeforecopy
+    {(PROPERTYDESC *)&s_propdescCElementonbeforecut, 0x515},        // Property onbeforecut
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeeditfocus, 0x55e},        // Property onbeforeeditfocus
+    {(PROPERTYDESC *)&s_propdescCElementonbeforepaste, 0x51d},        // Property onbeforepaste
+    {(PROPERTYDESC *)&s_propdescCBodyElementonbeforeunload, 0x20},        // Property onbeforeunload
+    {(PROPERTYDESC *)&s_propdescCElementonbeforeupdate, 0x443},        // Property onbeforeupdate
+    {(PROPERTYDESC *)&s_propdescCElementonblur, 0x52e},        // Property onblur
+    {(PROPERTYDESC *)&s_propdescCElementonclick, 0x40c},        // Property onclick
+    {(PROPERTYDESC *)&s_propdescCElementoncontextmenu, 0x551},        // Property oncontextmenu
+    {(PROPERTYDESC *)&s_propdescCElementoncopy, 0x51b},        // Property oncopy
+    {(PROPERTYDESC *)&s_propdescCElementoncut, 0x517},        // Property oncut
+    {(PROPERTYDESC *)&s_propdescCElementondblclick, 0x40e},        // Property ondblclick
+    {(PROPERTYDESC *)&s_propdescCElementondrag, 0x509},        // Property ondrag
+    {(PROPERTYDESC *)&s_propdescCElementondragend, 0x50b},        // Property ondragend
+    {(PROPERTYDESC *)&s_propdescCElementondragenter, 0x50d},        // Property ondragenter
+    {(PROPERTYDESC *)&s_propdescCElementondragleave, 0x511},        // Property ondragleave
+    {(PROPERTYDESC *)&s_propdescCElementondragover, 0x50f},        // Property ondragover
+    {(PROPERTYDESC *)&s_propdescCElementondragstart, 0x440},        // Property ondragstart
+    {(PROPERTYDESC *)&s_propdescCElementondrop, 0x513},        // Property ondrop
+    {(PROPERTYDESC *)&s_propdescCElementonerrorupdate, 0x447},        // Property onerrorupdate
+    {(PROPERTYDESC *)&s_propdescCElementonfocus, 0x530},        // Property onfocus
+    {(PROPERTYDESC *)&s_propdescCElementonhelp, 0x40a},        // Property onhelp
+    {(PROPERTYDESC *)&s_propdescCElementonkeydown, 0x410},        // Property onkeydown
+    {(PROPERTYDESC *)&s_propdescCElementonkeypress, 0x414},        // Property onkeypress
+    {(PROPERTYDESC *)&s_propdescCElementonkeyup, 0x412},        // Property onkeyup
+    {(PROPERTYDESC *)&s_propdescCBodyElementonload, 0x18},        // Property onload
+    {(PROPERTYDESC *)&s_propdescCElementonlosecapture, 0x503},        // Property onlosecapture
+    {(PROPERTYDESC *)&s_propdescCElementonmousedown, 0x41c},        // Property onmousedown
+    {(PROPERTYDESC *)&s_propdescCElementonmousemove, 0x41a},        // Property onmousemove
+    {(PROPERTYDESC *)&s_propdescCElementonmouseout, 0x416},        // Property onmouseout
+    {(PROPERTYDESC *)&s_propdescCElementonmouseover, 0x418},        // Property onmouseover
+    {(PROPERTYDESC *)&s_propdescCElementonmouseup, 0x41e},        // Property onmouseup
+    {(PROPERTYDESC *)&s_propdescCElementonpaste, 0x51f},        // Property onpaste
+    {(PROPERTYDESC *)&s_propdescCElementonpropertychange, 0x522},        // Property onpropertychange
+    {(PROPERTYDESC *)&s_propdescCElementonreadystatechange, 0x53e},        // Property onreadystatechange
+    {(PROPERTYDESC *)&s_propdescCElementonresize, 0x532},        // Property onresize
+    {(PROPERTYDESC *)&s_propdescCElementonscroll, 0x507},        // Property onscroll
+    {(PROPERTYDESC *)&s_propdescCBodyElementonselect, 0x1e},        // Property onselect
+    {(PROPERTYDESC *)&s_propdescCElementonselectstart, 0x425},        // Property onselectstart
+    {(PROPERTYDESC *)&s_propdescCBodyElementonunload, 0x1a},        // Property onunload
+    {(PROPERTYDESC *)&s_propdescCElementouterText, 0x438},        // Property outerText
+    {(PROPERTYDESC *)&s_propdescCElementparentElement, 0x408},        // Property parentElement
+    {(PROPERTYDESC *)&s_propdescCElementreadyState, 0x53d},        // Property readyState
+    {(PROPERTYDESC *)&s_propdescCElementreadyStateValue, 0x560},        // Property readyStateValue
+    {(PROPERTYDESC *)&s_methdescCElementreleaseCapture, 0x502},        // Method releaseCapture
+    {(PROPERTYDESC *)&s_methdescCBaseremoveAttribute, 0x402},        // Method removeAttribute
+    {(PROPERTYDESC *)&s_propdescCBodyElementrightMargin, 0x8},        // Property rightMargin
+    {(PROPERTYDESC *)&s_propdescCBodyElementscroll, 0x1c},        // Property scroll
+    {(PROPERTYDESC *)&s_propdescCElementscrollHeight, 0x549},        // Property scrollHeight
+    {(PROPERTYDESC *)&s_methdescCElementscrollIntoView, 0x427},        // Method scrollIntoView
+    {(PROPERTYDESC *)&s_propdescCElementscrollLeft, 0x54d},        // Property scrollLeft
+    {(PROPERTYDESC *)&s_propdescCElementscrollTop, 0x54b},        // Property scrollTop
+    {(PROPERTYDESC *)&s_propdescCElementscrollWidth, 0x54a},        // Property scrollWidth
+    {(PROPERTYDESC *)&s_methdescCBasesetAttribute, 0x400},        // Method setAttribute
+    {(PROPERTYDESC *)&s_methdescCElementsetCapture, 0x501},        // Method setCapture
+    {(PROPERTYDESC *)&s_propdescCElementsourceIndex, 0x429},        // Property sourceIndex
+    {(PROPERTYDESC *)&s_propdescCElementstyle, 0x409},        // Property style
+    {(PROPERTYDESC *)&s_propdescCElementtabIndex, 0x529},        // Property tabIndex
+    {(PROPERTYDESC *)&s_propdescCElementtagName, 0x407},        // Property tagName
+    {(PROPERTYDESC *)&s_propdescCBodyElementtext, 0x10},        // Property text
+    {(PROPERTYDESC *)&s_propdescCElementtitle, 0x421},        // Property title
+    {(PROPERTYDESC *)&s_propdescCBodyElementtopMargin, 0x6},        // Property topMargin
+    {(PROPERTYDESC *)&s_methdescCElementtoString, 0x442},        // Method toString
+    {(PROPERTYDESC *)&s_propdescCElementuniqueID, 0x601},        // Property uniqueID
+    {(PROPERTYDESC *)&s_propdescCBodyElementvLink, 0x14},        // Property vLink
+    {NULL, 0}
+};
+
+const PROPERTYDESC * const CBodyElement::s_ppropdescsInVtblOrderIHTMLBodyElement[] = {
+    (PROPERTYDESC *)&s_propdescCBodyElementbackground,
+    (PROPERTYDESC *)&s_propdescCBodyElementbackground,
+    (PROPERTYDESC *)&s_propdescCBodyElementbgProperties,
+    (PROPERTYDESC *)&s_propdescCBodyElementbgProperties,
+    (PROPERTYDESC *)&s_propdescCBodyElementleftMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementleftMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementtopMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementtopMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementrightMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementrightMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementbottomMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementbottomMargin,
+    (PROPERTYDESC *)&s_propdescCBodyElementnoWrap,
+    (PROPERTYDESC *)&s_propdescCBodyElementnoWrap,
+    (PROPERTYDESC *)&s_propdescCBodyElementbgColor,
+    (PROPERTYDESC *)&s_propdescCBodyElementbgColor,
+    (PROPERTYDESC *)&s_propdescCBodyElementtext,
+    (PROPERTYDESC *)&s_propdescCBodyElementtext,
+    (PROPERTYDESC *)&s_propdescCBodyElementlink,
+    (PROPERTYDESC *)&s_propdescCBodyElementlink,
+    (PROPERTYDESC *)&s_propdescCBodyElementvLink,
+    (PROPERTYDESC *)&s_propdescCBodyElementvLink,
+    (PROPERTYDESC *)&s_propdescCBodyElementaLink,
+    (PROPERTYDESC *)&s_propdescCBodyElementaLink,
+    (PROPERTYDESC *)&s_propdescCBodyElementonload,
+    (PROPERTYDESC *)&s_propdescCBodyElementonload,
+    (PROPERTYDESC *)&s_propdescCBodyElementonunload,
+    (PROPERTYDESC *)&s_propdescCBodyElementonunload,
+    (PROPERTYDESC *)&s_propdescCBodyElementscroll,
+    (PROPERTYDESC *)&s_propdescCBodyElementscroll,
+    (PROPERTYDESC *)&s_propdescCBodyElementonselect,
+    (PROPERTYDESC *)&s_propdescCBodyElementonselect,
+    (PROPERTYDESC *)&s_propdescCBodyElementonbeforeunload,
+    (PROPERTYDESC *)&s_propdescCBodyElementonbeforeunload,
+};
+
+
+HDLDESC CBodyElement::s_apHdlDescs = {  &DIID_DispHTMLBody,CBodyElement::s_ppropdescs, 78, CBodyElement::s_apVTableInterf, 165, CBodyElement::s_ppropdescsInVtblOrderIHTMLBodyElement};
+
+//    Tear-off table for class CBodyElement
+/*BEGIN_TEAROFF_TABLE_PROPDESC(CBodyElement, IHTMLBodyElement)
+    //  IDispatch methods
+    TEAROFF_METHOD(CBodyElement, &GetTypeInfoCount, gettypeinfocount, (unsigned int *))
+    TEAROFF_METHOD(CBodyElement, &GetTypeInfo, gettypeinfo, (unsigned int, unsigned long, ITypeInfo **))
+    TEAROFF_METHOD(CBodyElement, &GetIDsOfNames, getidsofnames, (REFIID, LPOLESTR *, unsigned int, LCID, DISPID *))
+    TEAROFF_METHOD(CBodyElement, &Invoke, invoke, (DISPID, REFIID, LCID, WORD, DISPPARAMS *, VARIANT *, EXCEPINFO *, unsigned int *))
+    //  IHTMLBodyElement methods
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_background
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_background
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_bgProperties
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_bgProperties
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_leftMargin
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_leftMargin
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_topMargin
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_topMargin
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_rightMargin
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_rightMargin
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_bottomMargin
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_bottomMargin
+    TEAROFF_METHOD(CBase, &put_Bool, PUT_Bool, (VARIANT_BOOL))    // property set_noWrap
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_noWrap
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_bgColor
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_bgColor
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_text
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_text
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_link
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_link
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_vLink
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_vLink
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_aLink
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_aLink
+    TEAROFF_METHOD(CBodyElement, &put_onload, PUT_onload, (VARIANT))    // property set_onload
+    TEAROFF_METHOD(CBodyElement, &get_onload, GET_onload, (VARIANT *))    // property get_onload
+    TEAROFF_METHOD(CBodyElement, &put_onunload, PUT_onunload, (VARIANT))    // property set_onunload
+    TEAROFF_METHOD(CBodyElement, &get_onunload, GET_onunload, (VARIANT *))    // property get_onunload
+    TEAROFF_METHOD(CBase, &put_String, PUT_String, (BSTR))    // property set_scroll
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_scroll
+    TEAROFF_METHOD(CBase, &put_Variant, PUT_Variant, (VARIANT))    // property set_onselect
+    TEAROFF_METHOD(CBase, &get_Property, GET_Property, (void *))    // property get_onselect
+    TEAROFF_METHOD(CBodyElement, &put_onbeforeunload, PUT_onbeforeunload, (VARIANT))    // property set_onbeforeunload
+    TEAROFF_METHOD(CBodyElement, &get_onbeforeunload, GET_onbeforeunload, (VARIANT *))    // property get_onbeforeunload
+END_TEAROFF_TABLE() wlw note*/
+
+//    Cascaded Property get method implementations
+
+CColorValue CBodyElement::GetAAbgColor() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCBodyElementbgColor.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CBodyElement::GetAAlink() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCBodyElementlink.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CBodyElement::GetAAaLink() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCBodyElementaLink.a, &v);
+    return *(CColorValue*)&v;
+}
+CColorValue CBodyElement::GetAAvLink() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCBodyElementvLink.a, &v);
+    return *(CColorValue*)&v;
+}
+LPCTSTR CBodyElement::GetAAonload() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCBodyElementonload.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CBodyElement::GetAAonunload() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCBodyElementonunload.a, &v);
+    return *(LPCTSTR*)&v;
+}
+HRESULT CBodyElement::SetAAscroll(bodyScroll pv)
+{
+    RRETURN( CAttrArray::SetSimple(GetAttrArray(), &s_propdescCBodyElementscroll.a, *(DWORD*) &pv) );
+}
+bodyScroll CBodyElement::GetAAscroll() const 
+{
+    DWORD v;
+    CAttrArray::FindSimple( *GetAttrArray(), &s_propdescCBodyElementscroll.a, &v);
+    return *(bodyScroll*)&v;
+}
+LPCTSTR CBodyElement::GetAAonselect() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCBodyElementonselect.a, &v);
+    return *(LPCTSTR*)&v;
+}
+LPCTSTR CBodyElement::GetAAonbeforeunload() const 
+{
+    LPCTSTR v;
+    CAttrArray::FindString( *GetAttrArray(), &s_propdescCBodyElementonbeforeunload.a, &v);
+    return *(LPCTSTR*)&v;
+}
+
+#endif _cxx_
+
+#undef _cxx_
+
+#ifdef _CBodyElement_
+
+
+//  Cascaded Property get method prototypes for class CBodyElement
+
+public:
+    CColorValue GetAAbgColor() const;
+    CColorValue GetAAlink() const;
+    CColorValue GetAAaLink() const;
+    CColorValue GetAAvLink() const;
+    LPCTSTR GetAAonload() const;
+    LPCTSTR GetAAonunload() const;
+    HRESULT SetAAscroll(bodyScroll);
+    bodyScroll GetAAscroll() const;
+    LPCTSTR GetAAonselect() const;
+    LPCTSTR GetAAonbeforeunload() const;
+
+//    Property get/set method declarations for class CBodyElement
+
+public:
+    static const PROPERTYDESC * const CBodyElement::s_ppropdescs [];
+    static const VTABLEDESC CBodyElement::s_apVTableInterf [];
+    static HDLDESC CBodyElement::s_apHdlDescs;
+    static const PROPERTYDESC * const CBodyElement::s_ppropdescsInVtblOrderIHTMLBodyElement [];
+//    Event fire method declarations for events HTMLTextContainerEvents
+    void Fire_onchange()
+    {
+        FireEvent(DISPID_EVMETH_ONCHANGE, DISPID_EVPROP_ONCHANGE, _T("change"), (BYTE *) VTS_NONE);
+    }
+    void Fire_onselect()
+    {
+        FireEvent(DISPID_EVMETH_ONSELECT, DISPID_EVPROP_ONSELECT, _T("select"), (BYTE *) VTS_NONE);
+    }
+    DECLARE_TEAROFF_TABLE_PROPDESC(IHTMLBodyElement)
+
+#endif // _CBodyElement_
+
+#undef _CBodyElement_
+

@@ -1,0 +1,221 @@
+
+#ifdef _hxx_
+
+#include "mshtmext.h"
+
+//    DISPIDs for classIMarkupPointer
+
+//    DISPIDs for classIMarkupContainer
+
+//    DISPIDs for classIHTMLDocument2
+
+//    DISPIDs for classIMarkupServices
+
+//    DISPIDs for classIMarkupContainer
+
+//    DISPIDs for classIMarkupPointer
+
+//    DISPIDs for classIUnknown
+
+
+#endif _hxx_
+
+#undef _hxx_
+
+#ifdef _cxx_
+
+
+#ifndef _PROPDESCS_EXTERNAL
+
+EXTERN_C const ENUMDESC s_enumdescSECUREURLHOSTVALIDATE_FLAGS = 
+{ 3, 1, {
+    { _T("PROMPTBEFORENO"),0x00000001},
+    { _T("SILENTYES"),0x00000002},
+    { _T("UNSECURESOURCE"),0x00000004},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescPOINTER_GRAVITY = 
+{ 2, 3, {
+    { _T("Left"),0},
+    { _T("Right"),1},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescELEMENT_ADJACENCY = 
+{ 4, 15, {
+    { _T("BeforeBegin"),0},
+    { _T("AfterBegin"),1},
+    { _T("BeforeEnd"),2},
+    { _T("AfterEnd"),3},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescMARKUP_CONTEXT_TYPE = 
+{ 5, 31, {
+    { _T("None"),0},
+    { _T("Text"),1},
+    { _T("EnterScope"),2},
+    { _T("ExitScope"),3},
+    { _T("NoScope"),4},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescFINDTEXT_FLAGS = 
+{ 7, 1, {
+    { _T("BACKWARDS"),0x00000001},
+    { _T("WHOLEWORD"),0x00000002},
+    { _T("MATCHCASE"),0x00000004},
+    { _T("RAW"),0x00020000},
+    { _T("MATCHDIAC"),0x20000000},
+    { _T("MATCHKASHIDA"),0x40000000},
+    { _T("MATCHALEFHAMZA"),0x80000000},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescMOVEUNIT_ACTION = 
+{ 20, 1048575, {
+    { _T("PREVCHAR"),0},
+    { _T("NEXTCHAR"),1},
+    { _T("PREVCLUSTERBEGIN"),2},
+    { _T("NEXTCLUSTERBEGIN"),3},
+    { _T("PREVCLUSTEREND"),4},
+    { _T("NEXTCLUSTEREND"),5},
+    { _T("PREVWORDBEGIN"),6},
+    { _T("NEXTWORDBEGIN"),7},
+    { _T("PREVWORDEND"),8},
+    { _T("NEXTWORDEND"),9},
+    { _T("PREVPROOFWORD"),10},
+    { _T("NEXTPROOFWORD"),11},
+    { _T("NEXTURLBEGIN"),12},
+    { _T("PREVURLBEGIN"),13},
+    { _T("NEXTURLEND"),14},
+    { _T("PREVURLEND"),15},
+    { _T("PREVSENTENCE"),16},
+    { _T("NEXTSENTENCE"),17},
+    { _T("PREVBLOCK"),18},
+    { _T("NEXTBLOCK"),19},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescPARSE_FLAGS = 
+{ 1, 1, {
+    { _T("ABSOLUTIFYIE40URLS"),0x00000001},
+} };
+
+EXTERN_C const ENUMDESC s_enumdescELEMENT_TAG_ID = 
+{ 110, 4294967295, {
+    { _T("NULL"),0},
+    { _T("UNKNOWN"),1},
+    { _T("A"),2},
+    { _T("ACRONYM"),3},
+    { _T("ADDRESS"),4},
+    { _T("APPLET"),5},
+    { _T("AREA"),6},
+    { _T("B"),7},
+    { _T("BASE"),8},
+    { _T("BASEFONT"),9},
+    { _T("BDO"),10},
+    { _T("BGSOUND"),11},
+    { _T("BIG"),12},
+    { _T("BLINK"),13},
+    { _T("BLOCKQUOTE"),14},
+    { _T("BODY"),15},
+    { _T("BR"),16},
+    { _T("BUTTON"),17},
+    { _T("CAPTION"),18},
+    { _T("CENTER"),19},
+    { _T("CITE"),20},
+    { _T("CODE"),21},
+    { _T("COL"),22},
+    { _T("COLGROUP"),23},
+    { _T("COMMENT"),24},
+    { _T("COMMENT_RAW"),25},
+    { _T("DD"),26},
+    { _T("DEL"),27},
+    { _T("DFN"),28},
+    { _T("DIR"),29},
+    { _T("DIV"),30},
+    { _T("DL"),31},
+    { _T("DT"),32},
+    { _T("EM"),33},
+    { _T("EMBED"),34},
+    { _T("FIELDSET"),35},
+    { _T("FONT"),36},
+    { _T("FORM"),37},
+    { _T("FRAME"),38},
+    { _T("FRAMESET"),39},
+    { _T("GENERIC"),40},
+    { _T("H1"),41},
+    { _T("H2"),42},
+    { _T("H3"),43},
+    { _T("H4"),44},
+    { _T("H5"),45},
+    { _T("H6"),46},
+    { _T("HEAD"),47},
+    { _T("HR"),48},
+    { _T("HTML"),49},
+    { _T("I"),50},
+    { _T("IFRAME"),51},
+    { _T("IMG"),52},
+    { _T("INPUT"),53},
+    { _T("INS"),54},
+    { _T("KBD"),55},
+    { _T("LABEL"),56},
+    { _T("LEGEND"),57},
+    { _T("LI"),58},
+    { _T("LINK"),59},
+    { _T("LISTING"),60},
+    { _T("MAP"),61},
+    { _T("MARQUEE"),62},
+    { _T("MENU"),63},
+    { _T("META"),64},
+    { _T("NEXTID"),65},
+    { _T("NOBR"),66},
+    { _T("NOEMBED"),67},
+    { _T("NOFRAMES"),68},
+    { _T("NOSCRIPT"),69},
+    { _T("OBJECT"),70},
+    { _T("OL"),71},
+    { _T("OPTION"),72},
+    { _T("P"),73},
+    { _T("PARAM"),74},
+    { _T("PLAINTEXT"),75},
+    { _T("PRE"),76},
+    { _T("Q"),77},
+    { _T("RP"),78},
+    { _T("RT"),79},
+    { _T("RUBY"),80},
+    { _T("S"),81},
+    { _T("SAMP"),82},
+    { _T("SCRIPT"),83},
+    { _T("SELECT"),84},
+    { _T("SMALL"),85},
+    { _T("SPAN"),86},
+    { _T("STRIKE"),87},
+    { _T("STRONG"),88},
+    { _T("STYLE"),89},
+    { _T("SUB"),90},
+    { _T("SUP"),91},
+    { _T("TABLE"),92},
+    { _T("TBODY"),93},
+    { _T("TC"),94},
+    { _T("TD"),95},
+    { _T("TEXTAREA"),96},
+    { _T("TFOOT"),97},
+    { _T("TH"),98},
+    { _T("THEAD"),99},
+    { _T("TITLE"),100},
+    { _T("TR"),101},
+    { _T("TT"),102},
+    { _T("U"),103},
+    { _T("UL"),104},
+    { _T("VAR"),105},
+    { _T("WBR"),106},
+    { _T("XMP"),107},
+    { _T("COUNT"),108},
+    { _T("LAST_PREDEFINED"),10000},
+} };
+
+#endif     // _PROPDESCS_EXTERNAL
+//    Cascaded Property get method implementations
+
+
+#endif _cxx_
+
+#undef _cxx_
+

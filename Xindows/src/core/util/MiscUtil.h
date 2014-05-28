@@ -1,0 +1,9 @@
+
+#ifndef __XINDOWS_CORE_UTIL_MISCUTIL_H__
+#define __XINDOWS_CORE_UTIL_MISCUTIL_H__
+
+BOOL IsFarEastLCID(LCID lcid);
+BOOL IsBidiLCID(LCID lcid);
+BOOL IsComplexLCID(LCID lcid);
+
+#endif //__XINDOWS_CORE_UTIL_MISCUTIL_H__
